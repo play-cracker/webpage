@@ -254,16 +254,22 @@
         updateProgressBar(filedApplications);
 
         // Dynamic Background Change
+        // Change background every 10 seconds (for demonstration)
+        // Dynamic Background Change
         function changeBackground() {
             const backgrounds = [
-                'url("https://github.com/play-cracker/webpage/blob/main/WebITR5.jpg")',
-                'url("https://github.com/play-cracker/webpage/blob/main/WebITR6.jpg")',
-                'url("https://github.com/play-cracker/webpage/blob/main/WebITR12.jpg")',
-                'url("https://github.com/play-cracker/webpage/blob/main/WebITR10.jpg")'
-                ]; // Array of background images
+                'https://i.pinimg.com/564x/ec/5f/5b/ec5f5b300aa630b757a2a50b1921ccbf.jpg',
+                'https://i.pinimg.com/564x/f3/b3/6c/f3b36cddb7d2be16ff959ce24c43d29a.jpg',
+                'https://i.pinimg.com/736x/1b/09/b8/1b09b8f8676a61848779f074547729b3.jpg',
+                'https://i.pinimg.com/564x/27/86/61/27866146e40ae04f8fb43cab2e0f3742.jpg',
+                'https://i.pinimg.com/564x/e4/00/79/e4007919100bff1705068f62e13dca0f.jpg',
+                'https://i.pinimg.com/564x/a8/5e/36/a85e36ae569ae582fbff40d265e5d243.jpg',
+                'https://i.pinimg.com/564x/a6/16/45/a61645d697868c68dc8cb77a714dc7b3.jpg'
+            ]; // Array of background images
             const randomIndex = Math.floor(Math.random() * backgrounds.length); // Get random index
-            document.body.style.backgroundImage = backgrounds[randomIndex]; // Set random background image
+            document.body.style.backgroundImage = 'url(' + backgrounds[randomIndex] + ')'; // Set random background image
         }  
+
         // Call the function to change background on load
         changeBackground();
 
