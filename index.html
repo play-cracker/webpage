@@ -18,12 +18,13 @@
             overflow-y: scroll;
             animation: zoom 20s infinite;
             animation-timing-function: ease-in-out;
+            background-image: url('your-background-image-url.jpg'); /* Replace with your background image URL */
+            background-size: cover;
         }
         .container {
             background-color: rgba(255, 255, 255, 0.95);
             padding: 20px 40px;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             text-align: center;
             max-width: 600px;
             width: 100%;
@@ -41,7 +42,6 @@
             overflow: hidden;
             height: 30px;
             margin-bottom: 20px;
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         .progress-bar-inner {
             height: 100%;
@@ -59,6 +59,28 @@
             font-size: 0.8em;
             color: #777;
         }
+        .why-file-itr,
+        .tax-exemptions {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px 40px;
+            border-radius: 10px;
+            text-align: left;
+            max-width: 600px;
+            width: 100%;
+            margin: 20px;
+            color: #333;
+        }
+        .why-file-itr h2,
+        .tax-exemptions h2 {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            color: #4caf50;
+        }
+        .why-file-itr p,
+        .tax-exemptions p {
+            font-size: 1em;
+            line-height: 1.6;
+        }
         .footer {
             margin-top: 20px;
             font-size: 0.8em;
@@ -66,6 +88,13 @@
         }
         .footer p {
             margin: 0;
+        }
+        
+        /* Highlighted section styles */
+        .highlighted {
+            background-color: #f5f5f5; /* Light gray background */
+            border: 2px solid #4caf50; /* Green border */
+            padding: 10px; /* Add some padding for better visibility */
         }
     </style>
 </head>
@@ -78,39 +107,93 @@
         <div class="status" id="status">0 / 1000 Applications Filed</div>
     </div>
     <div class="last-updated" id="last-updated"></div>
+    <div class="why-file-itr">
+        <h2>Why File Income Tax Returns (ITRs)?</h2>
+        <p>Filing Income Tax Returns (ITRs) is crucial for several reasons:</p>
+        <ul>
+            <li><strong>Legal Requirement:</strong> It is a legal obligation mandated by the government for individuals and entities with taxable income.</li>
+            <li><strong>Compliance:</strong> It ensures compliance with tax laws and regulations, helping individuals and businesses avoid penalties and legal consequences.</li>
+            <li><strong>Proof of Income:</strong> ITRs serve as official documentation of your income, which may be required for various purposes such as applying for loans, visas, or government benefits.</li>
+            <li><strong>Tax Refunds:</strong> Filing ITRs allows you to claim tax deductions, exemptions, and refunds, thereby reducing your tax liability and maximizing your savings.</li>
+            <li><strong>Financial Planning:</strong> It provides insights into your financial situation, helping you make informed decisions regarding investments, savings, and future tax planning strategies.</li>
+        </ul>
+    </div>
+    <div class="tax-exemptions">
+        <h2>List of Tax Exemption Sections in India</h2>
+        <ul></ul>
+            <li><strong>Section 10(10D):</strong> Exemption on the maturity proceeds received from a life insurance policy, subject to certain conditions.</li>
+            <li><strong>Section 10(10DA):</strong> Exemption on commutation of pension received from the National Pension System (NPS).</li>
+            <li><strong>Section 10(11):</strong> Exemption on payment received from a statutory provident fund.</li>
+            <li><strong>Section 10(12):</strong> Exemption on payment received from a recognised provident fund.</li>
+            <li><strong>Section 10(13):</strong> Exemption on payment received from approved superannuation fund.</li>
+            <li><strong>Section 10(14):</strong> Allowances such as House Rent Allowance (HRA), Leave Travel Allowance (LTA), Conveyance Allowance, Medical Allowance, etc., subject to certain conditions.</li>
+            <li><strong>Section 10(15):</strong> Interest earned on specified savings instruments like Public Provident Fund (PPF), Employee Provident Fund (EPF), Tax-free bonds, etc.</li>
+            <li><strong>Section 10(16):</strong> Scholarship granted to meet the cost of education.</li>
+            <li><strong>Section 10(17):</strong> Allowance granted to an employee working in any transport system to meet his personal expenditure during his duty performed in the course of running of such transport from one place to another place, provided that such employee is not in receipt of daily allowance.</li>
+            <li><strong>Section 10(17A):</strong> Special allowance or benefit specifically granted to meet expenses wholly, necessarily, and exclusively incurred in the performance of duties of an office or employment of profit.</li>
+            <li><strong>Section 10(18):</strong> Pension received by gallantry award winners including Param Vir Chakra, Maha Vir Chakra, Vir Chakra, and other recipients.</li>
+            <li><strong>Section 10(19):</strong> Family pension received by the family members of armed forces.</li>
+            <li><strong>Section 10(26):</strong> Any income of a member of a scheduled tribe residing in certain areas of the North-Eastern States of India, as specified by the government.</li>
+            <li><strong>Section 10(32):</strong> Income of a minor child clubbed with the income of the parent(s) or guardian(s).</li>
+            <li><strong>Section 80C:</strong> Investment in specified schemes like EPF, PPF, Life Insurance Premium, Equity Linked Savings Scheme (ELSS), National Savings Certificate (NSC), Sukanya Samriddhi Account, Senior Citizen Saving Scheme, etc.</li>
+            <li><strong>Section 80CCC:</strong> Investment in annuity plans of insurance companies for receiving pension.</li>
+            <li><strong>Section 80CCD:</strong> Contribution to the National Pension System (NPS) by both the employee and employer, subject to certain limits.</li>
+            <li><strong>Section 80CCD(2):</strong> Employer's contribution to the National Pension System (NPS) for the benefit of the employee.</li>
+            <li><strong>Section 80D:</strong> Premium paid for health insurance policies for self, spouse, children, and parents. Also includes preventive health check-up expenses.</li>
+            <li><strong>Section 80DD:</strong> Deduction available on expenses incurred on the medical treatment, training, and rehabilitation of a handicapped dependent.</li>
+            <li><strong>Section 80DDB:</strong> Deduction for medical treatment of specified diseases for self or dependent.</li>
+            <li><strong>Section 80E:</strong> Interest paid on Education Loan for higher studies.</li>
+            <li><strong>Section 80EE:</strong> Interest on loan taken for the purchase of a residential property.</li>
+            <li><strong>Section 80EEA:</strong> Additional deduction on interest paid on loan taken for the purchase of affordable housing property.</li>
+            <li><strong>Section 80EEB:</strong> Deduction for interest paid on loan taken for the purchase of an electric vehicle.</li>
+            <li><strong>Section 80G:</strong> Donations made to specified funds, charitable institutions, or organizations. The amount eligible for deduction varies based on the type of donation.</li>
+            <li><strong>Section 80GG:</strong> Rent paid for accommodation by individuals who do not receive HRA from their employer.</li>
+            <li><strong>Section 80GGA:</strong> Donations for scientific research or rural development.</li>
+            <li><strong>Section 80GGC:</strong> Contributions given by any person to political parties.</li>
+            <li><strong>Section 80IA:</strong> Deduction for profits and gains from industrial undertakings or enterprises engaged in infrastructure development, etc.</li>
+            <li><strong>Section 80-IAB:</strong> Deduction for profits and gains from housing projects in affordable housing.</li>
+            <li><strong>Section 80-IAC:</strong> Deduction for profits and gains from specified business startups.</li>
+            <li><strong>Section 80-IAD:</strong> Deduction for profits and gains from business of developing affordable housing.</li>
+            <li><strong>Section 80-IB:</strong> Deduction for profits and gains from certain industrial undertakings other than infrastructure development, etc.</li>
+            <li><strong>Section 80-IBA:</strong> Deduction for profits and gains from housing projects in affordable housing.</li>
+            <li><strong>Section 80-IC:</strong> Deduction for profits and gains from certain industrial undertakings or enterprises in certain special category states or union territories.</li>
+            <li><strong>Section 80-ID:</strong> Deduction for profits and gains from hotels and convention centers in specified areas.</li>
+            <li><strong>Section 80-IE:</strong> Deduction for profits and gains from specified business of commercial production of mineral oil or natural gas.</li>
+            <li><strong>Section 80JJA:</strong> Deduction in respect of profits and gains from collecting and processing of biodegradable waste.</li>
+            <li><strong>Section 80JJAA:</strong> Deduction for additional employee cost for employment of new employees.</li>
+            <li><strong>Section 80LA:</strong> Deduction from income of Offshore Banking Units and International.</li>
+        </ul>
+    </div>
     <div class="footer">
         <p>#hireCA - All Rights Reserved &copy; 2024</p>
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        // Function to update progress bar
+        function updateProgressBar(filedApplications) {
             const progressBar = document.querySelector('.progress-bar-inner');
             const status = document.getElementById('status');
-            const lastUpdated = document.getElementById('last-updated');
             const totalApplications = 1000; // Total number of applications
+            const percentage = (filedApplications / totalApplications) * 100;
+            progressBar.style.width = percentage + '%';
+            status.textContent = filedApplications + ' / ' + totalApplications + ' Applications Filed';
+        }
+        
+        // Function to update last updated date
+        function updateLastUpdated() {
+            const lastUpdated = document.getElementById('last-updated');
+            const currentDate = new Date().toLocaleString();
+            lastUpdated.textContent = 'Last Updated' + currentDate;
+        }
+        
+        // Call the function initially
+        updateLastUpdated();
 
-            // Function to update progress bar
-            function updateProgressBar(filedApplications) {
-                const percentage = (filedApplications / totalApplications) * 100;
-                progressBar.style.width = percentage + '%';
-                status.textContent = filedApplications + ' / ' + totalApplications + ' Applications Filed';
-            }
+        // Update last updated date every 5 seconds (for demonstration)
+        setInterval(updateLastUpdated, 5000); // Adjust the interval as needed
 
-            // Function to update last updated date
-            function updateLastUpdated() {
-                const currentDate = new Date().toLocaleString();
-                lastUpdated.textContent = 'Last Updated: ' + currentDate;
-            }
-
-            // Call the function initially
-            updateLastUpdated();
-
-            // Update last updated date every 5 seconds (for demonstration)
-            setInterval(updateLastUpdated, 5000); // Adjust the interval as needed
-
-            // Simulate fetching filed applications count from server (replace with actual data)
-            const filedApplications = 250; // Example: 250 applications filed
-            updateProgressBar(filedApplications);
-        });
+        // Simulate fetching filed applications count from server (replace with actual data)
+        const filedApplications = 20; // Example: 250 applications filed
+        updateProgressBar(filedApplications);
     </script>
 </body>
 </html>
