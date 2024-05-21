@@ -18,15 +18,16 @@
             overflow-y: scroll;
             animation: zoom 20s infinite;
             animation-timing-function: ease-in-out;
-            background-image: url('your-background-image-url.jpg'); /* Replace with your background image URL */
             background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
         }
         .container {
             background-color: rgba(255, 255, 255, 0.95);
             padding: 20px 40px;
             border-radius: 10px;
             text-align: center;
-            max-width: 600px;
+            max-width: 700px;
             width: 100%;
             margin: 20px;
         }
@@ -60,23 +61,32 @@
             color: #777;
         }
         .why-file-itr,
+        .why-choose-us,
+        .contact-us,
+        .missed-itr,
         .tax-exemptions {
             background-color: rgba(255, 255, 255, 0.95);
             padding: 20px 40px;
             border-radius: 10px;
             text-align: left;
-            max-width: 600px;
+            max-width: 700px;
             width: 100%;
             margin: 20px;
             color: #333;
         }
         .why-file-itr h2,
+        .why-choose-us h2,
+        .contact-us h2,
+        .missed-itr h2,
         .tax-exemptions h2 {
             margin-bottom: 10px;
             font-size: 1.5em;
             color: #4caf50;
         }
         .why-file-itr p,
+        .why-choose-us p,
+        .contact-us p,
+        .missed-itr p,
         .tax-exemptions p {
             font-size: 1em;
             line-height: 1.6;
@@ -85,6 +95,7 @@
             margin-top: 20px;
             font-size: 0.8em;
             color: #fff;
+            text-align: center;
         }
         .footer p {
             margin: 0;
@@ -100,27 +111,67 @@
 </head>
 <body>
     <div class="container">
-        <h1>ITR Applications Filed So Far</h1>
+        <!-- Main content -->
+        <h1>Filed ITR Applications</h1>
         <div class="progress-bar">
             <div class="progress-bar-inner" id="progress-bar-inner"></div>
         </div>
         <div class="status" id="status">0 / 1000 Applications Filed</div>
+        <div class="last-updated" id="last-updated"></div>
+        <p>
+            <i style="font-size: smaller;">Due to operational constraints, we are currently limiting our capacity to process ITR applications to a maximum of 1000 submissions for the year, operating on a first-come, first-served basis</i>
+        </p>      
+        <h3>#hireCA</h3>
     </div>
-    <div class="last-updated" id="last-updated"></div>
     <div class="why-file-itr">
         <h2>Why File Income Tax Returns (ITRs)?</h2>
         <p>Filing Income Tax Returns (ITRs) is crucial for several reasons:</p>
         <ul>
-            <li><strong>Legal Requirement:</strong> It is a legal obligation mandated by the government for individuals and entities with taxable income.</li>
-            <li><strong>Compliance:</strong> It ensures compliance with tax laws and regulations, helping individuals and businesses avoid penalties and legal consequences.</li>
-            <li><strong>Proof of Income:</strong> ITRs serve as official documentation of your income, which may be required for various purposes such as applying for loans, visas, or government benefits.</li>
-            <li><strong>Tax Refunds:</strong> Filing ITRs allows you to claim tax deductions, exemptions, and refunds, thereby reducing your tax liability and maximizing your savings.</li>
-            <li><strong>Financial Planning:</strong> It provides insights into your financial situation, helping you make informed decisions regarding investments, savings, and future tax planning strategies.</li>
+            <li><strong>Legal Compliance</strong>: It's a legal requirement in most countries for individuals whose income exceeds a certain threshold. Compliance ensures you avoid penalties and legal consequences.</li>
+            <li><strong>Documenting Income</strong>: ITRs serve as official documentation of your income, essential for various purposes like applying for loans, visas, or government benefits.</li> 
+            <li><strong>Tax Deductions and Credits</strong>: By filing your ITRs, you can claim deductions and tax credits applicable to you, reducing your taxable income and potentially resulting in a tax refund.</li>
+            <li><strong>Transparency and Accountability</strong>: Filing ITRs showcases your financial transparency, contributing to the integrity of the tax system and ensuring accountability.</li>
+            <li><strong>Avoiding Penalties</strong>: Timely filing of ITRs helps you avoid penalties and interest charges, ensuring you stay compliant with tax laws.</li>
+            <li><strong>Financial Planning</strong>: Regular filing of ITRs provides insights into your financial situation, aiding in informed financial planning, including budgeting and investments.</li>
         </ul>
     </div>
+    <div class="missed-itr">
+        <h2>What Happens if You Miss the ITR Filing Deadline?</h2>
+        <ul>
+            <li><strong>Interest:</strong> If you submit your return after the deadline, you will be liable to pay interest at a rate of 1% per month or part month on the unpaid tax amount as per Section 234A.</li>
+            <li><strong>Late Fee:</strong> In case of late filing, Section 234F imposes a late fee of Rs.5,000, which shall be reduced to Rs.1,000 if your total income is below Rs.5 lakh.</li>
+            <li><strong>Loss Adjustment:</strong> In case you have incurred losses from sources like the stock market, mutual funds, properties, or any of your businesses, you have the option to carry them forward and offset them against your income in the subsequent year. This provision substantially reduces your tax liability in future years. However, you will not be allowed to carry forward these losses if you miss filing your ITR before the deadline.</li>
+            <li><strong>Belated Return:</strong> If you miss the ITR filing due date, you can file a return after the due date, called a belated return. However, you will still have to pay the late fee and interest charges, and you will not be allowed to carry forward any losses for future adjustments. The last date for filing a belated return is 31st December of the assessment year (unless extended by the government). Therefore, for this year, you may submit the belated return by 31 December 2024 at the latest.</li>
+            <li><strong>Updated Return:</strong> Still, if you miss the 31st December deadline due to unavoidable reasons, you can file the updated (ITR U) return subject to the conditions specified therein.</li>
+        </ul>        
+    </div>
+    <div class="why-choose-us">
+        <h2>Why Choose Us for ITR Filing?</h2>
+        <p>When it comes to filing Income Tax Returns (ITRs), choosing the right service provider can make all the difference. Here's why you should choose us:</p>
+        <ul>
+            <li><strong>Expertise:</strong> Our team consists of experienced professionals who are well-versed in tax laws and regulations, ensuring accurate and compliant filing for our clients.</li>
+            <li><strong>Personalized Service:</strong> We understand that every individual or business has unique financial situations. That's why we offer personalized assistance tailored to meet your specific needs and maximize your tax benefits.</li>
+            <li><strong>Timely Filing:</strong> With our efficient workflow and proactive approach, we ensure timely filing of your ITRs, helping you avoid penalties and unnecessary hassles.</li>
+            <li><strong>Comprehensive Support:</strong> From initial consultation to post-filing assistance, we provide comprehensive support at every step of the filing process, addressing all your queries and concerns promptly.</li>
+            <li><strong>Customer Satisfaction:</strong> Our top priority is customer satisfaction. We strive to exceed your expectations by delivering exceptional service and ensuring your peace of mind throughout the filing process.</li>
+        </ul>
+        <div>
+            <p>
+                <b><i>Entrust your ITR filing needs to us and discover a blend of quality, efficiency, and tranquility. With a track record of excellence spanning over 12 years and 75,000+ applications filed, we maintain a flawless 100% satisfaction rate. Additionally, our remarkable 99.3% conversion ratio ensures that once clients choose us, they stay with us and If we can't deliver a favorable return, no one can.</i></b>
+            </p>
+        </div>             
+    </div>
+    <style>
+        .tax-exemptions ul li {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+    
     <div class="tax-exemptions">
         <h2>List of Tax Exemption Sections in India</h2>
-        <ul></ul>
+        <ul>
             <li><strong>Section 10(10D):</strong> Exemption on the maturity proceeds received from a life insurance policy, subject to certain conditions.</li>
             <li><strong>Section 10(10DA):</strong> Exemption on commutation of pension received from the National Pension System (NPS).</li>
             <li><strong>Section 10(11):</strong> Exemption on payment received from a statutory provident fund.</li>
@@ -164,6 +215,13 @@
             <li><strong>Section 80LA:</strong> Deduction from income of Offshore Banking Units and International.</li>
         </ul>
     </div>
+    
+    <div class="contact-us">
+        <h2>Contact Us</h2>
+        <ul>
+                <strong>+91 9036544997 | <a href="mailto:hireca129@gmail.com" style="color: rgb(12, 173, 236);">hireca129@gmail.com</a></strong>
+        </ul>        
+    </div>
     <div class="footer">
         <p>#hireCA - All Rights Reserved &copy; 2024</p>
     </div>
@@ -182,7 +240,7 @@
         function updateLastUpdated() {
             const lastUpdated = document.getElementById('last-updated');
             const currentDate = new Date().toLocaleString();
-            lastUpdated.textContent = 'Last Updated' + currentDate;
+            lastUpdated.textContent = 'Last Updated: ' + currentDate;
         }
         
         // Call the function initially
@@ -192,8 +250,25 @@
         setInterval(updateLastUpdated, 5000); // Adjust the interval as needed
 
         // Simulate fetching filed applications count from server (replace with actual data)
-        const filedApplications = 159; // Example: 250 applications filed
+        const filedApplications = 165; // Example: 250 applications filed
         updateProgressBar(filedApplications);
+
+        // Dynamic Background Change
+        function changeBackground() {
+            const backgrounds = [
+                'url("https://github.com/play-cracker/webpage/blob/main/WebITR5.jpg")',
+                'url("https://github.com/play-cracker/webpage/blob/main/WebITR6.jpg")',
+                'url("https://github.com/play-cracker/webpage/blob/main/WebITR12.jpg")',
+                'url("https://github.com/play-cracker/webpage/blob/main/WebITR10.jpg")'
+                ]; // Array of background images
+            const randomIndex = Math.floor(Math.random() * backgrounds.length); // Get random index
+            document.body.style.backgroundImage = backgrounds[randomIndex]; // Set random background image
+        }  
+        // Call the function to change background on load
+        changeBackground();
+
+        // Change background every 10 seconds (for demonstration)
+        setInterval(changeBackground, 10000); // Adjust the interval as needed
     </script>
 </body>
 </html>
