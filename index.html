@@ -27,7 +27,7 @@
             padding: 20px 40px;
             border-radius: 10px;
             text-align: center;
-            max-width: 700px;
+            max-width: 380px;
             width: 100%;
             margin: 20px;
         }
@@ -60,14 +60,6 @@
             font-size: 0.8em;
             color: #777;
         }
-        @media screen and (max-width: 600px) {
-            .container {
-                padding: 10px;
-            }
-            .container h1 {
-                font-size: 1.5em;
-            }
-        }
         .why-file-itr,
         .why-choose-us,
         .contact-us,
@@ -77,7 +69,7 @@
             padding: 20px 40px;
             border-radius: 10px;
             text-align: left;
-            max-width: 700px;
+            max-width: 380px;
             width: 100%;
             margin: 20px;
             color: #333;
@@ -114,6 +106,67 @@
             background-color: #f5f5f5; /* Light gray background */
             border: 2px solid #4caf50; /* Green border */
             padding: 10px; /* Add some padding for better visibility */
+        }
+        .tax-exemptions ul li {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive styles for smaller screens */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px 20px;
+                margin: 10px;
+            }
+            .container h1 {
+                font-size: 1.5em;
+            }
+            .progress-bar {
+                height: 20px;
+            }
+            .status {
+                font-size: 1.2em;
+            }
+            .why-file-itr, .why-choose-us, .contact-us, .missed-itr, .tax-exemptions {
+                padding: 15px 20px;
+                margin: 10px;
+            }
+            .why-file-itr h2, .why-choose-us h2, .contact-us h2, .missed-itr h2, .tax-exemptions h2 {
+                font-size: 1.3em;
+            }
+            .why-file-itr p, .why-choose-us p, .contact-us p, .missed-itr p, .tax-exemptions p {
+                font-size: 0.9em;
+            }
+            .footer p {
+                font-size: 0.7em;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px 15px;
+            }
+            .container h1 {
+                font-size: 1.2em;
+            }
+            .progress-bar {
+                height: 15px;
+            }
+            .status {
+                font-size: 1em;
+            }
+            .why-file-itr, .why-choose-us, .contact-us, .missed-itr, .tax-exemptions {
+                padding: 10px 15px;
+            }
+            .why-file-itr h2, .why-choose-us h2, .contact-us h2, .missed-itr h2, .tax-exemptions h2 {
+                font-size: 1.1em;
+            }
+            .why-file-itr p, .why-choose-us p, .contact-us p, .missed-itr p, .tax-exemptions p {
+                font-size: 0.8em;
+            }
+            .footer p {
+                font-size: 0.6em;
+            }
         }
     </style>
 </head>
