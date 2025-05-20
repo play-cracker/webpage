@@ -1,345 +1,1944 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<!-- saved from url=(0019)https://tax2win.in/ -->
+<html lang="en-IN"
+  class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ITR Filing Status</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            color: #333;
-            overflow-y: scroll;
-            animation: zoom 20s infinite;
-            animation-timing-function: ease-in-out;
-            background-size: cover;
-            background-position: center;
-            transition: background-image 1s ease-in-out;
-        }
-        .container {
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 20px 40px;
-            border-radius: 10px;
-            text-align: center;
-            max-width: 360px;
-            width: 100%;
-            margin: 20px;
-        }
-        .container h1 {
-            margin-bottom: 20px;
-            font-size: 2em;
-            color: #4caf50;
-        }
-        .progress-bar {
-            width: 100%;
-            background-color: #e0e0e0;
-            border-radius: 20px;
-            overflow: hidden;
-            height: 30px;
-            margin-bottom: 20px;
-        }
-        .progress-bar-inner {
-            height: 100%;
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            width: 0;
-            border-radius: 20px;
-            transition: width 1s ease-in-out;
-        }
-        .status {
-            font-size: 1.4em;
-            color: #333;
-        }
-        .last-updated {
-            margin-top: 10px;
-            font-size: 0.8em;
-            color: #777;
-        }
-        .why-file-itr,
-        .why-choose-us,
-        .contact-us,
-        .missed-itr,
-        .tax-exemptions {
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 20px 40px;
-            border-radius: 10px;
-            text-align: left;
-            max-width: 360px;
-            width: 100%;
-            margin: 20px;
-            color: #333;
-        }
-        .why-file-itr h2,
-        .why-choose-us h2,
-        .contact-us h2,
-        .missed-itr h2,
-        .tax-exemptions h2 {
-            margin-bottom: 10px;
-            font-size: 1.5em;
-            color: #4caf50;
-        }
-        .why-file-itr p,
-        .why-choose-us p,
-        .contact-us p,
-        .missed-itr p,
-        .tax-exemptions p {
-            font-size: 1em;
-            line-height: 1.6;
-        }
-        .footer {
-            margin-top: 20px;
-            font-size: 0.8em;
-            color: #fff;
-            text-align: center;
-        }
-        .footer p {
-            margin: 0;
-        }
-        
-        /* Highlighted section styles */
-        .highlighted {
-            background-color: #f5f5f5; /* Light gray background */
-            border: 2px solid #4caf50; /* Green border */
-            padding: 10px; /* Add some padding for better visibility */
-        }
-        .tax-exemptions ul li {
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 10px;
-            margin-bottom: 10px;
-        }
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        /* Responsive styles for smaller screens */
-        @media (max-width: 768px) {
-            .container {
-                padding: 15px 20px;
-                margin: 10px;
-            }
-            .container h1 {
-                font-size: 1.5em;
-            }
-            .progress-bar {
-                height: 20px;
-            }
-            .status {
-                font-size: 1.2em;
-            }
-            .why-file-itr, .why-choose-us, .contact-us, .missed-itr, .tax-exemptions {
-                padding: 15px 20px;
-                margin: 10px;
-            }
-            .why-file-itr h2, .why-choose-us h2, .contact-us h2, .missed-itr h2, .tax-exemptions h2 {
-                font-size: 1.3em;
-            }
-            .why-file-itr p, .why-choose-us p, .contact-us p, .missed-itr p, .tax-exemptions p {
-                font-size: 0.9em;
-            }
-            .footer p {
-                font-size: 0.7em;
-            }
-        }
-        @media (max-width: 480px) {
-            .container {
-                padding: 10px 15px;
-            }
-            .container h1 {
-                font-size: 1.2em;
-            }
-            .progress-bar {
-                height: 15px;
-            }
-            .status {
-                font-size: 1em;
-            }
-            .why-file-itr, .why-choose-us, .contact-us, .missed-itr, .tax-exemptions {
-                padding: 10px 15px;
-            }
-            .why-file-itr h2, .why-choose-us h2, .contact-us h2, .missed-itr h2, .tax-exemptions h2 {
-                font-size: 1.1em;
-            }
-            .why-file-itr p, .why-choose-us p, .contact-us p, .missed-itr p, .tax-exemptions p {
-                font-size: 0.8em;
-            }
-            .footer p {
-                font-size: 0.6em;
-            }
-        }
-    </style>
+  <meta charset="">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <title>Income Tax efiling in India for FY 2024-25 (AY 2025-26) | ITR efiling - Tax2win</title>
+
+  <meta name="robots" content="index, follow, all">
+  <meta name="language" content="en-IN">
+
+
+  <meta name="description"
+    content="Income Tax Return eFiling – Login to file your ITR for FY 2024-25 (AY 2025-26)online with Tax2Win. Get expert CA assistance for filing income from salary, business, capital gains, or house property, claim deductions under 80C, and explore GST registration">
+
+
+  <style type="text/css">
+    @font-face {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 400;
+      src: url(/cf-fonts/s/poppins/5.0.11/devanagari/400/normal.woff2);
+      unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FF;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 400;
+      src: url(/cf-fonts/s/poppins/5.0.11/latin/400/normal.woff2);
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 400;
+      src: url(/cf-fonts/s/poppins/5.0.11/latin-ext/400/normal.woff2);
+      unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 500;
+      src: url(/cf-fonts/s/poppins/5.0.11/devanagari/500/normal.woff2);
+      unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FF;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 500;
+      src: url(/cf-fonts/s/poppins/5.0.11/latin-ext/500/normal.woff2);
+      unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 500;
+      src: url(/cf-fonts/s/poppins/5.0.11/latin/500/normal.woff2);
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 700;
+      src: url(/cf-fonts/s/poppins/5.0.11/devanagari/700/normal.woff2);
+      unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FF;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 700;
+      src: url(/cf-fonts/s/poppins/5.0.11/latin/700/normal.woff2);
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 700;
+      src: url(/cf-fonts/s/poppins/5.0.11/latin-ext/700/normal.woff2);
+      unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      font-display: swap;
+    }
+  </style>
+  <link href="./files/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="./files/home-page-1745233851590.min.css" rel="stylesheet" type="text/css">
+  <link rel="canonical" href="https://hireca.today/">
+
+  <meta name="apple-mobile-web-app-title" content="Tax2Win">
+  <meta name="application-name" content="Tax2Win">
+  <meta name="msapplication-TileColor" content="#00a300">
+  <meta name="msapplication-TileImage" content="https://tax2win.in/assets/favicon/mstile-144x144.png">
+  <meta name="msapplication-config" content="https://tax2win.in/assets/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <script async="" src="./files/clarity.js"></script>
+  <script type="text/javascript" async="" src="./files/js"></script>
+  <script async="" src="./files/i51hs3atje"></script>
+  <script src="./files/bat.js" defer=""></script>
+  <script type="text/javascript" async="" src="./files/destination"></script>
+  <script defer="" src="./files/gtm.js"></script>
+  <script src="./files/modernizr-2.8.3-respond-1.4.2.min.js" type="text/javascript"></script>
+  <script async="" src="./files/moe_webSdk.min.latest.js"></script>
+  <style id="googleidentityservice_button_styles">
+    .qJTHM {
+      -webkit-user-select: none;
+      color: #202124;
+      direction: ltr;
+      -webkit-touch-callout: none;
+      font-family: "Roboto-Regular", arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      font-weight: 400;
+      margin: 0;
+      overflow: hidden;
+      -webkit-text-size-adjust: 100%
+    }
+
+    .ynRLnc {
+      left: -9999px;
+      position: absolute;
+      top: -9999px
+    }
+
+    .L6cTce {
+      display: none
+    }
+
+    .bltWBb {
+      word-break: break-all
+    }
+
+    .hSRGPd {
+      color: #1a73e8;
+      cursor: pointer;
+      font-weight: 500;
+      text-decoration: none
+    }
+
+    .Bz112c-W3lGp {
+      height: 16px;
+      width: 16px
+    }
+
+    .Bz112c-E3DyYd {
+      height: 20px;
+      width: 20px
+    }
+
+    .Bz112c-r9oPif {
+      height: 24px;
+      width: 24px
+    }
+
+    .Bz112c-uaxL4e {
+      -webkit-border-radius: 10px;
+      border-radius: 10px
+    }
+
+    .LgbsSe-Bz112c {
+      display: block
+    }
+
+    .S9gUrf-YoZ4jf,
+    .S9gUrf-YoZ4jf * {
+      border: none;
+      margin: 0;
+      padding: 0
+    }
+
+    .fFW7wc-ibnC6b>.aZ2wEe>div {
+      border-color: #4285f4
+    }
+
+    .P1ekSe-ZMv3u>div:nth-child(1) {
+      background-color: #1a73e8 !important
+    }
+
+    .P1ekSe-ZMv3u>div:nth-child(2),
+    .P1ekSe-ZMv3u>div:nth-child(3) {
+      background-image: linear-gradient(to right, rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), linear-gradient(to right, #1a73e8, #1a73e8) !important
+    }
+
+    .haAclf {
+      display: inline-block
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe {
+      -webkit-border-radius: 4px;
+      border-radius: 4px;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-transition: background-color .218s, border-color .218s;
+      transition: background-color .218s, border-color .218s;
+      -webkit-user-select: none;
+      -webkit-appearance: none;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #dadce0;
+      color: #3c4043;
+      cursor: pointer;
+      font-family: "Google Sans", arial, sans-serif;
+      font-size: 14px;
+      height: 40px;
+      letter-spacing: 0.25px;
+      outline: none;
+      overflow: hidden;
+      padding: 0 12px;
+      position: relative;
+      text-align: center;
+      vertical-align: middle;
+      white-space: nowrap;
+      width: auto
+    }
+
+    @media screen and (-ms-high-contrast:active) {
+      .nsm7Bb-HzV7m-LgbsSe {
+        border: 2px solid windowText;
+        color: windowText
+      }
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe {
+      font-size: 14px;
+      height: 32px;
+      letter-spacing: 0.25px;
+      padding: 0 10px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe {
+      font-size: 11px;
+      height: 20px;
+      letter-spacing: 0.3px;
+      padding: 0 8px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe {
+      padding: 0;
+      width: 40px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.pSzOP-SxQuSe {
+      width: 32px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.purZT-SxQuSe {
+      width: 20px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK {
+      -webkit-border-radius: 20px;
+      border-radius: 20px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK.pSzOP-SxQuSe {
+      -webkit-border-radius: 16px;
+      border-radius: 16px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK.purZT-SxQuSe {
+      -webkit-border-radius: 10px;
+      border-radius: 10px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc {
+      border: none;
+      color: #fff
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.MFS4be-v3pZbf-Ia7Qfc {
+      background-color: #1a73e8
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.MFS4be-JaPV2b-Ia7Qfc {
+      background-color: #202124;
+      color: #e8eaed
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c {
+      height: 18px;
+      margin-right: 8px;
+      min-width: 18px;
+      width: 18px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c {
+      height: 14px;
+      min-width: 14px;
+      width: 14px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c {
+      height: 10px;
+      min-width: 10px;
+      width: 10px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-Bz112c {
+      margin-left: 8px;
+      margin-right: -4px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c {
+      margin: 0;
+      padding: 10px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c {
+      padding: 8px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c {
+      padding: 4px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf {
+      -webkit-border-top-left-radius: 3px;
+      border-top-left-radius: 3px;
+      -webkit-border-bottom-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      justify-content: center;
+      -webkit-align-items: center;
+      align-items: center;
+      background-color: #fff;
+      height: 36px;
+      margin-left: -10px;
+      margin-right: 12px;
+      min-width: 36px;
+      width: 36px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf .nsm7Bb-HzV7m-LgbsSe-Bz112c,
+    .nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf .nsm7Bb-HzV7m-LgbsSe-Bz112c {
+      margin: 0;
+      padding: 0
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf {
+      height: 28px;
+      margin-left: -8px;
+      margin-right: 10px;
+      min-width: 28px;
+      width: 28px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf {
+      height: 16px;
+      margin-left: -6px;
+      margin-right: 8px;
+      min-width: 16px;
+      width: 16px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf {
+      -webkit-border-radius: 3px;
+      border-radius: 3px;
+      margin-left: 2px;
+      margin-right: 0;
+      padding: 0
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf {
+      -webkit-border-radius: 18px;
+      border-radius: 18px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf {
+      -webkit-border-radius: 14px;
+      border-radius: 14px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf {
+      -webkit-border-radius: 8px;
+      border-radius: 8px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-bN97Pc-sM5MNb {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      justify-content: space-between;
+      -webkit-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+      height: 100%;
+      position: relative;
+      width: 100%
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe .oXtfBe-l4eHX {
+      justify-content: center
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-BPrWId {
+      -webkit-flex-grow: 1;
+      flex-grow: 1;
+      font-family: "Google Sans", arial, sans-serif;
+      font-weight: 500;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      vertical-align: top
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-BPrWId {
+      font-weight: 300
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe .oXtfBe-l4eHX .nsm7Bb-HzV7m-LgbsSe-BPrWId {
+      -webkit-flex-grow: 0;
+      flex-grow: 0
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-MJoBVe {
+      -webkit-transition: background-color .218s;
+      transition: background-color .218s;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe:hover,
+    .nsm7Bb-HzV7m-LgbsSe:focus {
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      border-color: rgb(210, 227, 252);
+      outline: none
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe:hover .nsm7Bb-HzV7m-LgbsSe-MJoBVe,
+    .nsm7Bb-HzV7m-LgbsSe:focus .nsm7Bb-HzV7m-LgbsSe-MJoBVe {
+      background: rgba(66, 133, 244, .04)
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe:active .nsm7Bb-HzV7m-LgbsSe-MJoBVe {
+      background: rgba(66, 133, 244, .1)
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:hover .nsm7Bb-HzV7m-LgbsSe-MJoBVe,
+    .nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:focus .nsm7Bb-HzV7m-LgbsSe-MJoBVe {
+      background: rgba(255, 255, 255, .24)
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:active .nsm7Bb-HzV7m-LgbsSe-MJoBVe {
+      background: rgba(255, 255, 255, .32)
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe .n1UuX-DkfjY {
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      height: 20px;
+      margin-left: -4px;
+      margin-right: 8px;
+      min-width: 20px;
+      width: 20px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId {
+      font-family: "Roboto";
+      font-size: 12px;
+      text-align: left
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .ssJRIf,
+    .nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff .fmcmS {
+      overflow: hidden;
+      text-overflow: ellipsis
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: center;
+      align-items: center;
+      color: #5f6368;
+      fill: #5f6368;
+      font-size: 11px;
+      font-weight: 400
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.jVeSEe.MFS4be-Ia7Qfc .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff {
+      color: #e8eaed;
+      fill: #e8eaed
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff .Bz112c {
+      height: 18px;
+      margin: -3px -3px -3px 2px;
+      min-width: 18px;
+      width: 18px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf {
+      -webkit-border-top-left-radius: 0;
+      border-top-left-radius: 0;
+      -webkit-border-bottom-left-radius: 0;
+      border-bottom-left-radius: 0;
+      -webkit-border-top-right-radius: 3px;
+      border-top-right-radius: 3px;
+      -webkit-border-bottom-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+      margin-left: 12px;
+      margin-right: -10px
+    }
+
+    .nsm7Bb-HzV7m-LgbsSe.jVeSEe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf {
+      -webkit-border-radius: 18px;
+      border-radius: 18px
+    }
+
+    .L5Fo6c-sM5MNb {
+      border: 0;
+      display: block;
+      left: 0;
+      position: relative;
+      top: 0
+    }
+
+    .L5Fo6c-bF1uUb {
+      -webkit-border-radius: 4px;
+      border-radius: 4px;
+      bottom: 0;
+      cursor: pointer;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0
+    }
+
+    .L5Fo6c-bF1uUb:focus {
+      border: none;
+      outline: none
+    }
+  </style>
+  <link id="zoho_css" rel="stylesheet" type="text/css" href="./files/chatbot_widget_style.css" media="all">
+  <script src="./files/26015950.js" type="text/javascript" async="" data-ueto="ueto_d8c2b2d4f4"></script>
+  <link id="googleidentityservice" type="text/css" media="all" href="./files/style" rel="stylesheet">
+  <meta http-equiv="origin-trial"
+    content="A8o5T4MyEkRZqLA9WeG2XTFdV5tsX2Prg85xyQ+RL1btVuybB1K/EQ+7JUsPK+J32oBMTnsoF9B4A+qTlL6efgQAAABweyJvcmlnaW4iOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IkZlZENtQnV0dG9uTW9kZSIsImV4cGlyeSI6MTc0NDY3NTIwMCwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+  <script type="text/javascript" async=""
+    src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/16528698811/?random=1747132713955&amp;cv=11&amp;fst=1747132713955&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=45be5591v9183043581z872367106za201zb72367106&amp;gcd=13l3l3l3l1l1&amp;dma=0&amp;tag_exp=101509156~103101750~103101752~103116025~103200001~103233424~103251618~103251620~103284320~103284322~103301114~103301116&amp;ptag_exp=101509157~103101750~103101752~103116025~103200001~103233427~103251618~103251620~103284320~103284322~103301114~103301116&amp;u_w=1792&amp;u_h=1120&amp;url=https%3A%2F%2Ftax2win.in%2F&amp;hn=www.googleadservices.com&amp;frm=0&amp;tiba=Income%20Tax%20efiling%20in%20India%20for%20FY%202024-25%20(AY%202025-26)%20%7C%20ITR%20efiling%20-%20Tax2win&amp;npa=0&amp;pscdl=noapi&amp;auid=1529748531.1740384946&amp;uaa=x86&amp;uab=64&amp;uafvl=Chromium%3B136.0.7103.93%7CGoogle%2520Chrome%3B136.0.7103.93%7CNot.A%252FBrand%3B99.0.0.0&amp;uamb=0&amp;uam=&amp;uap=macOS&amp;uapv=15.3.2&amp;uaw=0&amp;fledge=1&amp;_tu=Cg&amp;rfmt=3&amp;fmt=4"></script>
+  <script attributionsrc="" type="text/javascript" async="" src="./files/f.txt"></script>
 </head>
+
 <body>
-    <div class="container">
-        <!-- Main content -->
-        <h1>Filed ITR Applications</h1>
-        <div class="progress-bar">
-            <div class="progress-bar-inner" id="progress-bar-inner"></div>
+
+  <header class="new_header ">
+    <div class="clearfix"></div>
+    <section class="bottom">
+      <div class="container-fluid">
+        <div class="outer">
+          <div class="t2w-logo">
+            <a href="https://hireca.today/"><img src="./files/logo_hireca_tax_rmbg.png" title="Income Tax Filing Online"
+                alt="Income Tax Filing Online" width="159" height="37"></a>
+          </div>
+
+          <!-- <nav class="navbar navbar-expand-lg p-0">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="https://tax2win.in/#" data-bs-toggle="dropdown"
+                    data-bs-auto-close="outside">Products </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="https://tax2win.in/efile-income-tax-return"
+                        data-ctid="button-file-your-return-33a0ad467c">File Your Return</a></li>
+                    <li><a href="https://tax2win.in/efile-income-tax-return/upload-form16"
+                        data-ctid="button-upload-form-16-d90fe35717">Upload Form 16</a></li>
+                    <li><a href="https://tax2win.in/ca-assisted"
+                        data-ctid="button-ca-assistanant-tax-filling-720df06c70">CA Assisted Tax Filing</a></li>
+                    <li><a href="https://tax2win.in/tax-tools/tax-planning-optimiser"
+                        data-ctid="button-tax-planning-optimiser-08540a9ba7">Tax Planning Optimiser</a></li>
+                    <li><a href="https://tax2win.in/income-tax-refund-status"
+                        data-ctid="button-refund-status-5b47851085">Refund Status</a></li>
+                    <li><a href="https://tax2win.in/services/tds-solution"
+                        data-ctid="button-tds-solution-cdb226871a">TDS Solution</a></li>
+                    <li><a href="https://tax2win.in/lp/nri-tax-filing"
+                        data-ctid="button-nri-taxes-itr-filling-ac4c63eda1">NRI Taxes &amp; ITR Filing</a></li>
+                    <li><a href="https://tax2win.in/tax-consultancy-and-advisory-services"
+                        data-ctid="header-tax-advisory-services-next-fe94675465">Tax Advisory Services</a></li>
+                    <li><a href="https://tax2win.in/lp/capital-gains-income-tax-return-filing"
+                        data-ctid="header-capital-gains-tax-filing-next-56e70bad9f">Capital Gain Tax Filing</a></li>
+                    <li><a href="https://tax2win.in/guide/income-tax-notices"
+                        data-ctid="header-income-tax-notices-next-b436b4247d">Income Tax Notices</a></li>
+                  </ul>
+                </li>
+
+                <li class="dropdown dropdown-mega position-static">
+                  <a class="nav-link dropdown-toggle" href="https://tax2win.in/#" data-bs-toggle="dropdown"
+                    data-bs-auto-close="outside">Tools </a>
+                  <ul class="dropdown-menu tools_menu">
+                    <li>
+                      <ul class="tools_submenu">
+                        <li><a href="https://tax2win.in/tax-tools/income-tax-calculator"
+                            data-ctid="button-income-tax-calculator-9208289241">Income Tax Calculator</a></li>
+                        <li><a href="https://tax2win.in/tax-tools/form-12bb"
+                            data-ctid="button-form-12bb-d89254cd27">Form 12BB</a></li>
+                        <li><a href="https://tax2win.in/tax-tools/hra-calculator"
+                            data-ctid="button-hra-calculator-b78196546f">HRA Calculator</a></li>
+                        <li><a href="https://tax2win.in/tax-tools/gratuity-calculator"
+                            data-ctid="button-gratuity-calculator-23bcd708f9">Gratuity Calculator</a></li>
+                        <li><a href="https://tax2win.in/tax-tools/rent-receipt"
+                            data-ctid="button-rent-receipt-generator-74b8f3740c">Rent Receipt Generator</a></li>
+                        <li><a href="https://tax2win.in/tax-tools/tds-calculator"
+                            data-ctid="button-tds-calculator-90b6f88aae">TDS Calculator</a></li>
+                        <li><a href="https://tax2win.in/tax-tools/itr-eligibility-checker"
+                            data-ctid="button-itr-eligibility-checker-28694c6b63">ITR Eligibility Checker</a></li>
+                        <li><a href="https://tax2win.in/tax-tools/transport-allowance-calculator"
+                            data-ctid="button-transport-allowance-calculator-cd129b6a5b">Transport Allowance
+                            Calculator</a></li>
+                        <li><a href="https://tax2win.in/tax-tools/late-filing-fees-calculator-234f"
+                            data-ctid="button-calculator-on-section-234f-754d173d3a">Calculator on Section 234F</a></li>
+                        <li><a href="https://tax2win.in/tax-tools/leave-salary"
+                            data-ctid="button-lta-calculator-4bf91df71c">Leave Encashment Calculator</a></li>
+                        <li><a href="https://tax2win.in/tax-tools/deduction-under-section-80c"
+                            data-ctid="button-deductions-80c-calculator-fcc9343092">80C Calculator</a></li>
+                        <li><a href="https://tax2win.in/tax-tools/income-from-house-property"
+                            data-ctid="button-house-property-calculator-dc34aa06b4">House Property Calculator</a></li>
+                        <li><a href="https://tax2win.in/tax-tools/crypto-currency-tax-calculator"
+                            data-ctid="button-crypto-currency-tax-calculator-76e49e7786">Cryptocurrency Tax
+                            Calculator</a></li>
+                        <li><a href="https://tax2win.in/tax-tools/calculator-80d"
+                            data-ctid="button-80d-calculator-42f0fffc4b">80D Calculator</a></li>
+                        <li><a href="https://tax2win.in/tax-tools/simple-interest-calculator"
+                            data-ctid="button-simple-interest-calculator-488573858c">Simple Interest Calculator</a></li>
+                        <li><a href="https://tax2win.in/tax-tools/80tta-calculator"
+                            data-ctid="button-80tta-calcualtor-600e89fae9">80TTA Calcualtor</a></li>
+                        <li><a href="https://tax2win.in/tax-tools/80dd-calculator"
+                            data-ctid="button-80dd-calculator-b654623e04">80DD Calculator</a></li>
+                        <li><a href="https://tax2win.in/tax-tools/80u-calculator"
+                            data-ctid="button-80u-calculator-e382e15da2">80U Calculator</a></li>
+                        <li><a href="https://tax2win.in/tax-tools/compound-interest-calculator"
+                            data-ctid="button-compound-interest-calculator-f4abe5c29e">Compound Interest Calculator</a>
+                        </li>
+                        <li><a href="https://tax2win.in/new-tax-regime-old-tax-regime-comparison"
+                            data-ctid="button-old-vs-new-tax-slab-regime-037e540b4a">Old vs New Tax Slab Regime
+                            Calculator</a></li>
+                        <li><a href="https://tax2win.in/tax-tools/sukanya-samriddhi-yojana-calculator"
+                            data-ctid="button-sukanya-samriddhi-yojana-calculator-0f4b222416">Sukanya Samriddhi Yojana
+                            Calculator</a></li>
+                        <li><a href="https://tax2win.in/ifsc-code" data-ctid="button-ifsc-search-19977a365b">IFSC Code
+                            Search</a></li>
+                        <li><a href="https://tax2win.in/tax-tools/calculators" class="mtools_action"
+                            data-ctid="header-more-tax-tools-next-1dbceb6db4">More Tax Tools <img
+                              src="./files/g_ghost_arrow.svg"
+                              alt="" width="20" height="20"></a></li>
+                      </ul>
+                    </li>
+                  </ul>
+
+                </li>
+
+                <li class="dropdown">
+                  <a class="nav-link dropdown-toggle" href="https://tax2win.in/#" data-bs-toggle="dropdown"
+                    data-bs-auto-close="outside">Knowledge Center </a>
+
+                  <ul class="dropdown-menu">
+                    <li><a href="https://tax2win.in/faq" data-ctid="button-faq-869ed2bbb9">FAQ</a></li>
+                    <li><a href="https://tax2win.in/tax-glossary" data-ctid="button-tax-glossary-2745eb289e">Tax
+                        Glossary</a></li>
+                    <li><a href="https://tax2win.in/tax-video-tutorials/category/videos"
+                        data-ctid="header-video-tutorials-next-bb4aa25d72">Video Tutorials</a></li>
+                  </ul>
+                </li>
+
+
+                <li class="nav-item dropdown dropdown-mega position-static">
+                  <a class="nav-link dropdown-toggle" href="https://tax2win.in/#" data-bs-toggle="dropdown"
+                    data-bs-auto-close="outside">Guides</a>
+                  <div class="dropdown-menu gnav" data-bs-popper="">
+                    <div class="wrapper">
+                      <ul class="guide_submenu"><strong><a href="https://tax2win.in/income-tax-guides"
+                            data-ctid="button-income-tax-guides-6383045c05">Income Tax Guides</a></strong>
+                        <li><a href="https://tax2win.in/guide/aadhaar-card"
+                            data-ctid="button-aadhar-013b9f8b3c">Aadhar</a></li>
+                        <li><a href="https://tax2win.in/guide/capital-gain-tax-in-india-ltcg-stcg"
+                            data-ctid="button-capital-gains-income-667086f1ce">Capital Gains Income</a></li>
+                        <li><a href="https://tax2win.in/guide/income-tax-return"
+                            data-ctid="button-e-filling-of-itr-90915bddee">E-filing of ITR</a></li>
+                        <li><a href="https://tax2win.in/guide/house-property"
+                            data-ctid="button-house-property-06cf20bcd8">House Property</a></li>
+                        <li><a href="https://tax2win.in/guide/income-tax-calendar"
+                            data-ctid="button-income-tax-calendar-b1c6e3459a">Income Tax Calendar</a></li>
+                        <li><a href="https://tax2win.in/guide/income-tax-notices"
+                            data-ctid="button-income-tax-notices-297d5c2f96">Income Tax Notices</a></li>
+                        <li><a href="https://tax2win.in/income-tax-refund-status"
+                            data-ctid="button-income-tax-refund-57bd9fcc0f">Income Tax Refund</a></li>
+                        <li><a href="https://tax2win.in/guide/income-tax-slabs"
+                            data-ctid="button-income-tax-slabs-2e8ac9e4d1">Income Tax Slabs</a></li>
+                        <li><a href="https://tax2win.in/guide/e-verify-income-tax-return"
+                            data-ctid="button-income-tax-verification-c7dd22dddc">Income Tax Verification</a></li>
+                        <li><a href="https://tax2win.in/guide/pan-card" data-ctid="button-pan-card-426cc76a5f">Pan
+                            Card</a></li>
+                        <li><a href="https://tax2win.in/guide/salary-income"
+                            data-ctid="button-salary-income-c239a47589">Salary Income</a></li>
+                        <li><a href="https://tax2win.in/guide/deductions"
+                            data-ctid="button-section-80-deductions-217b236110">Section 80 Deductions</a></li>
+                        <li><a href="https://tax2win.in/guide/tds" data-ctid="button-tds-fb872fb457">TDS</a></li>
+                      </ul>
+                      <ul class="guide_submenu"><strong><a href="https://tax2win.in/gst-guides"
+                            data-ctid="button-gst-guides-eb5a3d2105">GST Guides</a></strong>
+                        <li><a href="https://tax2win.in/guide/basics-of-gst" data-ctid="button-gst-74302bf8a0">GST</a>
+                        </li>
+                        <li><a href="https://tax2win.in/guide/gst-system-in-india"
+                            data-ctid="button-gst-system-8d06714d8b">GST System</a></li>
+                        <li><a href="https://tax2win.in/guide/gst-registration"
+                            data-ctid="button-gst-registration-54dcd9d4ab">GST Registration</a></li>
+                        <li><a href="https://tax2win.in/guide/input-tax-credit-gst"
+                            data-ctid="button-input-tax-credit-eb8cc73801">Input Tax Credit</a></li>
+                        <li><a href="https://tax2win.in/guide/gst-procedure"
+                            data-ctid="button-gst-procedure-02c9eafa99">GST Procedure</a></li>
+                        <li><a href="https://tax2win.in/guide/return-under-gst"
+                            data-ctid="button-gst-returns-d80941e3d1">GST Returns</a></li>
+                        <li><a href="https://tax2win.in/guide/eway-bill-gst"
+                            data-ctid="button-gst-eway-bill-452f48674f">GST eWay Bill</a></li>
+                        <li><a href="https://tax2win.in/guide/gst-rates" data-ctid="button-gst-rates-0fd0b4999d">GST
+                            Rates</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="nav-item"><a href="https://tax2win.in/pricing" class="nav-link" title="Pricing"
+                    data-ctid="button-pricing-aa4ed4f03c">Pricing</a></li>
+                <li class="nav-item"><a href="https://tax2win.in/contact-us" class="nav-link" title="Contact Tax2win"
+                    data-ctid="button-contact-3d8ea0e7de">Contact</a></li>
+                <li class="nav-item"><a href="https://tax2win.in/user/login" class="nav-link login_rm" title="Log In"
+                    data-ctid="button-login-signup-780bc5c1cc">Log In</a></li>
+                <li class="nav-item"><a href="https://tax2win.in/user/register" class="nav-link login_rm"
+                    title="Sign Up" data-ctid="button-login-signup-780bc5c1cc">Sign Up</a></li>
+              </ul>
+            </div>
+          </nav> -->
+
         </div>
-        <div class="status" id="status">0 / 1000 Applications Filed</div>
-        <div class="last-updated" id="last-updated"></div>
-        <p>
-            <i style="font-size: smaller;">Due to operational constraints, we are currently limiting our capacity to process ITR applications to a maximum of 1000 submissions for the year, operating on a first-come, first-served basis</i>
-        </p>      
-        <h3>#hireCA</h3>
-        <ul>
-            <strong>+91 9036544997 | <a href="mailto:hireca129@gmail.com" style="color: rgb(12, 173, 236);">hireca129@gmail.com</a></strong>
-        </ul> 
+      </div>
+
+    </section>
+
+  </header>
+  <div class="" style="position: fixed; right: 0; z-index: 9999;">
+    <div id="one-tab-container" class="zindex_manage hidden"
+      data-author="671263351658-u4hjfthfg3gq63tchcpk5o7kolh7mg63.apps.googleusercontent.com"
+      data-nonce="0dc83afd1535ac7322010fa14de9c04e"></div>
+    <script async="" src="./files/client" defer="" type="text/javascript"></script>
+  </div>
+
+
+  <style>
+    #typewriter {
+      font-weight: bold;
+      font-size: 2.5rem;
+      white-space: nowrap;
+      overflow: hidden;
+      color: #19487e;
+      border-right: 15px solid #103969;
+      animation: blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes blink-caret {
+
+      from,
+      to {
+        border-color: transparent;
+      }
+
+      50% {
+        border-color: #19487e;
+      }
+    }
+  </style>
+
+  <!-- banner -->
+  <section class="main_services">
+    <div class="container-fluid">
+      <div class="wrapper row">
+        <aside class="left">
+          <!-- Filed ITR Applications Progress Bar -->
+          <div class="filed-itr-progress">
+            <h3>Filed ITR Applications</h3>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 50%;"></div>
+            </div>
+            <p><span id="filed-count">520</span> / 1000 Applications Filed</p>
+          </div>
+
+          <span class="itrfilinggreen">ITR Filing</span>
+          <h1>
+            Easiest Way of<br><span id="typewriter"></span><br>
+            <!-- in <mark>India</mark> -->
+          </h1>
+          <ul class="usps">
+            <li><img src="./files/trusted-user.svg" alt="1+ Million Trusted Users" title="1+ Million Trusted Users"
+                width="26"><strong> 18000+ </strong>
+              Trusted Users</li>
+
+          </ul>
+        </aside>
+        <aside class="right">
+          <div class="services">
+            <div class="box file-itself">
+
+              <figure> <img src="./files/self-filing-blue.svg" alt="File Income Tax Yourself" class="icon" width="66"
+                  height="66"></figure>
+              <h2>File ITR </h2>
+              <p>It's quick, easy, and takes only minutes to file your income tax return. ITR filing plans for each and everyone.</p>
+            </div>
+            <!-- <div class="box hire_eca">
+              <div class="off_tag"> <img src="./files/15off-2025.svg" alt="15% OFF"></div>
+              <figure> <img src="./files/hire-eca-green.svg" alt="Get a personal eCA" class="icon" width="66"
+                  height="66">
+              </figure>
+              <h2> Get CA for ITR Filing</h2>
+              <p>Hire personal eCA to do Income Tax Filing for you. It is convenient &amp; fast with maximum refund
+                calculated for you.</p>
+
+            </div> -->
+        </aside>
+      </div>
+
     </div>
-    <div class="why-file-itr">
-        <h2>Why File Income Tax Returns (ITRs)?</h2>
-        <p>Filing Income Tax Returns (ITRs) is crucial for several reasons:</p>
-        <ul>
-            <li><strong>Legal Compliance</strong>: It's a legal requirement in most countries for individuals whose income exceeds a certain threshold. Compliance ensures you avoid penalties and legal consequences.</li>
-            <li><strong>Documenting Income</strong>: ITRs serve as official documentation of your income, essential for various purposes like applying for loans, visas, or government benefits.</li> 
-            <li><strong>Tax Deductions and Credits</strong>: By filing your ITRs, you can claim deductions and tax credits applicable to you, reducing your taxable income and potentially resulting in a tax refund.</li>
-            <li><strong>Transparency and Accountability</strong>: Filing ITRs showcases your financial transparency, contributing to the integrity of the tax system and ensuring accountability.</li>
-            <li><strong>Avoiding Penalties</strong>: Timely filing of ITRs helps you avoid penalties and interest charges, ensuring you stay compliant with tax laws.</li>
-            <li><strong>Financial Planning</strong>: Regular filing of ITRs provides insights into your financial situation, aiding in informed financial planning, including budgeting and investments.</li>
-        </ul>
+  </section>
+
+  <!-- how it works -->
+  <section class="easy_steps">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+          <span class="small_txt">How it works</span>
+          <h2>5 Simple Steps to e-file your<mark> Income Tax Return </mark></h2>
+          <div class="wrapper">
+            <!-- <div class="box">
+              <figure><img
+                  src="./files/step-signup.svg"
+                  alt="Easy Sign in/up" title="Easy Sign in/up"></figure>
+              <strong>Easy Sign in/up</strong>
+              <p>Login or create a new<br> account</p>
+            </div> -->
+            <div class="box">
+
+              <figure><img src="./files/step-income.svg" alt="Quick pick" title="Quick pick"></figure>
+              <strong>Quick pick</strong>
+              <p>Select your sources <br> of income</p>
+            </div>
+            <div class="box">
+
+              <figure><img src="./files/step-prefill.svg" alt="Pre-filled data" title="Pre-filled data"></figure>
+              <strong>Pre-filled data</strong>
+              <p>Details auto extracted from <br>IT dept for ITR filing</p>
+            </div>
+            <div class="box">
+
+              <figure><img src="./files/step-compare.svg" alt="Compare Computations" title="Compare Computations">
+              </figure>
+              <strong>Compare Computations</strong>
+              <p>Choose between old &amp; <br> new regimes</p>
+            </div>
+            <div class="box">
+
+              <figure><img src="./files/step-filed.svg" alt="File ITR" title="File ITR"></figure>
+              <strong>File ITR</strong>
+              <p>E-File Income tax &amp; get <br> confirmation from IT dept</p>
+            </div>
+          </div>
+
+          <!-- <a href="https://tax2win.in/efile-income-tax-return?utm_source=Home&amp;utm_medium=ctabutton&amp;utm_campaign=FreeFileITR"
+            class="btn-success" data-ctid="home-free-file-now-next-3fe7c7d6de">File Now <img
+              src="./files/w-ghost-arrow.svg"
+              alt="ITR Now" title="File Now"></a>
+        </div> -->
+        </div>
+
+
+
+      </div>
+
+  </section>
+
+
+  <!-- whyus -->
+  <section class="about_company">
+    <div class="container">
+      <div class="row wrapper">
+        <aside class="left col-xxl-6 col-xl-6 col-lg-6 col-sm-5">
+          <img src="./files/map_hireca-no-bg.png" alt="Tax2win Income Tax" style="filter: contrast(100%);"
+            title="Tax2win Income Tax" width="553" height="621">
+        </aside>
+        <aside class="right col-xxl-6 col-xl-6 col-lg-6  col-sm-7">
+          <h2>Fatest income tax service in India</h2>
+          <p>We have changed the way people do tax filing in India. We don’t just get your tax return filed within
+            minutes but get you maximum refunds in shortest time.
+          </p>
+          <ul>
+            <!-- <li><img src="./files/rating.svg" alt="4.8 Star Service Rating" title="4.8 Star Service Rating" width="37"
+                height="37"><span> <b>4.8 </b>
+                Star Service Rating</span></li> -->
+            <li><img src="./files/trusted-user.svg" alt="1+ Million Trusted Users" title="1+ Million Trusted Users"
+                width="34" height="36"><span><b> 18000+
+                </b> Trusted Users</span></li>
+            <li><img src="./files/top25.svg" alt="Top 25 emerging startup of Asia"
+                title="Top 25 emerging startup of Asia" width="37" height="37">
+              <span><b>Top 5</b> Emerging financial firm of Bengaluru</span>
+            </li>
+            <li><img src="./files/authorised.svg" alt="Authorized by Income Tax Department"
+                title="Authorized by Income Tax Department" width="43" height="42"><span><b> Authorized</b> by Income
+                Tax Department</span></li>
+
+          </ul>
+
+          <!-- <a href="#" class="primary-link" data-ctid="button-read-more-876af70524">Read More
+            <img src="./files/b_ghost_arrow.svg" alt="Read More"> </a> -->
+
+        </aside>
+      </div>
     </div>
-    <div class="missed-itr">
-        <h2>What Happens if You Miss the ITR Filing Deadline?</h2>
-        <ul>
-            <li><strong>Interest:</strong> If you submit your return after the deadline, you will be liable to pay interest at a rate of 1% per month or part month on the unpaid tax amount as per Section 234A.</li>
-            <li><strong>Late Fee:</strong> In case of late filing, Section 234F imposes a late fee of Rs.5,000, which shall be reduced to Rs.1,000 if your total income is below Rs.5 lakh.</li>
-            <li><strong>Loss Adjustment:</strong> In case you have incurred losses from sources like the stock market, mutual funds, properties, or any of your businesses, you have the option to carry them forward and offset them against your income in the subsequent year. This provision substantially reduces your tax liability in future years. However, you will not be allowed to carry forward these losses if you miss filing your ITR before the deadline.</li>
-            <li><strong>Belated Return:</strong> If you miss the ITR filing due date, you can file a return after the due date, called a belated return. However, you will still have to pay the late fee and interest charges, and you will not be allowed to carry forward any losses for future adjustments. The last date for filing a belated return is 31st December of the assessment year (unless extended by the government). Therefore, for this year, you may submit the belated return by 31 December 2024 at the latest.</li>
-            <li><strong>Updated Return:</strong> Still, if you miss the 31st December deadline due to unavoidable reasons, you can file the updated (ITR U) return subject to the conditions specified therein.</li>
-        </ul>        
+  </section>
+
+  <!-- Refund status -->
+  <section class="home-refund-status">
+    <div class="container">
+      <div class="wrapper">
+        <aside class="left">
+          <h2>Check Your Latest<br> Income Tax Refund Status</h2>
+          <p>Check the status of your most recent income tax refund updated in the Income Tax Department systems</p>
+          <a href="#" class="btn" title="Check Refund Status"
+            data-ctid="card-clicked-check-refund-status-93c34044a1">Check Refund
+            Status <img src="./files/g_ghost_arrow.svg" width="26" height="26" alt="arrow"
+              style="filter: grayscale(100%) contrast(150%) sepia(0.1);"> </a>
+        </aside>
+        <aside class="right">
+          <img src="./files/refund-element.svg" alt="Check Refund Status" loading="lazy">
+        </aside>
+      </div>
     </div>
-    <div class="why-choose-us">
-        <h2>Why Choose Us for ITR Filing?</h2>
-        <p>When it comes to filing Income Tax Returns (ITRs), choosing the right service provider can make all the difference. Here's why you should choose us:</p>
-        <ul>
-            <li><strong>Expertise:</strong> Our team consists of experienced professionals who are well-versed in tax laws and regulations, ensuring accurate and compliant filing for our clients.</li>
-            <li><strong>Personalized Service:</strong> We understand that every individual or business has unique financial situations. That's why we offer personalized assistance tailored to meet your specific needs and maximize your tax benefits.</li>
-            <li><strong>Timely Filing:</strong> With our efficient workflow and proactive approach, we ensure timely filing of your ITRs, helping you avoid penalties and unnecessary hassles.</li>
-            <li><strong>Comprehensive Support:</strong> From initial consultation to post-filing assistance, we provide comprehensive support at every step of the filing process, addressing all your queries and concerns promptly.</li>
-            <li><strong>Customer Satisfaction:</strong> Our top priority is customer satisfaction. We strive to exceed your expectations by delivering exceptional service and ensuring your peace of mind throughout the filing process.</li>
-        </ul>
-        <div>
-            <p>
-                <b><i>Entrust your ITR filing needs to us and discover a blend of quality, efficiency, and tranquility. With a track record of excellence spanning over 12 years and 75,000+ applications filed, we maintain a flawless 100% satisfaction rate. Additionally, our remarkable 99.3% conversion ratio ensures that once clients choose us, they stay with us and If we can't deliver a favorable return, no one can.</i></b>
+  </section>
+
+
+  <!-- Best Services -->
+  <section class="section">
+    <div class="home-services">
+      <div class="container">
+        <span class="d-flex justify-content-center small_heading">Popular Services</span>
+        <h2 class="text-center">Income Tax Services We Offer</h2>
+        <div class="wrapper">
+          <div class="box it_self">
+            <h3>Tax Planning Services</h3>
+            <p>Maximize tax savings with hireCA's Tax Advisory Services, offering guidance on advance tax calculations,
+              property transactions, and more.</p>
+            <a href="#contacthireca" class="btn" data-ctid="home-get-expert-help-next-5376362c9a">Get Expert Help <img
+                src="./files/b_ghost_arrow.svg" alt="Tax Planning Services" title="Tax Planning Services"> </a>
+          </div>
+          <div class="box">
+            <img src="./files/tax-notice-assistance.svg" alt="Income Tax Notice Assistance"
+              title="Income Tax Notice Assistance" loading="lazy" width="57" height="57" class="icon">
+            <h3>Income Tax Notice Assistance</h3>
+            <p>A dedicated tax expert helps you navigate and respond to notices under sections 139(9), 143(1),
+              high-value transactions, and other notices from the Income Tax Department.</p>
+            <a href="#" class="action" data-ctid="home-avoid-tax-notices-next-879e100618">Connect with Tax Experts<img
+                src="./files/g_ghost_arrow.svg" alt="Income Tax Notice Assistance" title="Income Tax Notice Assistance">
+            </a>
+          </div>
+          <div class="box">
+            <img src="./files/itr-u.svg" alt="Updated Return Filing (ITR-U)" title="Updated Return Filing (ITR-U)"
+              loading="lazy" width="57" height="57" class="icon">
+            <h3>Updated Return Filing (ITR-U)</h3>
+            <p>ITR-U helps individuals to update the correct income in the already filed ITR and also provides an
+              opportunity for those who haven't filed previously.
             </p>
-        </div>             
+            <a href="#" class="action" data-ctid="home-itr-u-next-10ce58d1a0">File Now<img
+                src="./files/g_ghost_arrow.svg" alt="">
+            </a>
+          </div>
+          <div class="box">
+            <img src="./files/diy-filing.svg" alt="File ITR Yourself (DIY filing )"
+              title="File ITR Yourself (DIY filing )" loading="lazy" width="57" height="57" class="icon">
+            <h3>File ITR Yourself</h3>
+            <p>Trust us; you can file your Income tax return on your own. It’s fast, easy, and safe when you file ITR
+              with hireCA.</p>
+            <a href="#" class="action" data-ctid="card-clicked-file-it-yourself-758cd3ca6a">Start Filing<img
+                src="./files/g_ghost_arrow.svg" alt=""> </a>
+          </div>
+
+
+
+          <div class="box">
+            <img src="./files/icon-eca.svg" alt="Expert Assisted Filing" title="Expert Assisted Filing" loading="lazy"
+              width="57" height="57" class="icon">
+            <h3>Expert Assisted ITR Filing</h3>
+            <p>Hire personal eCA to do Income Tax Filing for you. It is convenient &amp; fast, with maximum refund
+              calculated <br> for you.</p>
+            <a href="#" class="action" data-ctid="card-clicked-get-a-personal-eca-6adc80e418">Book eCA Today<img
+                src="./files/g_ghost_arrow.svg" alt=""> </a>
+          </div>
+
+
+          <div class="box">
+            <img src="./files/nri-filing.svg" alt="NRI Tax Filing" title="NRI Tax Filing" loading="lazy" width="50"
+              height="50" class="icon">
+            <h3>NRI Tax Filing</h3>
+            <p>Ease your Indian tax filing with our experts, covering both foreign and domestic income. Our online CA
+              ensures compliance with the Income tax laws and help you claim eligible tax deductions.</p>
+            <a href="#" class="action" data-ctid="home-lp/nri-tax-filing-next-379e9d48ac">Connect Now<img
+                src="./files/g_ghost_arrow.svg" alt=""> </a>
+          </div>
+
+
+          <div class="box">
+            <img src="./files/icon_upload.svg" alt="Upload Form 16" title="Upload Form 16" loading="lazy" width="57"
+              height="57" class="icon">
+            <h3>Upload Form 16</h3>
+            <p> Simplify the Income Tax Return filing process at hireCA. Just upload your Form 16 and get the ITR
+              prepared automatically.
+            </p>
+            <a href="#" class="action mt-3" data-ctid="card-clicked-upload-form-16-0c9acba791">Upload Now<img
+                src="./files/g_ghost_arrow.svg" alt="Upload Form 16" title="Upload Form 16"> </a>
+          </div>
+
+
+          <div class="box">
+            <img src="./files/capital-gain.svg" alt="Capital Gain Tax Filing" title="Capital Gain Tax Filing"
+              loading="lazy" width="55" height="55" class="icon">
+            <h3>Capital Gain Tax Filing</h3>
+            <p>Seeking tax expert advice on the transaction done with respect to the sale of property, equity shares,
+              mutual fund units, or bonds in addition to salary/business income.</p>
+            <a href="https://tax2win.in/ca-assisted?utm_source=Home&amp;utm_medium=ctabutton&amp;utm_campaign=CapitalGainTaxFiling"
+              class="action" data-ctid="home-capital-gain-tax-filing-next-a6447b96e5">Connect Today<img
+                src="./files/g_ghost_arrow.svg" alt=""> </a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- testimonials -->
+        <section class="common_client_review">
+          <h2 class="d-flex justify-content-center">We appreciate feedback from <br> our customers</h2>
+          <h4 class="text-center">10,000+ Reviews Of Delighted Clients with<br>
+            <!-- Google 4.8 <img alt="Rating" src="./files/five-star.webp" width="90" height="16" loading="lazy"> Rating</h4> -->
+            <div class="testimonial-slider common_testimonial owl-carousel owl-loaded owl-drag">
+
+
+
+              <div class="owl-stage-outer owl-height" style="height: 376px;">
+                <div class="owl-stage"
+                  style="transform: translate3d(-603px, 0px, 0px); transition: 0.8s; width: 4221px;">
+                  <div class="owl-item cloned" style="width: 603px;">
+                    <div class="wrapper">
+                      <article>
+                        <div class="top">
+                          <div class="c_detail">
+                            <span>Neeladri Sen</span>
+                            <img src="./files/five-star.webp" width="100" alt="rating" loading="lazy">
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <p>I would like record my Thanks &amp; Appreciation for the excellent support by hireCA,
+                            responsive no matter how many times I spoke. Thank you filing my tax
+                            returns.</p>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                  <div class="owl-item cloned active" style="width: 603px;">
+                    <div class="wrapper">
+                      <article>
+                        <div class="top">
+                          <div class="c_detail">
+                            <span>Sumit Patil</span>
+                            <img src="./files/five-star.webp" width="100" alt="rating" loading="lazy">
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <p>Thank you filing my tax returns. Gopal Sir was really good and he answered all my
+                            clarifications with patience and helped me with prompt filing. I truly appretiate hireCA
+                            team.</p>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                  <div class="owl-item active" style="width: 603px;">
+                    <div class="wrapper">
+                      <article>
+                        <div class="top">
+                          <div class="c_detail">
+                            <span>Himanshu Jain</span>
+                            <img src="./files/five-star.webp" width="100" alt="rating" loading="lazy">
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <p>Good service, quick response, and friendly interaction.Thank you hireCA team for filing my
+                            ITR, especially to Heena</p>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                  <div class="owl-item" style="width: 603px;">
+                    <div class="wrapper">
+                      <article>
+                        <div class="top">
+                          <div class="c_detail">
+                            <span>Lalit Sen</span>
+                            <img src="./files/five-star.webp" width="100" alt="rating" loading="lazy">
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <p>I would like record my Thanks &amp; Appreciation for the excellent support by hireCA,
+                            responsive no matter how many times I spoke. Thank you filing my tax
+                            returns.</p>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                  <div class="owl-item" style="width: 603px;">
+                    <div class="wrapper">
+                      <article>
+                        <div class="top">
+                          <div class="c_detail">
+                            <span>Saadique Anwar</span>
+                            <img src="./files/five-star.webp" width="100" alt="rating" loading="lazy">
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <p>Thank you filing my tax returns. I truly appretiate the hireCA team.</p>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                  <div class="owl-item cloned" style="width: 603px;">
+                    <div class="wrapper">
+                      <article>
+                        <div class="top">
+                          <div class="c_detail">
+                            <span>Suman Sahu</span>
+                            <img src="./files/five-star.webp" width="100" alt="rating" loading="lazy">
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <p>Good service, quick response, and friendly interaction.Thank you hireCA for filing my
+                            ITR, especially for looking upon my urgency</p>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                  <div class="owl-item cloned" style="width: 603px;">
+                    <div class="wrapper">
+                      <article>
+                        <div class="top">
+                          <div class="c_detail">
+                            <span>Parth Kumar</span>
+                            <img src="./files/five-star.webp" width="100" alt="rating" loading="lazy">
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <p>I would like record my Thanks &amp; Appreciation for the excellent support by hireCA,
+                            responsive no matter how many times I spoke. Thank you filing my tax
+                            returns.</p>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span
+                    aria-label="Previous">‹</span></button><button type="button" role="presentation"
+                  class="owl-next"><span aria-label="Next">›</span></button></div>
+              <div class="owl-dots"><button role="button" class="owl-dot"><span></span></button><button role="button"
+                  class="owl-dot active"><span></span></button></div>
+            </div>
+        </section>
+      </div>
     </div>
-    <style>
-        .tax-exemptions ul li {
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 10px;
-            margin-bottom: 10px;
-        }
-    </style>
-    
-    <div class="tax-exemptions">
-        <h2>List of Tax Exemption Sections in India</h2>
-        <ul>
-            <li><strong>Section 10(10D):</strong> Exemption on the maturity proceeds received from a life insurance policy, subject to certain conditions.</li>
-            <li><strong>Section 10(10DA):</strong> Exemption on commutation of pension received from the National Pension System (NPS).</li>
-            <li><strong>Section 10(11):</strong> Exemption on payment received from a statutory provident fund.</li>
-            <li><strong>Section 10(12):</strong> Exemption on payment received from a recognised provident fund.</li>
-            <li><strong>Section 10(13):</strong> Exemption on payment received from approved superannuation fund.</li>
-            <li><strong>Section 10(14):</strong> Allowances such as House Rent Allowance (HRA), Leave Travel Allowance (LTA), Conveyance Allowance, Medical Allowance, etc., subject to certain conditions.</li>
-            <li><strong>Section 10(15):</strong> Interest earned on specified savings instruments like Public Provident Fund (PPF), Employee Provident Fund (EPF), Tax-free bonds, etc.</li>
-            <li><strong>Section 10(16):</strong> Scholarship granted to meet the cost of education.</li>
-            <li><strong>Section 10(17):</strong> Allowance granted to an employee working in any transport system to meet his personal expenditure during his duty performed in the course of running of such transport from one place to another place, provided that such employee is not in receipt of daily allowance.</li>
-            <li><strong>Section 10(17A):</strong> Special allowance or benefit specifically granted to meet expenses wholly, necessarily, and exclusively incurred in the performance of duties of an office or employment of profit.</li>
-            <li><strong>Section 10(18):</strong> Pension received by gallantry award winners including Param Vir Chakra, Maha Vir Chakra, Vir Chakra, and other recipients.</li>
-            <li><strong>Section 10(19):</strong> Family pension received by the family members of armed forces.</li>
-            <li><strong>Section 10(26):</strong> Any income of a member of a scheduled tribe residing in certain areas of the North-Eastern States of India, as specified by the government.</li>
-            <li><strong>Section 10(32):</strong> Income of a minor child clubbed with the income of the parent(s) or guardian(s).</li>
-            <li><strong>Section 80C:</strong> Investment in specified schemes like EPF, PPF, Life Insurance Premium, Equity Linked Savings Scheme (ELSS), National Savings Certificate (NSC), Sukanya Samriddhi Account, Senior Citizen Saving Scheme, etc.</li>
-            <li><strong>Section 80CCC:</strong> Investment in annuity plans of insurance companies for receiving pension.</li>
-            <li><strong>Section 80CCD:</strong> Contribution to the National Pension System (NPS) by both the employee and employer, subject to certain limits.</li>
-            <li><strong>Section 80CCD(2):</strong> Employer's contribution to the National Pension System (NPS) for the benefit of the employee.</li>
-            <li><strong>Section 80D:</strong> Premium paid for health insurance policies for self, spouse, children, and parents. Also includes preventive health check-up expenses.</li>
-            <li><strong>Section 80DD:</strong> Deduction available on expenses incurred on the medical treatment, training, and rehabilitation of a handicapped dependent.</li>
-            <li><strong>Section 80DDB:</strong> Deduction for medical treatment of specified diseases for self or dependent.</li>
-            <li><strong>Section 80E:</strong> Interest paid on Education Loan for higher studies.</li>
-            <li><strong>Section 80EE:</strong> Interest on loan taken for the purchase of a residential property.</li>
-            <li><strong>Section 80EEA:</strong> Additional deduction on interest paid on loan taken for the purchase of affordable housing property.</li>
-            <li><strong>Section 80EEB:</strong> Deduction for interest paid on loan taken for the purchase of an electric vehicle.</li>
-            <li><strong>Section 80G:</strong> Donations made to specified funds, charitable institutions, or organizations. The amount eligible for deduction varies based on the type of donation.</li>
-            <li><strong>Section 80GG:</strong> Rent paid for accommodation by individuals who do not receive HRA from their employer.</li>
-            <li><strong>Section 80GGA:</strong> Donations for scientific research or rural development.</li>
-            <li><strong>Section 80GGC:</strong> Contributions given by any person to political parties.</li>
-            <li><strong>Section 80IA:</strong> Deduction for profits and gains from industrial undertakings or enterprises engaged in infrastructure development, etc.</li>
-            <li><strong>Section 80-IAB:</strong> Deduction for profits and gains from housing projects in affordable housing.</li>
-            <li><strong>Section 80-IAC:</strong> Deduction for profits and gains from specified business startups.</li>
-            <li><strong>Section 80-IAD:</strong> Deduction for profits and gains from business of developing affordable housing.</li>
-            <li><strong>Section 80-IB:</strong> Deduction for profits and gains from certain industrial undertakings other than infrastructure development, etc.</li>
-            <li><strong>Section 80-IBA:</strong> Deduction for profits and gains from housing projects in affordable housing.</li>
-            <li><strong>Section 80-IC:</strong> Deduction for profits and gains from certain industrial undertakings or enterprises in certain special category states or union territories.</li>
-            <li><strong>Section 80-ID:</strong> Deduction for profits and gains from hotels and convention centers in specified areas.</li>
-            <li><strong>Section 80-IE:</strong> Deduction for profits and gains from specified business of commercial production of mineral oil or natural gas.</li>
-            <li><strong>Section 80JJA:</strong> Deduction in respect of profits and gains from collecting and processing of biodegradable waste.</li>
-            <li><strong>Section 80JJAA:</strong> Deduction for additional employee cost for employment of new employees.</li>
-            <li><strong>Section 80LA:</strong> Deduction from income of Offshore Banking Units and International.</li>
-        </ul>
+  </section>
+
+
+
+  <section class="itr_benefits">
+    <div class="container-fluid">
+      <div class="wrapper">
+        <aside class="left">
+          <h2>Benefits of <br>
+            E-Filing Your ITR</h2>
+          <p>Effortlessly file your tax returns and enjoy a hassle-free tax season with e-filing</p>
+          <a href="#"
+            class="btn-success" data-ctid="home-start-filing-now-next-30f3f91029"> File Now <img
+              src="./files/w-ghost-arrow.svg" alt="File Now" title="File Now"></a>
+        </aside>
+        <aside class="right">
+
+          <div class="box">
+            <figure><img src="./files/icon-claim-refund.svg" width="60" height="60" alt="Claim Tax Refund"
+                title="Claim Tax Refund"></figure>
+            <h3>Claim Tax Refund</h3>
+            <p>If you have paid more income tax, you are eligible for a tax refund </p>
+
+
+          </div>
+          <div class="box">
+            <figure><img src="./files/icon-avoid.svg" width="60" height="60" alt="Avoid Late Filing Fee"
+                title="Avoid Late Filing Fee"></figure>
+            <h3>Avoid Late Filing Fee</h3>
+            <p>A delay in filing ITR makes you liable to pay a fee of up to 5,000 INR</p>
+          </div>
+
+          <div class="box">
+            <figure><img src="./files/icon-visa.svg" width="60" height="60" alt="Obtaining Visa" title="Obtaining Visa">
+            </figure>
+            <h3>Obtaining Visa</h3>
+            <p>Foreign consulates may ask you to furnish your income tax returns for obtaining Visa</p>
+
+          </div>
+          <div class="box">
+            <figure><img src="./files/icon-easyloan.svg" width="60" height="60" alt="Easy Loan Approval"
+                title="Easy Loan Approval"> </figure>
+            <h3>Easy Loan Approval</h3>
+            <p>The income tax return serves as an important document for loan approval</p>
+
+          </div>
+        </aside>
+      </div>
+
+
+
     </div>
-    
-    <!-- <div class="contact-us">
-        <h2>Contact Us</h2>
-        <ul>
-                <strong>+91 9036544997 | <a href="mailto:hireca129@gmail.com" style="color: rgb(12, 173, 236);">hireca129@gmail.com</a></strong>
-        </ul>        
+  </section>
+
+
+
+
+  <style>
+    .container.clients-logo ul li img {
+      filter: grayscale(100%);
+      transition: all 0.2s ease-in-out;
+    }
+
+    .container.clients-logo ul li img:hover {
+      filter: grayscale(0%);
+    }
+  </style>
+
+  <div class="container clients-logo">
+    <h2>Our Valued Associations</h2>
+
+    <ul>
+      <li><img src="./files/sbi-logo.webp" alt="SBI Bank" title="SBI Bank" loading="lazy" width="135" height="25"></li>
+      <li><img src="./files/icici-logo.webp" alt="ICICI Bank" title="ICICI Bank" loading="lazy" width="135" height="26">
+      </li>
+      <li><img src="./files/indusind-bank-logo.webp" alt="Indusind Bank" title="Indusind Bank" width="135" height="27">
+      </li>
+      <li><img src="./files/bajaj-finserv-logo.webp" alt="Bajaj Finserv" title="Bajaj Finserv" loading="lazy"
+          width="135" height="36"></li>
+      <li><img src="./files/g-pay-logo.webp" alt="Google Pay" title="Google Pay" loading="lazy" width="100" height="40">
+      </li>
+      <li><img src="./files/phone-pay.webp" alt="Phone Pay" title="Phone Pay" loading="lazy" width="135" height="36">
+      </li>
+
+      <li><img src="./files/paytm.webp" alt="Paytm" title="Paytm" loading="lazy" width="125" height="35"></li>
+      <li><img src="./files/icici-securities.webp" alt="ICICI Securities" title="ICICI Securities" width="130"
+          height="32"></li>
+      <li><img src="./files/darwinbox-logo.webp" alt="Darwinbox" title="Darwinbox" width="150" height="33"></li>
+      <li><img src="./files/benefitHub_logo.webp" alt="Benefit Hub" title="Benefit Hub" loading="lazy" width="135"
+          height="28"></li>
+    </ul>
+
+  </div>
+
+
+  <!-- FAQ-Section -->
+  <section class="faq-se-home">
+    <div class="container">
+      <h2 class="text-center">FAQ's on ITR </h2>
+      <div class="accordion" id="accordionExample" itemscope="" itemtype="https://schema.org/FAQPage">
+
+        <div class="accordion-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h2 class="accordion-header" id="headingTwo" itemprop="name">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+              Who should file an Income Tax Return?
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample" itemscope="" itemprop="acceptedAnswer"
+            itemtype="https://schema.org/Answer">
+            <div class="accordion-body" itemprop="text">
+              <p>Every Individual, including an NRI, must file an Income tax return where Gross Total Income exceeds the
+                basic exemption limit. For old tax regimes, this basic exemption limit is 2.5 lakh and for new tax
+                regime, this basic exemption limit is 3 lakhs for the individual filing income tax return. Senior
+                citizens (individuals aged 60 years or above but less than 80 years) and super senior citizens
+                (individuals aged 80 years or above) are required to file an ITR if their gross total income exceeds Rs.
+                3 lakhs and Rs. 5 lakhs, respectively, in a financial year.</p>
+              <p>ITR filing is important for those cases also where the income is below the exemption limit for the
+                following conditions:-</p>
+              <ul>
+                <li>Deposited an amount or aggregate of over Rs.1 crore in one or more current accounts maintained with
+                  a bank or a cooperative bank.</li>
+                <li>Incurred an aggregate expenditure of over Rs.2 lakh for yourself or any other person for traveling
+                  to a foreign country.</li>
+                <li>Incurred aggregate expenditure over Rs.1 lakh towards payment of electricity bill.</li>
+                <li>The sales turnover of a business exceeds Rs 60 lakh during the year.</li>
+                <li>Total professional gross receipts exceed Rs 10 lakh during the financial year.</li>
+                <li>Total TDS or TCS exceeds Rs 25,000 during the financial year. This limit is Rs. 50000 for senior
+                  citizens.</li>
+                <li>The amount deposited in one or more savings accounts is Rs 50 lakh or more during the financial
+                  year.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h2 class="accordion-header" id="headingEleven" itemprop="name">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseEleven" aria-expanded="true" aria-controls="collapseEleven">
+              Where can I file an Income Tax Return in India?
+            </button>
+          </h2>
+          <div id="collapseEleven" class="accordion-collapse collapse show" aria-labelledby="headingEleven"
+            data-bs-parent="#accordionExample" itemscope="" itemprop="acceptedAnswer"
+            itemtype="https://schema.org/Answer">
+            <div class="accordion-body" itemprop="text">
+              <p>In India, taxpayers have several options for filing their Income Tax Return (ITR). Taxpayers can file
+                their ITR via the income tax efiling login portal <a href="https://www.incometax.gov.in/iec/foportal/"
+                  target="_blank">(https://www.incometax.gov.in/iec/foportal/)</a> where taxpayers can file their ITR
+                electronically. <br>
+                You can file ITR with hireCA e-filing login portal in under 4 minutes. hireCA's user-friendly
+                interface and expert assistance help you to file the ITR easily and quickly. The due date to file ITR
+                for the FY 2024-25 (AY 2025-26)
+                is 31st July 2025.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h2 class="accordion-header" id="headingThree" itemprop="name">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+              What if I miss the due date of filing the Income Tax Return?
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree"
+            data-bs-parent="#accordionExample" itemscope="" itemprop="acceptedAnswer"
+            itemtype="https://schema.org/Answer">
+            <div class="accordion-body" itemprop="text">
+              <p>If an individual misses the due date while filing their Income Tax Return (ITR), they may still file a
+                belated return. The belated return can be filed by 31st December of the relevant assessment year (unless
+                extended by the government). </p>
+              <p>However, please note a belated return can only be filed with the payment of late fees u/s 234F, subject
+                to certain conditions.</p>
+            </div>
+          </div>
+        </div>
+       
+        <div class="more_faq">
+       
+
+          <div class="accordion-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h2 class="accordion-header" id="headingTwl" itemprop="name">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseTwl" aria-expanded="true" aria-controls="collapseTwl">
+                What are the penalties for not filing Income Tax Return in India?
+              </button>
+            </h2>
+            <div id="collapseTwl" class="accordion-collapse collapse show" aria-labelledby="headingTwl"
+              data-bs-parent="#accordionExample" itemscope="" itemprop="acceptedAnswer"
+              itemtype="https://schema.org/Answer">
+              <div class="accordion-body" itemprop="text">
+                <p>If a taxpayer fails to file their Income Tax Return (ITR) by the due date, they may be liable to pay
+                  penalties and interest. The penalties for non-filing or late-filing of ITR in India are as follows:
+                </p>
+                <ol>
+                  <li>Late filing fee: If a taxpayer fails to file their ITR by the due date, they may be liable to pay
+                    a late filing fee of up to Rs. 10,000, depending on the delay in filing. The late filing fee for
+                    belated ITR, i.e., ITR filed after the due date but before December 31st of the relevant assessment
+                    year, is Rs. 5,000. For returns filed after December 31st, the late filing fee increases to Rs.
+                    10,000.</li>
+                  <li>Interest on tax liability: If a taxpayer has any outstanding tax liability, interest will be
+                    charged on the amount due from the due date of filing until the date of payment. The interest rate
+                    is currently 1% per month, calculated from the due date of filing until the date of payment.</li>
+                  <li>Loss of certain benefits: If a taxpayer files a belated return, they may lose certain benefits,
+                    such as the right to carry forward losses, etc. And in case of failure to file ITR at all, they will
+                    not be able to claim TDS refunds, if any.</li>
+                  <li>Prosecution: In case of a willful failure to file ITR, the taxpayer may be subject to prosecution
+                    under Section 276CC of the Income Tax Act, which can result in imprisonment and/or fine.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        
+        </div>
+        <span class="more_faqaction">Read More FAQ’s</span>
+      </div>
+    </div>
+  </section>
+  <footer class="new_footer">
+    <div class="top_panel">
+      <div class="container-fluid" id="#contacthireca">
+        <div class="wrapper  ">
+          <aside class="left">
+            <h3>Contact us</h3> <span class="support"><a href="callto:90365 44997"> <img src="./files/call.svg"
+                  alt="Call Now"> +91 90365 44997</a> </span>
+            <span class="support" data-ctid="email-link-support-tax2win-in-37ad9c1d10"><a
+                href="mailto:hireca129@gmail.com"><img src="./files/mail.svg" alt="Call Now" width="32" height="32">
+                hireca129@gmail.com</a> </span>
+          </aside>
+          <aside class="right">
+            <!-- <div class="social-icons">
+              <a href="https://www.facebook.com/tax2win"
+                onclick="if (!window.__cfRLUnblockHandlers) return false; window.open('https://www.facebook.com/tax2win', '_blank', 'width=800,height=600,scrollbars=yes,menubar=no,status=yes,resizable=yes,screenx=0,screeny=0'); return false;"
+                rel="nofollow" title="Facebook" data-ctid="button-facebook-9370312f43"><img
+                  src="./files/fb.svg"
+                  alt=""></a><a href="https://twitter.com/tax2win"
+                onclick="if (!window.__cfRLUnblockHandlers) return false; window.open('https://twitter.com/tax2win', '_blank', 'width=800,height=600,scrollbars=yes,menubar=no,status=yes,resizable=yes,screenx=0,screeny=0'); return false;"
+                rel="nofollow" title="Twitter" data-ctid="button-twitter-8ffd1b0186"><img
+                  src="./files/twiter.svg"
+                  alt=""></a><a href="https://www.linkedin.com/company/tax2win"
+                onclick="if (!window.__cfRLUnblockHandlers) return false; window.open('https://www.linkedin.com/company/tax2win', '_blank', 'width=800,height=600,scrollbars=yes,menubar=no,status=yes,resizable=yes,screenx=0,screeny=0'); return false;"
+                rel="nofollow" title="Linkedin" data-ctid="button-linkedln-d19ec7fcd1"><img
+                  src="./files/linkdin.svg"
+                  alt=""></a><a href="https://www.youtube.com/channel/UCI5JZW94yuU6pxH6yKTwuOw/featured"
+                onclick="if (!window.__cfRLUnblockHandlers) return false; window.open('https://www.youtube.com/channel/UCI5JZW94yuU6pxH6yKTwuOw/featured', '_blank', 'width=800,height=600,scrollbars=yes,menubar=no,status=yes,resizable=yes,screenx=0,screeny=0'); return false;"
+                rel="nofollow" title="Youtube" data-ctid="button-youtube-9fa10f2b36"><img
+                  src="./files/youtube.svg"
+                  alt=""></a><a href="https://www.instagram.com/tax2win/"
+                onclick="if (!window.__cfRLUnblockHandlers) return false; window.open('https://www.instagram.com/tax2win/', '_blank', 'width=800,height=600,scrollbars=yes,menubar=no,status=yes,resizable=yes,screenx=0,screeny=0'); return false;"
+                rel="nofollow" title="Instagram" data-ctid="button-instagram-7b14684650"><img
+                  src="./files/insta.svg"
+                  alt=""></a>
+            </div> -->
+          </aside>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="mid_panel">
+      <div class="container-fluid">
+        <div class="footer-nav">
+          <div class="top">
+            <div class="panel">
+              <strong>Quick Links</strong>
+              <ul>
+                <li><a href="https://tax2win.in/about-us" data-ctid="button-about-4eacb53926">About</a></li>
+                <li><a href="https://tax2win.in/contact-us" data-ctid="button-contact-d33f8ce0dc">Contact</a></li>
+                <li><a href="https://tax2win.in/pricing" data-ctid="button-pricing-7a26f2309f">Pricing</a></li>
+                <li><a href="https://tax2win.in/faq" data-ctid="button-faq-1c1fac12d6">FAQ</a></li>
+                <li><a href="https://tax2win.in/tax-glossary" data-ctid="button-tax-glossary-522c12a1f3">Tax
+                    Glossary</a></li>
+              </ul>
+            </div>
+
+            <div class="panel">
+              <strong>Products</strong>
+              <ul>
+                <li><a href="https://tax2win.in/efile-income-tax-return"
+                    data-ctid="button-file-your-return-33a0ad467c">File Income Tax Return</a></li>
+                <li><a href="https://tax2win.in/efile-income-tax-return/upload-form16"
+                    data-ctid="button-upload-form-16-d90fe35717">Upload Form 16</a></li>
+                <li><a href="https://tax2win.in/ca-assisted" data-ctid="button-ca-assisted-38ff420f71">CA Assisted ITR
+                    Filing</a></li>
+                <li><a href="https://tax2win.in/tax-tools/tax-planning-optimiser"
+                    data-ctid="button-tax-planning-optimiser-08540a9ba7">Tax Planning Optimiser</a></li>
+                <li><a href="https://tax2win.in/income-tax-refund-status"
+                    data-ctid="button-refund-status-5b47851085">Check ITR Refund Status</a></li>
+                <li><a href="https://tax2win.in/services/tds-solution" data-ctid="button-tds-solution-cdb226871a">TDS
+                    Solution</a></li>
+                <li><a href="https://tax2win.in/lp/nri-tax-filing"
+                    data-ctid="button-nri-taxes-itr-filling-ac4c63eda1">NRI Taxes &amp; ITR Filing</a></li>
+                <li><a href="https://tax2win.in/tax-consultancy-and-advisory-services"
+                    data-ctid="footer-tax-advisory-services-next-55f79bccbe">Tax Advisory Services</a></li>
+                <li><a href="https://tax2win.in/lp/capital-gains-income-tax-return-filing"
+                    data-ctid="footer-capital-gains-tax-filing-next-cc672d9dd6">Capital Gain Tax Filing</a></li>
+                <li><a href="https://tax2win.in/guide/income-tax-notices"
+                    data-ctid="footer-income-tax-notices-next-69a2cb6a69">Income Tax Notices</a></li>
+              </ul>
+            </div>
+
+            <div class="panel toggle_action">
+              <div class="t_nav">
+                <strong>Tax Tools</strong>
+                <ul class="tools_nav">
+                  <li><a href="https://tax2win.in/tax-tools/income-tax-calculator"
+                      data-ctid="button-income-tax-calculator-9208289241">Income Tax Calculator</a></li>
+                  <li><a href="https://tax2win.in/tax-tools/form-12bb" data-ctid="button-form-12bb-d89254cd27">Form
+                      12BB</a></li>
+                  <li><a href="https://tax2win.in/ifsc-code" data-ctid="button-ifsc-search-19977a365b">IFSC Code
+                      Search</a></li>
+                  <li><a href="https://tax2win.in/tax-tools/income-from-house-property"
+                      data-ctid="button-house-property-calculator-dc34aa06b4">House Property Calculator</a></li>
+                  <li><a href="https://tax2win.in/tax-tools/hra-calculator"
+                      data-ctid="button-hra-calculator-b78196546f">HRA Calculator</a></li>
+                  <li><a href="https://tax2win.in/tax-tools/gratuity-calculator"
+                      data-ctid="button-gratuity-calculator-23bcd708f9">Gratuity Calculator</a></li>
+                  <li><a href="https://tax2win.in/tax-tools/rent-receipt"
+                      data-ctid="button-rent-receipt-generator-74b8f3740c">Rent Receipt Generator</a></li>
+                  <li><a href="https://tax2win.in/tax-tools/tds-calculator"
+                      data-ctid="button-tds-calculator-90b6f88aae">TDS Calculator</a></li>
+                  <li><a href="https://tax2win.in/tax-tools/transport-allowance-calculator"
+                      data-ctid="button-transport-allowance-calculator-cd129b6a5b">Transport Allowance Calculator</a>
+                  </li>
+                  <li><a href="https://tax2win.in/tax-tools/deduction-under-section-80c"
+                      data-ctid="button-deductions-80c-calculator-fcc9343092">Tax Saving Calculator</a></li>
+                  <li><a href="https://tax2win.in/tax-tools/late-filing-fees-calculator-234f"
+                      data-ctid="button-calculator-on-section-234f-754d173d3a">Calculator on Section 234F</a></li>
+                  <li><a href="https://tax2win.in/tax-tools/nsc-calculator">NSC Calculator</a></li>
+                  <li><a href="https://tax2win.in/tax-tools/simple-interest-calculator"
+                      data-ctid="button-simple-interest-calculator-488573858c">Simple Interest Calculator</a></li>
+                  <li><a href="https://tax2win.in/tax-tools/sukanya-samriddhi-yojana-calculator"
+                      data-ctid="button-sukanya-samriddhi-yojana-calculator-0f4b222416">SSY Calculator</a></li>
+                  <li><a href="https://tax2win.in/tax-tools/itr-eligibility-checker"
+                      data-ctid="button-itr-eligibility-checker-28694c6b63">ITR Eligibility Checker</a></li>
+                  <li><a href="https://tax2win.in/tax-tools/leave-salary"
+                      data-ctid="button-lta-calculator-4bf91df71c">Leave Encashment Calculator</a></li>
+                  <li><a href="https://tax2win.in/tax-tools/crypto-currency-tax-calculator"
+                      data-ctid="button-crypto-currency-tax-calculator-76e49e7786">Cryptocurrency Tax Calculator</a>
+                  </li>
+                  <li><a href="https://tax2win.in/tax-tools/calculator-80d"
+                      data-ctid="button-80d-calculator-42f0fffc4b">80D Calculator</a></li>
+                  <li><a href="https://tax2win.in/tax-tools/80tta-calculator"
+                      data-ctid="button-80tta-calcualtor-600e89fae9">80TTA Calculator</a></li>
+                  <li><a href="https://tax2win.in/tax-tools/80dd-calculator"
+                      data-ctid="button-80dd-calculator-b654623e04">80DD Calculator</a></li>
+                  <li><a href="https://tax2win.in/tax-tools/80u-calculator"
+                      data-ctid="button-80u-calculator-e382e15da2">80U Calculator</a></li>
+                  <li><a href="https://tax2win.in/tax-tools/compound-interest-calculator"
+                      data-ctid="button-compound-interest-calculator-f4abe5c29e">Compound Interest Calculator</a></li>
+                  <li><a href="https://tax2win.in/new-tax-regime-old-tax-regime-comparison"
+                      data-ctid="button-old-vs-new-tax-slab-regime-037e540b4a">Old vs New Tax Slab Regime Calculator</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="more-nav">
+            <div class="panel toggle_action">
+              <div class="t_nav">
+                <strong>Services for Individuals</strong>
+                <ul>
+                  <li><a href="https://tax2win.in/efile-income-tax-return">Income Tax Returns Filing</a></li>
+                  <li><a href="https://tax2win.in/guide/tds-return">TDS Returns Filing</a></li>
+                  <li><a href="https://tax2win.in/tax-tools/tax-planning-optimiser">Tax Planning &amp; Saving</a></li>
+                  <li><a href="https://tax2win.in/guide/digital-signature-for-itr-efiling">Digital Signature
+                      Certificate</a></li>
+                  <li><a href="https://tax2win.in/guide/pan-verification">PAN Card Services</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="panel toggle_action">
+              <div class="t_nav">
+                <strong>Services for Businesses</strong>
+                <ul>
+                  <li><a href="https://tax2win.in/guide/gst-registration">GST Registration</a></li>
+                  <li><a href="https://tax2win.in/efile-income-tax-return">Income Tax Returns filing</a></li>
+                  <li><a href="https://tax2win.in/guide/gst-annual-return-filing">GST Returns filing</a></li>
+                  <li><a href="https://tax2win.in/guide/tds-return">TDS Returns filing</a></li>
+                  <li><a href="https://tax2win.in/tax-tools/tax-planning-optimiser">Tax Planning &amp; Saving</a></li>
+                  <li><a href="https://tax2win.in/guide/digital-signature-for-itr-efiling">Digital Signature
+                      Certificate</a></li>
+                  <li><a href="https://tax2win.in/guide/pan-verification">PAN Card Services</a></li>
+                  <li><a href="https://tax2win.in/guide/company-registration">Company Registration</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="panel toggle_action">
+              <div class="t_nav">
+                <strong>Income Tax Guides</strong>
+                <ul>
+                  <li><a href="https://tax2win.in/guide/income-tax-return"
+                      data-ctid="button-income-tax-return-2f32945517">Income Tax Return</a></li>
+                  <li><a href="https://tax2win.in/guide/deductions"
+                      data-ctid="button-deductions-0bad0fa5ff">Deductions</a></li>
+                  <li><a href="https://tax2win.in/guide/form16" data-ctid="button-form-16-17cfe401c2">Form 16</a></li>
+                  <li><a href="https://tax2win.in/guide/rent-receipt" data-ctid="button-rent-receipt-a8cd2a9afc">Rent
+                      Receipt</a></li>
+                  <li><a href="https://tax2win.in/guide/house-property">House Property tax</a></li>
+                  <li><a href="https://tax2win.in/guide/aadhaar-pan-link"
+                      data-ctid="button-how-to-link-aadhar-with-pan-c3fe0bf852">How to Link Aadhar with Pan</a></li>
+                  <li><a href="https://tax2win.in/guide/income-tax-slabs"
+                      data-ctid="button-income-tax-slab-rate-2019-2020-372878628c">Income Tax Slab Rate 2023-24</a></li>
+                  <li><a href="https://tax2win.in/guide/pan-card" data-ctid="button-pan-card-f5514e58c7">Pan Card</a>
+                  </li>
+                  <li><a href="https://tax2win.in/guide/aadhaar-card" data-ctid="button-aadhar-70372a7e44">Aadhar</a>
+                  </li>
+                  <li><a href="https://tax2win.in/guide/tds">TDS</a></li>
+                  <li><a href="https://tax2win.in/guide/capital-gain-tax-in-india-ltcg-stcg">Capital Gains Income</a>
+                  </li>
+                  <li><a href="https://tax2win.in/guide/e-verify-income-tax-return"
+                      data-ctid="button-e-verify-income-tax-return-acc9122f9b">e-verify Income Tax Return</a></li>
+                  <li><a href="https://tax2win.in/guide/revised-income-tax-return"
+                      data-ctid="button-revised-income-tax-return-454023a4ff">Revised Income Tax Return</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="panel toggle_action">
+              <div class="t_nav">
+                <strong>GST Guides</strong>
+                <ul>
+                  <li><a href="https://tax2win.in/guide/basics-of-gst">GST</a></li>
+                  <li><a href="https://tax2win.in/guide/gst-system-in-india">GST System</a></li>
+                  <li><a href="https://tax2win.in/guide/gst-registration">GST Registration</a></li>
+                  <li><a href="https://tax2win.in/guide/input-tax-credit-gst">Input Tax Credit</a></li>
+                  <li><a href="https://tax2win.in/guide/gst-procedure">GST Procedure</a></li>
+                  <li><a href="https://tax2win.in/guide/return-under-gst">GST Returns</a></li>
+                  <li><a href="https://tax2win.in/guide/eway-bill-gst">GST eWay Bill</a></li>
+                  <li><a href="https://tax2win.in/guide/gst-rates">GST Rates</a></li>
+                </ul>
+              </div>
+            </div>
+
+
+
+            <div class="panel toggle_action">
+              <div class="t_nav">
+                <strong>Mutual Fund Guides</strong>
+                <ul>
+                  <li><a href="https://tax2win.in/guide/mutual-fund-types">Mutual Fund Types</a></li>
+                  <li><a href="https://tax2win.in/guide/tax-saving-mutual-funds">Tax-Saving mutual Fund</a></li>
+                  <li><a href="https://tax2win.in/guide/elss-equity-linked-saving-schemes">ELSS</a></li>
+                  <li><a href="https://tax2win.in/guide/dividend-mutual-funds">Dividend mutual Fund</a></li>
+                  <li><a href="https://tax2win.in/guide/tax-saving-investments">Tax saving investments</a></li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+
+        </div>
+      </div>
     </div> -->
-    <div class="footer">
-        <p>#hireCA - All Rights Reserved &copy; 2024</p>
+    <div class="container-fluid">
+      <div class="bottom_panel">
+
+        <div class="ft-newsletter">
+          <form action="https://tax2win.in/user/newsletter-subscription" id="newsletter-subscription" class="d-flex"
+            method="post" accept-charset="utf-8">
+            <input type="hidden" name="token" value="f285a20624f1414f39585588006cb885">
+
+            <input type="hidden" name="full_name" value="Unknown User">
+            <span>Drop your email for more information</span>
+            <div class="outer"><input type="email" name="email" value="" id="login" class="form-control "
+                maxlength="125" placeholder="Enter Your Email Address">
+              <button class="btn btn-success loading_btn onfly-trigger-click" data-reset-text="Subscribe"
+                data-loading-text="Loading..." data-ctid="footer-subscribe-next-3aed37bf95">Subscribe</button>
+            </div>
+            <div class="successfulTxt hidden d-none">Thanks for subscribing</div>
+            <div class="newsletter-subscribed-alert"></div>
+          </form>
+        </div>
+        <figure class="iso_certified"><img src="./files/cainst.png" alt="ISO Certified" width="120" height="100">
+        </figure>
+
+      </div>
+      <div class="row">
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 copyright">
+          © 2025 <a href="https://tax2win.in/" title="File Income Tax Return">hireCA</a>. All Rights Reserved.
+        </div>
+        <!-- <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 policy_links">
+          <a href="https://tax2win.in/legal/terms-n-conditions">Terms &amp; Conditions</a> | <a
+            href="https://tax2win.in/legal/privacy-policy">Privacy Policy</a>
+        </div> -->
+      </div>
     </div>
-    <script>
-        // Function to update progress bar
-        function updateProgressBar(filedApplications) {
-            const progressBar = document.querySelector('.progress-bar-inner');
-            const status = document.getElementById('status');
-            const totalApplications = 1000; // Total number of applications
-            const percentage = (filedApplications / totalApplications) * 100;
-            progressBar.style.width = percentage + '%';
-            status.textContent = filedApplications + ' / ' + totalApplications + ' Applications Filed';
-        }
-        
-        // Function to update last updated date
-        function updateLastUpdated() {
-            const lastUpdated = document.getElementById('last-updated');
-            const currentDate = new Date().toLocaleString();
-            lastUpdated.textContent = 'Last Updated: ' + currentDate;
-        }
-        
-        // Call the function initially
-        updateLastUpdated();
+  </footer>
 
-        // Update last updated date every 5 seconds (for demonstration)
-        setInterval(updateLastUpdated, 5000); // Adjust the interval as needed
+  <script type="text/javascript">
+    var token_name = 'token',
+      site_url = 'https://tax2win.in/';
+  </script>
 
-        // Simulate fetching filed applications count from server (replace with actual data)
-        const filedApplications = 0; // Example: 250 applications filed
-        updateProgressBar(filedApplications);
+  <script src="./files/autonumeric-4.8.1.min.js" type="text/javascript"></script>
+  <script src="./files/jquery-3.6.0.min.js" type="text/javascript"></script>
+  <script src="./files/popper.min.js" type="text/javascript"></script>
+  <script src="./files/bootstrap.min.js" type="text/javascript"></script>
+  <script src="./files/inputmask.bundle.min.js" type="text/javascript"></script>
+  <script defer="" src="./files/new-theme-common-1745233851590.min.js" type="text/javascript"></script>
+  <!-- otps modal -->
+  <div class="modal fade modal_free_otpflow" id="otp_model" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="otp_model" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal"
+            data-ctid="screen-name-mobile-validate-back-cfdb8d4d8f"></button>
+          <h3>Enter OTP</h3>
+        </div>
+        <div class="modal-body add_client_modal">
+          <div class="validOTP">
+            <div id="status-area" class="">
+              <p class=""><strong><span class="text_params">Mobile</span> Validation</strong> is mandatory. Please enter
+                OTP sent to your <span class="text_params">Mobile</span></p>
 
-        // Dynamic Background Change
-        // Change background every 10 seconds (for demonstration)
-        // Dynamic Background Change
-        function changeBackground() {
-            const backgrounds = [
-                'https://i.pinimg.com/564x/ec/5f/5b/ec5f5b300aa630b757a2a50b1921ccbf.jpg',
-                'https://i.pinimg.com/564x/f3/b3/6c/f3b36cddb7d2be16ff959ce24c43d29a.jpg',
-                'https://i.pinimg.com/736x/1b/09/b8/1b09b8f8676a61848779f074547729b3.jpg',
-                'https://i.pinimg.com/564x/27/86/61/27866146e40ae04f8fb43cab2e0f3742.jpg',
-                'https://i.pinimg.com/564x/e4/00/79/e4007919100bff1705068f62e13dca0f.jpg',
-                'https://i.pinimg.com/564x/a8/5e/36/a85e36ae569ae582fbff40d265e5d243.jpg',
-                'https://i.pinimg.com/564x/a6/16/45/a61645d697868c68dc8cb77a714dc7b3.jpg'
-            ]; // Array of background images
-            const randomIndex = Math.floor(Math.random() * backgrounds.length); // Get random index
-            document.body.style.backgroundImage = 'url(' + backgrounds[randomIndex] + ')'; // Set random background image
-        }  
+              <input type="hidden" name="applied_fom_action" value="">
 
-        // Call the function to change background on load
-        changeBackground();
+              <input type="hidden" name="login_param" value="">
+              <form action="https://tax2win.in/user/validate_otp" id="otp_form" autocomplete="off" method="post"
+                accept-charset="utf-8">
+                <input type="hidden" name="token" value="f285a20624f1414f39585588006cb885">
+                <div class="form-group">
 
-        // Change background every 10 seconds (for demonstration)
-        setInterval(changeBackground, 10000); // Adjust the interval as needed
-    </script>
+                  <input type="hidden" name="login" value="">
+
+                  <input type="hidden" name="theme_version" value="bs5">
+                  <input type="text" name="otp_code" value="" class="form-control textBoxes pincode restrict_otp_length"
+                    id="otp_code" placeholder="Enter 6-digit OTP" inputmode="numeric">
+                </div>
+
+                <button class="btn green-btn loading_btn valid_otp_submit_btn btn-success"
+                  data-loading-text="Validating" data-ctid="screen-name-mobile-validate-next-a9f3b84d27"
+                  disabled="">VALIDATE</button>
+              </form>
+              <div class="">
+                <small class="" id="clock-outer">Resend OTP in <b id="clock">60</b> seconds</small>
+                <small class="hidden d-none d-flex justify-content-center gap-1" id="resend_otp-outer"> Didn’t receive
+                  code? <a href="https://tax2win.in/user/resend_otp" id="resend_otp" class="hidden m-0"
+                    data-ctid="screen-name-mobile-validate-resend-otp-1b2d06a94e">Resend OTP</a></small>
+                <small class="cnf_tnc" style="display:none">By proceeding, you agree to our <a
+                    href="https://tax2win.in/legal/terms-n-conditions" target="_blank">Terms &amp; Conditions</a> and
+                  that you have read our <a href="https://tax2win.in/legal/privacy-policy" target="_blank">Privacy
+                    Policy</a>. </small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+  <!-- end otps modal -->
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script>
+    const sentences = [
+      "Income Tax Filing",
+      "GST Return Filing",
+      "Business Registration",
+      "Accounting",
+      "Compliance",
+      "Tax Planning",
+      "Financial Services"
+    ];
+
+    let part = 0;
+    let index = 0;
+    let isDeleting = false;
+    const speed = 50;
+    const pause = 1500;
+    const typewriter = document.getElementById("typewriter");
+
+    function typeEffect() {
+      const text = sentences[part];
+      if (isDeleting) {
+        typewriter.textContent = text.substring(0, index--);
+      } else {
+        typewriter.textContent = text.substring(0, index++);
+      }
+
+      if (!isDeleting && index === text.length + 1) {
+        isDeleting = true;
+        setTimeout(typeEffect, pause);
+      } else if (isDeleting && index === 0) {
+        isDeleting = false;
+        part = (part + 1) % sentences.length;
+        setTimeout(typeEffect, 200);
+      } else {
+        setTimeout(typeEffect, speed);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", typeEffect);
+  </script>
+
+  <script defer="" src="./files/js(1)" type="text/javascript"></script>
+  <script type="text/javascript">
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-Q3MYQ6G875');
+  </script>
+
+
+  <!-- Google Tag Manager -->
+  <script type="text/javascript">
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.defer = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KR7B8Q');
+  </script>
+  <!-- End Google Tag Manager -->
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe loading="lazy" src="https://www.googletagmanager.com/ns.html?id=GTM-KR7B8Q" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <script type="text/javascript">
+    ! function (e, n, i, t, a, r, o, d) {
+      var s = e[a] = e[a] || [];
+      if (s.invoked = 0, s.initialised > 0 || s.invoked > 0) return console.error("MoEngage Web SDK initialised multiple times. Please integrate the Web SDK only once!"), !1;
+      e.moengage_object = a;
+      var l = {},
+        g = function n(i) {
+          return function () {
+            for (var n = arguments.length, t = Array(n), a = 0; a < n; a++) t[a] = arguments[a];
+            (e.moengage_q = e.moengage_q || []).push({
+              f: i,
+              a: t
+            })
+          }
+        },
+        u = ["track_event", "add_user_attribute", "add_first_name", "add_last_name", "add_email", "add_mobile", "add_user_name", "add_gender", "add_birthday", "destroy_session", "add_unique_user_id", "moe_events", "call_web_push", "track", "location_type_attribute"],
+        m = {
+          onsite: ["getData", "registerCallback"]
+        };
+      for (var c in u) l[u[c]] = g(u[c]);
+      for (var v in m)
+        for (var f in m[v]) null == l[v] && (l[v] = {}), l[v][m[v][f]] = g(v + "." + m[v][f]);
+      r = n.createElement(i), o = n.getElementsByTagName("head")[0], r.async = 1, r.src = t, o.appendChild(r), e.moe = e.moe || function () {
+        return (s.invoked = s.invoked + 1, s.invoked > 1) ? (console.error("MoEngage Web SDK initialised multiple times. Please integrate the Web SDK only once!"), !1) : (d = arguments.length <= 0 ? void 0 : arguments[0], l)
+      }, r.addEventListener("load", function () {
+        if (d) return e[a] = e.moe(d), e[a].initialised = e[a].initialised + 1 || 1, !0
+      }), r.addEventListener("error", function () {
+        return console.error("Moengage Web SDK loading failed."), !1
+      })
+    }(window, document, "script", "https://cdn.moengage.com/webpush/moe_webSdk.min.latest.js", "Moengage");
+
+
+    Moengage = moe({
+      app_id: "2K4HUU55F29JROOP2R7ZAEJ1",
+      debug_logs: 0,
+      cluster: "DC_3",
+      disable_web_push: true
+    });
+  </script>
+  <script defer="" src="./files/moengage-service.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      window.moengage_service = new MoengageService({
+        data: JSON.parse('{\"events\":{\"button-twitter-9f9f8dd99b\":{\"clevertap_event_id\":\"2\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-twitter-9f9f8dd99b\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"twitter\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"header\\\",\\\"sub_category_name\\\":\\\"social_media\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-linkedln-26aff8241b\":{\"clevertap_event_id\":\"3\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-linkedln-26aff8241b\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"linkedln\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"header\\\",\\\"sub_category_name\\\":\\\"social_media\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-youtube-06f44bd209\":{\"clevertap_event_id\":\"4\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-youtube-06f44bd209\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"youtube\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"header\\\",\\\"sub_category_name\\\":\\\"social_media\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-instagram-cff8c34b04\":{\"clevertap_event_id\":\"5\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-instagram-cff8c34b04\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"instagram\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"header\\\",\\\"sub_category_name\\\":\\\"social_media\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"card-clicked-book-eca-now-415d2f25cd\":{\"clevertap_event_id\":\"53\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"card-clicked-book-eca-now-415d2f25cd\",\"action\":\"click\",\"fixed_attribute_key\":\"card_clicked\",\"fixed_attribute_value\":\"book_eca_now\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"get_a_personal_eca\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"card-clicked-get-a-personal-eca-6adc80e418\":{\"clevertap_event_id\":\"54\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"card-clicked-get-a-personal-eca-6adc80e418\",\"action\":\"click\",\"fixed_attribute_key\":\"card_clicked\",\"fixed_attribute_value\":\"get_a_personal_eca\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"What We Do For You\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"book_now\"},\"button-right-aaeb762b62\":{\"clevertap_event_id\":\"55\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-right-aaeb762b62\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"right\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"label\\\",\\\"value\\\":\\\"right\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-left-a0d3b90bb7\":{\"clevertap_event_id\":\"56\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-left-a0d3b90bb7\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"left\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"label\\\",\\\"value\\\":\\\"left\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-read-more-876af70524\":{\"clevertap_event_id\":\"57\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-read-more-876af70524\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"read_more\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"Best income tax efiling website in India\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"card-clicked-check-refund-status-93c34044a1\":{\"clevertap_event_id\":\"58\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"card-clicked-check-refund-status-93c34044a1\",\"action\":\"click\",\"fixed_attribute_key\":\"card_clicked\",\"fixed_attribute_value\":\"check_refund_status\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"What We Do For You\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"card-clicked-file-it-yourself-758cd3ca6a\":{\"clevertap_event_id\":\"59\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"card-clicked-file-it-yourself-758cd3ca6a\",\"action\":\"click\",\"fixed_attribute_key\":\"card_clicked\",\"fixed_attribute_value\":\"file_it_yourself\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"What We Do For You\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"card-clicked-upload-form-16-0c9acba791\":{\"clevertap_event_id\":\"60\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"card-clicked-upload-form-16-0c9acba791\",\"action\":\"click\",\"fixed_attribute_key\":\"card_clicked\",\"fixed_attribute_value\":\"upload_form_16\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"What We Do For You\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"card-clicked-file-revised-return-e8cc7fff2c\":{\"clevertap_event_id\":\"61\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"card-clicked-file-revised-return-e8cc7fff2c\",\"action\":\"click\",\"fixed_attribute_key\":\"card_clicked\",\"fixed_attribute_value\":\"file_revised_return\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"What We Do For You\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"card-clicked-plan-tax-file-itr-7b46e61244\":{\"clevertap_event_id\":\"62\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"card-clicked-plan-tax-file-itr-7b46e61244\",\"action\":\"click\",\"fixed_attribute_key\":\"card_clicked\",\"fixed_attribute_value\":\"plan_tax_file_itr\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"What We Do For You\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"card-clicked-nri-taxes-itr-filling-c9899e8314\":{\"clevertap_event_id\":\"63\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"card-clicked-nri-taxes-itr-filling-c9899e8314\",\"action\":\"click\",\"fixed_attribute_key\":\"card_clicked\",\"fixed_attribute_value\":\"nri_taxes_itr_filling\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"What We Do For You\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"bubble-button-review-0a26184494\":{\"clevertap_event_id\":\"64\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"bubble-button-review-0a26184494\",\"action\":\"click\",\"fixed_attribute_key\":\"bubble_button\",\"fixed_attribute_value\":\"review\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"Our Winni\'s\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"bubble-button-review-7ab96c0c39\":{\"clevertap_event_id\":\"65\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"bubble-button-review-7ab96c0c39\",\"action\":\"click\",\"fixed_attribute_key\":\"bubble_button\",\"fixed_attribute_value\":\"review\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"Our Winni\'s\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"back\"},\"button-read-more-guides-d8b136650d\":{\"clevertap_event_id\":\"66\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-read-more-guides-d8b136650d\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"read_more_guides\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"Income Tax e-filing Popular Guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-about-4eacb53926\":{\"clevertap_event_id\":\"67\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-about-4eacb53926\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"about\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"quick_links\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-contact-d33f8ce0dc\":{\"clevertap_event_id\":\"68\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-contact-d33f8ce0dc\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"contact\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"quick_links\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-pricing-7a26f2309f\":{\"clevertap_event_id\":\"69\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-pricing-7a26f2309f\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"pricing\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"quick_links\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-blog-cc3577de1f\":{\"clevertap_event_id\":\"70\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-blog-cc3577de1f\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"blog\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"quick_links\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-faq-1c1fac12d6\":{\"clevertap_event_id\":\"71\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-faq-1c1fac12d6\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"faq\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"quick_links\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-tax-glossary-522c12a1f3\":{\"clevertap_event_id\":\"72\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-tax-glossary-522c12a1f3\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"tax_glossary\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"quick_links\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-file-income-tax-return-b677a42f5b\":{\"clevertap_event_id\":\"73\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-file-income-tax-return-b677a42f5b\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"file_income_tax_return\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"services\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-upload-form-16-f75a63b5fb\":{\"clevertap_event_id\":\"74\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-upload-form-16-f75a63b5fb\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"upload_form_16\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"services\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-ca-assisted-38ff420f71\":{\"clevertap_event_id\":\"75\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-ca-assisted-38ff420f71\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"ca_assisted\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"services\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-income-tax-refund-status-9fe1ac1bf4\":{\"clevertap_event_id\":\"76\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-income-tax-refund-status-9fe1ac1bf4\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"income_tax_refund_status\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"services\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-tds-solution-6d61786b3f\":{\"clevertap_event_id\":\"77\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-tds-solution-6d61786b3f\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"tds_solution\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"services\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-plan-tax-file-itr-0c97914d17\":{\"clevertap_event_id\":\"78\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-plan-tax-file-itr-0c97914d17\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"plan_tax_file_itr\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"services\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-nri-taxes-itr-filing-e29efb1d1f\":{\"clevertap_event_id\":\"79\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-nri-taxes-itr-filing-e29efb1d1f\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"nri_taxes_itr_filing\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"services\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-income-tax-return-2f32945517\":{\"clevertap_event_id\":\"80\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-income-tax-return-2f32945517\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"income_tax_return\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-deductions-0bad0fa5ff\":{\"clevertap_event_id\":\"81\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-deductions-0bad0fa5ff\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"deductions\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-form-16-17cfe401c2\":{\"clevertap_event_id\":\"82\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-form-16-17cfe401c2\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"form_16\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-rent-receipt-a8cd2a9afc\":{\"clevertap_event_id\":\"83\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-rent-receipt-a8cd2a9afc\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"rent_receipt\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-how-to-link-aadhar-with-pan-c3fe0bf852\":{\"clevertap_event_id\":\"84\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-how-to-link-aadhar-with-pan-c3fe0bf852\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"how_to_link_aadhar_with_pan\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-income-tax-slab-rate-2019-2020-372878628c\":{\"clevertap_event_id\":\"85\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-income-tax-slab-rate-2019-2020-372878628c\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"income_tax_slab_rate_2019_2020\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-pan-card-f5514e58c7\":{\"clevertap_event_id\":\"86\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-pan-card-f5514e58c7\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"pan_card\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-aadhar-70372a7e44\":{\"clevertap_event_id\":\"87\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-aadhar-70372a7e44\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"aadhar\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-e-verify-income-tax-return-acc9122f9b\":{\"clevertap_event_id\":\"88\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-e-verify-income-tax-return-acc9122f9b\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"e_verify_income_tax_return\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-revised-income-tax-return-454023a4ff\":{\"clevertap_event_id\":\"89\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"button-revised-income-tax-return-454023a4ff\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"revised_income_tax_return\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"read-more-guides-e4a121932r\":{\"clevertap_event_id\":\"96\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"read-more-guides-e4a121932r\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"read_more_guides\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"Income Tax e-filing Popular Guides\\\",\\\"guide_name\\\":\\\"$name\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"card-clicked-refer-and-earn-54db8d2dd5\":{\"clevertap_event_id\":\"206\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"card-clicked-refer-and-earn-54db8d2dd5\",\"action\":\"click\",\"fixed_attribute_key\":\"card_clicked\",\"fixed_attribute_value\":\"refer_and_earn\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"What We Do For You\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"home-card-clicked-file-itr-now-f7b9438220\":{\"clevertap_event_id\":\"318\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"home-card-clicked-file-itr-now-f7b9438220\",\"action\":\"click\",\"fixed_attribute_key\":\"card_clicked\",\"fixed_attribute_value\":\"file_itr_now\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"file_it_yourself\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"home-get-tax-expert-help-next-130daf74e3\":{\"clevertap_event_id\":\"328\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"home-get-tax-expert-help-next-130daf74e3\",\"action\":\"click\",\"fixed_attribute_key\":\"card_clicked\",\"fixed_attribute_value\":\"Get_tax_expert_help\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"What We Do For You\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"home-start-filing-now-next-30f3f91029\":{\"clevertap_event_id\":\"329\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"home-start-filing-now-next-30f3f91029\",\"action\":\"click\",\"fixed_attribute_key\":\"card_clicked\",\"fixed_attribute_value\":\"start_filing_now\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"What We Do For You\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"home-free-file-now-next-3fe7c7d6de\":{\"clevertap_event_id\":\"330\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"home-free-file-now-next-3fe7c7d6de\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"free_file_now\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"What We Do For You\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"home-page-card-clicked-tax-planning-tool-b3c398246a\":{\"clevertap_event_id\":\"349\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"home-page-card-clicked-tax-planning-tool-b3c398246a\",\"action\":\"click\",\"fixed_attribute_key\":\"card_clicked\",\"fixed_attribute_value\":\"tax_planning_tool\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"What We Do For You\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"home-avoid-tax-notices-next-879e100618\":{\"clevertap_event_id\":\"387\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"home-avoid-tax-notices-next-879e100618\",\"action\":\"click\",\"fixed_attribute_key\":\"card_clicked\",\"fixed_attribute_value\":\"avoid_tax_notices\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"What We Do For You\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"home-tax-planning-optimiser-next-6b15871b13\":{\"clevertap_event_id\":\"388\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"home-tax-planning-optimiser-next-6b15871b13\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"tax_planning_optimiser\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"footer\\\",\\\"sub_category_name\\\":\\\"services\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"home-itr-u-next-10ce58d1a0\":{\"clevertap_event_id\":\"406\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"home-itr-u-next-10ce58d1a0\",\"action\":\"click\",\"fixed_attribute_key\":\"card_clicked\",\"fixed_attribute_value\":\"itr_u\",\"extra_attributes\":null,\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"home-nri-tax-filing-next-379e9d48ac\":{\"clevertap_event_id\":\"407\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"home-nri-tax-filing-next-379e9d48ac\",\"action\":\"click\",\"fixed_attribute_key\":\"card_clicked\",\"fixed_attribute_value\":\"nri_tax_filing\",\"extra_attributes\":null,\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"home-capital-gain-tax-filing-next-a6447b96e5\":{\"clevertap_event_id\":\"408\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"home-capital-gain-tax-filing-next-a6447b96e5\",\"action\":\"click\",\"fixed_attribute_key\":\"card_clicked\",\"fixed_attribute_value\":\"capital_gain_tax_filing\",\"extra_attributes\":null,\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"home-get-expert-help-next-5376362c9a\":{\"clevertap_event_id\":\"409\",\"page_slug\":\"\",\"event_name\":\"home\",\"slug\":\"home-get-expert-help-next-5376362c9a\",\"action\":\"click\",\"fixed_attribute_key\":\"card_clicked\",\"fixed_attribute_value\":\"get_expert_help\",\"extra_attributes\":null,\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-facebook-87bc9b86e2\":{\"clevertap_event_id\":\"1\",\"page_slug\":null,\"event_name\":\"home\",\"slug\":\"button-facebook-87bc9b86e2\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"facebook\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"header\\\",\\\"sub_category_name\\\":\\\"social_media\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-file-your-return-33a0ad467c\":{\"clevertap_event_id\":\"6\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-file-your-return-33a0ad467c\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"file_your_return\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"services\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-upload-form-16-d90fe35717\":{\"clevertap_event_id\":\"7\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-upload-form-16-d90fe35717\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"upload_form_16\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"services\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-ca-assistanant-tax-filling-720df06c70\":{\"clevertap_event_id\":\"8\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-ca-assistanant-tax-filling-720df06c70\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"ca_assistanant_tax_filling\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"services\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-refund-status-5b47851085\":{\"clevertap_event_id\":\"9\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-refund-status-5b47851085\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"refund_status\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"services\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-tds-solution-cdb226871a\":{\"clevertap_event_id\":\"10\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-tds-solution-cdb226871a\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"tds_solution\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"services\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-plan-tax-file-itr-994eac7c93\":{\"clevertap_event_id\":\"11\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-plan-tax-file-itr-994eac7c93\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"plan_tax_file_itr\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"services\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-nri-taxes-itr-filling-ac4c63eda1\":{\"clevertap_event_id\":\"12\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-nri-taxes-itr-filling-ac4c63eda1\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"nri_taxes_itr_filling\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"services\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-income-tax-calculator-9208289241\":{\"clevertap_event_id\":\"13\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-income-tax-calculator-9208289241\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"income_tax_calculator\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-form-12bb-d89254cd27\":{\"clevertap_event_id\":\"14\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-form-12bb-d89254cd27\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"form_12bb\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-hra-calculator-b78196546f\":{\"clevertap_event_id\":\"15\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-hra-calculator-b78196546f\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"hra_calculator\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-gratuity-calculator-23bcd708f9\":{\"clevertap_event_id\":\"16\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-gratuity-calculator-23bcd708f9\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"gratuity_calculator\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-rent-receipt-generator-74b8f3740c\":{\"clevertap_event_id\":\"17\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-rent-receipt-generator-74b8f3740c\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"rent_receipt_generator\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-old-vs-new-tax-slab-regime-037e540b4a\":{\"clevertap_event_id\":\"18\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-old-vs-new-tax-slab-regime-037e540b4a\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"old_vs_new_tax_slab_regime\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-transport-allowance-calculator-cd129b6a5b\":{\"clevertap_event_id\":\"19\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-transport-allowance-calculator-cd129b6a5b\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"transport_allowance_calculator\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-tds-calculator-90b6f88aae\":{\"clevertap_event_id\":\"20\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-tds-calculator-90b6f88aae\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"tds_calculator\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-calculator-on-section-234f-754d173d3a\":{\"clevertap_event_id\":\"21\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-calculator-on-section-234f-754d173d3a\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"calculator_on_section_234f\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-sukanya-samriddhi-yojana-calculator-0f4b222416\":{\"clevertap_event_id\":\"22\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-sukanya-samriddhi-yojana-calculator-0f4b222416\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"sukanya_samriddhi_yojana_calculator\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-blog-51c0816b82\":{\"clevertap_event_id\":\"23\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-blog-51c0816b82\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"blog\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"knowledge_center\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-faq-869ed2bbb9\":{\"clevertap_event_id\":\"24\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-faq-869ed2bbb9\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"faq\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"knowledge_center\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-tax-glossary-2745eb289e\":{\"clevertap_event_id\":\"25\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-tax-glossary-2745eb289e\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"tax_glossary\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"knowledge_center\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-income-tax-guides-6383045c05\":{\"clevertap_event_id\":\"26\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-income-tax-guides-6383045c05\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"income_tax_guides\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-aadhar-013b9f8b3c\":{\"clevertap_event_id\":\"27\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-aadhar-013b9f8b3c\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"aadhar\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-capital-gains-income-667086f1ce\":{\"clevertap_event_id\":\"28\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-capital-gains-income-667086f1ce\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"capital_gains_income\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-e-filling-of-itr-90915bddee\":{\"clevertap_event_id\":\"29\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-e-filling-of-itr-90915bddee\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"e_filling_of_itr\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-house-property-06cf20bcd8\":{\"clevertap_event_id\":\"30\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-house-property-06cf20bcd8\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"house_property\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-income-tax-calendar-b1c6e3459a\":{\"clevertap_event_id\":\"31\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-income-tax-calendar-b1c6e3459a\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"income_tax_calendar\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-income-tax-notices-297d5c2f96\":{\"clevertap_event_id\":\"32\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-income-tax-notices-297d5c2f96\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"income_tax_notices\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-income-tax-refund-57bd9fcc0f\":{\"clevertap_event_id\":\"33\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-income-tax-refund-57bd9fcc0f\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"income_tax_refund\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-income-tax-slabs-2e8ac9e4d1\":{\"clevertap_event_id\":\"34\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-income-tax-slabs-2e8ac9e4d1\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"income_tax_slabs\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-income-tax-verification-c7dd22dddc\":{\"clevertap_event_id\":\"35\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-income-tax-verification-c7dd22dddc\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"income_tax_verification\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-pan-card-426cc76a5f\":{\"clevertap_event_id\":\"36\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-pan-card-426cc76a5f\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"pan_card\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-salary-income-c239a47589\":{\"clevertap_event_id\":\"37\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-salary-income-c239a47589\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"salary_income\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-section-80-deductions-217b236110\":{\"clevertap_event_id\":\"38\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-section-80-deductions-217b236110\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"section_80_deductions\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-tds-fb872fb457\":{\"clevertap_event_id\":\"39\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-tds-fb872fb457\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"tds\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-gst-guides-eb5a3d2105\":{\"clevertap_event_id\":\"40\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-gst-guides-eb5a3d2105\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"gst_guides\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-gst-74302bf8a0\":{\"clevertap_event_id\":\"41\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-gst-74302bf8a0\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"gst\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-gst-system-8d06714d8b\":{\"clevertap_event_id\":\"42\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-gst-system-8d06714d8b\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"gst_system\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-gst-registration-54dcd9d4ab\":{\"clevertap_event_id\":\"43\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-gst-registration-54dcd9d4ab\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"gst_registration\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-input-tax-credit-eb8cc73801\":{\"clevertap_event_id\":\"44\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-input-tax-credit-eb8cc73801\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"input_tax_credit\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-gst-procedure-02c9eafa99\":{\"clevertap_event_id\":\"45\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-gst-procedure-02c9eafa99\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"gst_procedure\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-gst-returns-d80941e3d1\":{\"clevertap_event_id\":\"46\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-gst-returns-d80941e3d1\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"gst_returns\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-gst-eway-bill-452f48674f\":{\"clevertap_event_id\":\"47\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-gst-eway-bill-452f48674f\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"gst_eway_bill\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-gst-rates-0fd0b4999d\":{\"clevertap_event_id\":\"48\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-gst-rates-0fd0b4999d\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"gst_rates\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"guides\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-pricing-aa4ed4f03c\":{\"clevertap_event_id\":\"49\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-pricing-aa4ed4f03c\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"pricing\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"toolbar\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-contact-3d8ea0e7de\":{\"clevertap_event_id\":\"50\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-contact-3d8ea0e7de\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"contact\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"toolbar\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-login-signup-780bc5c1cc\":{\"clevertap_event_id\":\"51\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-login-signup-780bc5c1cc\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"login\\/signup\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"toolbar\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-logout-fa0b789570\":{\"clevertap_event_id\":\"52\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-logout-fa0b789570\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"logout\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"toolbar\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-facebook-9370312f43\":{\"clevertap_event_id\":\"90\",\"page_slug\":null,\"event_name\":\"footer\",\"slug\":\"button-facebook-9370312f43\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"facebook\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"social_media\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-twitter-8ffd1b0186\":{\"clevertap_event_id\":\"91\",\"page_slug\":null,\"event_name\":\"footer\",\"slug\":\"button-twitter-8ffd1b0186\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"twitter\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"social_media\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-linkedln-d19ec7fcd1\":{\"clevertap_event_id\":\"92\",\"page_slug\":null,\"event_name\":\"footer\",\"slug\":\"button-linkedln-d19ec7fcd1\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"linkedln\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"social_media\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-youtube-9fa10f2b36\":{\"clevertap_event_id\":\"93\",\"page_slug\":null,\"event_name\":\"footer\",\"slug\":\"button-youtube-9fa10f2b36\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"youtube\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"social_media\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-instagram-7b14684650\":{\"clevertap_event_id\":\"94\",\"page_slug\":null,\"event_name\":\"footer\",\"slug\":\"button-instagram-7b14684650\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"instagram\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"social_media\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"email-link-support-tax2win-in-37ad9c1d10\":{\"clevertap_event_id\":\"95\",\"page_slug\":null,\"event_name\":\"footer\",\"slug\":\"email-link-support-tax2win-in-37ad9c1d10\",\"action\":\"click\",\"fixed_attribute_key\":\"email_link\",\"fixed_attribute_value\":\"support@tax2win.in\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"contact_us\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-tax-planning-optimiser-08540a9ba7\":{\"clevertap_event_id\":\"97\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-tax-planning-optimiser-08540a9ba7\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"tax_planning_optimiser\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-itr-eligibility-checker-28694c6b63\":{\"clevertap_event_id\":\"98\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-itr-eligibility-checker-28694c6b63\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"itr_eligibility_checker\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-refer-and-earn-navigation-72246c3438\":{\"clevertap_event_id\":\"205\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-refer-and-earn-navigation-72246c3438\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"refer_and_earn\",\"extra_attributes\":null,\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"screen-name-how-efiling-works-continue-ecbd7589ab\":{\"clevertap_event_id\":\"207\",\"page_slug\":null,\"event_name\":\"fiy\",\"slug\":\"screen-name-how-efiling-works-continue-ecbd7589ab\",\"action\":\"click\",\"fixed_attribute_key\":\"screen_name\",\"fixed_attribute_value\":\"how_efiling_works\",\"extra_attributes\":null,\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"continue\"},\"screen-name-efiler-registration-otp-close-f428451650\":{\"clevertap_event_id\":\"208\",\"page_slug\":null,\"event_name\":\"fiy\",\"slug\":\"screen-name-efiler-registration-otp-close-f428451650\",\"action\":\"click\",\"fixed_attribute_key\":\"screen_name\",\"fixed_attribute_value\":\"efiler_registration_otp\",\"extra_attributes\":null,\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"close\"},\"screen-name-efiler-registration-otp-verify-otp-49317c32d3\":{\"clevertap_event_id\":\"209\",\"page_slug\":null,\"event_name\":\"fiy\",\"slug\":\"screen-name-efiler-registration-otp-verify-otp-49317c32d3\",\"action\":\"click\",\"fixed_attribute_key\":\"screen_name\",\"fixed_attribute_value\":\"efiler_registration_otp\",\"extra_attributes\":null,\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"verify_otp\"},\"screen-name-efiler-registration-otp-resend-otp-56f81281f0\":{\"clevertap_event_id\":\"210\",\"page_slug\":null,\"event_name\":\"fiy\",\"slug\":\"screen-name-efiler-registration-otp-resend-otp-56f81281f0\",\"action\":\"click\",\"fixed_attribute_key\":\"screen_name\",\"fixed_attribute_value\":\"efiler_registration_otp\",\"extra_attributes\":null,\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"resend_otp\"},\"screen-name-efiler-added-proceed-42d52ec2e2\":{\"clevertap_event_id\":\"211\",\"page_slug\":null,\"event_name\":\"fiy\",\"slug\":\"screen-name-efiler-added-proceed-42d52ec2e2\",\"action\":\"click\",\"fixed_attribute_key\":\"screen_name\",\"fixed_attribute_value\":\"efiler_added\",\"extra_attributes\":null,\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"proceed\"},\"screen-name-pre-filled-data-otp-verify-otp-d17c4dc21e\":{\"clevertap_event_id\":\"212\",\"page_slug\":null,\"event_name\":\"fiy\",\"slug\":\"screen-name-pre-filled-data-otp-verify-otp-d17c4dc21e\",\"action\":\"click\",\"fixed_attribute_key\":\"screen_name\",\"fixed_attribute_value\":\"pre_filled_data_otp\",\"extra_attributes\":null,\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"verify_otp\"},\"screen-name-pre-filled-data-otp-resend-otp-dcaf4c7da9\":{\"clevertap_event_id\":\"213\",\"page_slug\":null,\"event_name\":\"fiy\",\"slug\":\"screen-name-pre-filled-data-otp-resend-otp-dcaf4c7da9\",\"action\":\"click\",\"fixed_attribute_key\":\"screen_name\",\"fixed_attribute_value\":\"pre_filled_data_otp\",\"extra_attributes\":null,\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"resend_otp\"},\"screen-name-pre-filled-data-uploaded-proceed-d4f3cca43a\":{\"clevertap_event_id\":\"214\",\"page_slug\":null,\"event_name\":\"fiy\",\"slug\":\"screen-name-pre-filled-data-uploaded-proceed-d4f3cca43a\",\"action\":\"click\",\"fixed_attribute_key\":\"screen_name\",\"fixed_attribute_value\":\"pre_filled_data_uploaded\",\"extra_attributes\":null,\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"proceed\"},\"button-crypto-currency-tax-calculator-76e49e7786\":{\"clevertap_event_id\":\"263\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-crypto-currency-tax-calculator-76e49e7786\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"crypto_currency_tax_calculator\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-lta-calculator-4bf91df71c\":{\"clevertap_event_id\":\"264\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-lta-calculator-4bf91df71c\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"lta_calculator\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-deductions-80c-calculator-fcc9343092\":{\"clevertap_event_id\":\"265\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-deductions-80c-calculator-fcc9343092\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"deductions_under_80c_calculator\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-house-property-calculator-dc34aa06b4\":{\"clevertap_event_id\":\"266\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-house-property-calculator-dc34aa06b4\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"house_property_calculator\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-compound-interest-calculator-f4abe5c29e\":{\"clevertap_event_id\":\"301\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-compound-interest-calculator-f4abe5c29e\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"compound_interest_calculator\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-80u-calculator-e382e15da2\":{\"clevertap_event_id\":\"302\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-80u-calculator-e382e15da2\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"80u_calculator\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-80dd-calculator-b654623e04\":{\"clevertap_event_id\":\"303\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-80dd-calculator-b654623e04\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"80dd_calculator\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-80tta-calcualtor-600e89fae9\":{\"clevertap_event_id\":\"304\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-80tta-calcualtor-600e89fae9\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"80tta_calculator\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-simple-interest-calculator-488573858c\":{\"clevertap_event_id\":\"305\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-simple-interest-calculator-488573858c\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"simple_interest_calculator\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-80d-calculator-42f0fffc4b\":{\"clevertap_event_id\":\"306\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-80d-calculator-42f0fffc4b\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"80d_calculator\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"button-ifsc-search-19977a365b\":{\"clevertap_event_id\":\"350\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"button-ifsc-search-19977a365b\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"ifsc_code_search\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"footer-subscribe-next-3aed37bf95\":{\"clevertap_event_id\":\"362\",\"page_slug\":null,\"event_name\":\"footer\",\"slug\":\"footer-subscribe-next-3aed37bf95\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"subscribe\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"alert\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"contact-form-contact-form-page-title-next-5f72fbf71b\":{\"clevertap_event_id\":\"373\",\"page_slug\":null,\"event_name\":\"contact_form\",\"slug\":\"contact-form-contact-form-page-title-next-5f72fbf71b\",\"action\":\"click\",\"fixed_attribute_key\":\"screen_name\",\"fixed_attribute_value\":\"$contact_form_page_title\",\"extra_attributes\":\"{\\\"button\\\":\\\"$contact_form_button_value\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"footer-tax-advisory-services-next-55f79bccbe\":{\"clevertap_event_id\":\"375\",\"page_slug\":null,\"event_name\":\"footer\",\"slug\":\"footer-tax-advisory-services-next-55f79bccbe\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"tax_advisory_services\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"contact_us\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"header-tax-advisory-services-next-fe94675465\":{\"clevertap_event_id\":\"376\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"header-tax-advisory-services-next-fe94675465\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"tax_advisory_services\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"services\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"social-login-login-next-91684e052a\":{\"clevertap_event_id\":\"377\",\"page_slug\":null,\"event_name\":\"social_login\",\"slug\":\"social-login-login-next-91684e052a\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"login\",\"extra_attributes\":\"{\\\"page\\\":\\\"$social_login_page\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"header-more-tax-tools-next-1dbceb6db4\":{\"clevertap_event_id\":\"410\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"header-more-tax-tools-next-1dbceb6db4\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"more_tax_tools\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"tools\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"tax-ebook-ebook-screen-next-34c47cf2db\":{\"clevertap_event_id\":\"411\",\"page_slug\":null,\"event_name\":\"tax_ebook\",\"slug\":\"tax-ebook-ebook-screen-next-34c47cf2db\",\"action\":\"click\",\"fixed_attribute_key\":\"screen_name\",\"fixed_attribute_value\":\"ebook_screen\",\"extra_attributes\":null,\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"tax-ebook-ebook-screen-back-3b67d78076\":{\"clevertap_event_id\":\"412\",\"page_slug\":null,\"event_name\":\"tax_ebook\",\"slug\":\"tax-ebook-ebook-screen-back-3b67d78076\",\"action\":\"click\",\"fixed_attribute_key\":\"screen_name\",\"fixed_attribute_value\":\"ebook_screen\",\"extra_attributes\":null,\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"back\"},\"header-capital-gains-tax-filing-next-56e70bad9f\":{\"clevertap_event_id\":\"418\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"header-capital-gains-tax-filing-next-56e70bad9f\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"capital_gains_tax_filing\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"services\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"header-income-tax-notices-next-b436b4247d\":{\"clevertap_event_id\":\"419\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"header-income-tax-notices-next-b436b4247d\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"Income_tax_notices\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"services\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"header-video-tutorials-next-bb4aa25d72\":{\"clevertap_event_id\":\"420\",\"page_slug\":null,\"event_name\":\"header\",\"slug\":\"header-video-tutorials-next-bb4aa25d72\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"video_tutorials\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"knowledge_center\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"footer-capital-gains-tax-filing-next-cc672d9dd6\":{\"clevertap_event_id\":\"422\",\"page_slug\":null,\"event_name\":\"footer\",\"slug\":\"footer-capital-gains-tax-filing-next-cc672d9dd6\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"capital_gains_tax_filing\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"contact_us\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"},\"footer-income-tax-notices-next-69a2cb6a69\":{\"clevertap_event_id\":\"423\",\"page_slug\":null,\"event_name\":\"footer\",\"slug\":\"footer-income-tax-notices-next-69a2cb6a69\",\"action\":\"click\",\"fixed_attribute_key\":\"button\",\"fixed_attribute_value\":\"Income_tax_notices\",\"extra_attributes\":\"{\\\"category_name\\\":\\\"contact_us\\\"}\",\"trigger_attribute_key\":\"user_action\",\"trigger_attribute_value\":\"next\"}},\"page_slug\":\"\",\"user\":null,\"current_ay\":2025}'),
+        income_source_view: null,
+        ct_event: JSON.parse('{}')
+      });
+      if (window['_onFly_autofill'] != undefined && $('.autofill-ct-data').length) {
+        _onFly_autofill(JSON.parse('{"cvt_user":null}'), $('.autofill-ct-data'));
+      }
+    });
+  </script>
+
+
+  <script src="./files/animated_UI.js" type="text/javascript"></script>
+
+  <script defer="" src="./files/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
+    integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
+    data-cf-beacon="{&quot;rayId&quot;:&quot;93f186de0e65179e&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}},&quot;version&quot;:&quot;2025.4.0-1-g37f21b1&quot;,&quot;token&quot;:&quot;457b5c2ce2bb45f0b8d25cdb9c9e2358&quot;}"
+    crossorigin="anonymous"></script>
+
+
+  <script type="text/javascript" id=""
+    charset="">(function (c, d, f, g, e) { c[e] = c[e] || []; var h = function () { var b = { ti: "26015950" }; b.q = c[e]; c[e] = new UET(b); c[e].push("pageLoad") }; var a = d.createElement(f); a.src = g; a.defer = 1; a.onload = a.onreadystatechange = function () { var b = this.readyState; b && "loaded" !== b && "complete" !== b || (h(), a.onload = a.onreadystatechange = null) }; d = d.getElementsByTagName(f)[0]; d.parentNode.insertBefore(a, d) })(window, document, "script", "//bat.bing.com/bat.js", "uetq");</script>
+  <script type="text/javascript" id=""
+    charset="">if (!(0 < window.navigator.userAgent.search("phonepe-webview") || 0 < window.navigator.userAgent.search("AppContainer") || 0 < window.navigator.userAgent.search("GPay-Microapps"))) {
+        var cssId = "zoho_css"; if (!document.getElementById(cssId)) {
+          if (0 < window.location.href.indexOf("dev2.tax2win.in")) { var head = document.getElementsByTagName("head")[0], link = document.createElement("link"); link.id = cssId; link.rel = "stylesheet"; link.type = "text/css"; link.href = "https://emailer.tax2win.in/chatbot/dev2_chatbot_widget_style.css?5" } else head =
+            document.getElementsByTagName("head")[0], link = document.createElement("link"), link.id = cssId, link.rel = "stylesheet", link.type = "text/css", link.href = "https://emailer.tax2win.in/chatbot/chatbot_widget_style.css?3"; link.media = "all"; head.appendChild(link)
+        } var chatbot_container = document.createElement("div"), chat_floatmain = document.createElement("div"), chat_float = document.createElement("div"), chat_flt_rel = document.createElement("div"), chat_user = document.createElement("em"), chat_flt_rel1 = document.createElement("div"),
+          chat_content = document.createElement("em"); chatbot_container.className = "chatbot-container"; chat_floatmain.id = "chatbotId"; chat_floatmain.className = "chat_floatmain"; chat_floatmain.dataset.id = "zsalesiq"; chat_float.className = "chat_float"; chat_float.style.fontFamily = "inherit"; chat_float.style.display = "inline-block"; chat_flt_rel.id = "dis_icon_msg"; chat_flt_rel.className = "chat_flt_rel"; chat_user.className = "chat_user"; chat_flt_rel1.id = "dis_icon_spin"; chat_flt_rel1.className = "chat_flt_rel"; chat_content.className =
+            "chat_content fa fa-circle-o-notch fa-spin"; chat_flt_rel1.appendChild(chat_content); chat_flt_rel.appendChild(chat_user); chat_float.appendChild(chat_flt_rel); chat_float.appendChild(chat_flt_rel1); chat_floatmain.appendChild(chat_float); chatbot_container.append(chat_floatmain); document.body.appendChild(chatbot_container); document.getElementById("chatbotId").onclick = function () {
+              document.getElementById("chatbotId").style.pointerEvents = "none"; document.getElementById("dis_icon_msg").style.display = "none";
+              document.getElementById("dis_icon_spin").style.visibility = "visible"; globalThis.$zoho = globalThis.$zoho || {}; globalThis.$zoho.salesiq = globalThis.$zoho.salesiq || { widgetcode: "dec99aaf59d027f6d42398f9c6c5b9aab89ad0eabcbb9b28fc6b06a188b23d6b", values: {}, ready: function () { } }; var a = document; s = a.createElement("script"); s.type = "text/javascript"; s.id = "zsiqscript"; s.defer = !0; s.src = "https://salesiq.zoho.in/widget"; b = a.getElementsByTagName("script")[0]; b.parentNode.insertBefore(s, b); var c = 0, b = null; b = setInterval(function () {
+                if (document.getElementById("zsiq_float")) {
+                  document.getElementById("zsiq_float").click();
+                  check_class(); document.getElementById("chatbotId").style.display = "none"; var d = setTimeout(function () { document.getElementById("zsiq_float").style.opacity = "1"; clearTimeout(d) }, 1E3); clearInterval(b)
+                } else 100 <= c ? (document.getElementById("zsiq_float").style.display = "none", clearInterval(b)) : c++
+              }, 50)
+            }
+      }
+      function check_class() { var a = null, c = 0; a = setInterval(function () { document.getElementsByClassName("zsiqfanim").length ? clearInterval(a) : 100 <= c ? (document.getElementById("zsiq_float").style.display = "none", clearInterval(a)) : c++ }, 50) };</script>
+  <div class="chatbot-container">
+    <div id="chatbotId" class="chat_floatmain" data-id="zsalesiq">
+      <div class="chat_float" style="font-family: inherit; display: inline-block;">
+        <div id="dis_icon_msg" class="chat_flt_rel"><em class="chat_user"></em></div>
+        <div id="dis_icon_spin" class="chat_flt_rel"><em class="chat_content fa fa-circle-o-notch fa-spin"></em></div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" id=""
+    charset="">(function (a, e, b, f, g, c, d) { a[b] = a[b] || function () { (a[b].q = a[b].q || []).push(arguments) }; c = e.createElement(f); c.async = 1; c.src = "https://www.clarity.ms/tag/" + g; d = e.getElementsByTagName(f)[0]; d.parentNode.insertBefore(c, d) })(window, document, "clarity", "script", "i51hs3atje");</script>
+  <iframe allow="join-ad-interest-group" data-tagging-id="AW-16528698811" data-load-time="1747132713958" height="0"
+    width="0" src="./files/16528698811.html" style="display: none; visibility: hidden;"></iframe><iframe
+    allow="join-ad-interest-group" data-tagging-id="AW-16528698811/NOxtCJqG6KcZELvbv8k9" data-load-time="1747132713963"
+    height="0" width="0" src="./files/16528698811(1).html" style="display: none; visibility: hidden;"></iframe><iframe
+    height="0" width="0" style="display: none; visibility: hidden;" src="./files/saved_resource.html"></iframe>
+  <div id="batBeacon849543687523" style="width: 0px; height: 0px; display: none; visibility: hidden;"><img
+      id="batBeacon407704862715" width="0" height="0" alt="" src="./files/0"
+      style="width: 0px; height: 0px; display: none; visibility: hidden;"></div>
 </body>
+
 </html>
