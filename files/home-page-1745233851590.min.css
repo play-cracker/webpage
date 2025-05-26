@@ -15,7 +15,7 @@
   border-radius: 30px;
   overflow: hidden;
   height: 24px;
-  width: 80%;
+  width: 450px;
   margin: 0 ;
 }
 
@@ -1020,7 +1020,7 @@ h2 {
 
 .main_services {
     background: #f2f9ff;
-    padding: 2rem 0 5rem 0
+    width: 100vw;
 }
 
 .main_services .wrapper {
