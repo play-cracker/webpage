@@ -1266,16 +1266,20 @@ h2 {
 
 .about_company {
     background: #f2f9ff;
-    padding: 2rem 0 4rem 0
+    width: 100vw;
+}
+
+.about_company .container{
+    padding-left:0 ;
+    margin-left: 0;
 }
 
 .about_company .wrapper {
     display: flex;
     justify-content: space-between;
-    align-items: center
+    align-items: center;
 }
 
-.about_company .left,
 .about_company .right {
     width: 50%
 }
