@@ -630,9 +630,9 @@
           <div class="filed-itr-progress">
             <h3>Filed ITR Applications</h3>
             <div class="progress-bar">
-              <div class="progress-fill" style="width: 50%;"></div>
+              <div class="progress-fill" id="progress-fill" style="width: 0%;"></div>
             </div>
-            <p><span id="filed-count">520</span> / 1000 Applications Filed</p>
+            <p><span id="filed-count">0</span> / 1000 Applications Filed</p>
           </div>
 
           <span class="itrfilinggreen">ITR Filing</span>
@@ -647,6 +647,18 @@
             Trusted Users
 
           </div>
+          <script>
+            const filedApplications = 0; // You can dynamically fetch this value later
+            const totalApplications = 1000;
+
+            // Update count text
+            document.getElementById("filed-count").textContent = filedApplications;
+
+            // Calculate progress percentage and update the bar width
+            const percentage = (filedApplications / totalApplications) * 100;
+            document.getElementById("progress-fill").style.width = percentage + "%";
+          </script>
+
 
         </aside>
         <div style="position: relative; width: 40vw; height: auto; display: block;">
@@ -1091,16 +1103,27 @@
         </aside>
       </div>
 
-
-
     </div>
   </section>
 
 
+<style>
+    body {
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
 
+    .container.clients-logo {
+      background-color: transparent;
+    }
 
-  <style>
+    .container.clients-logo ul li {
+      background-color: transparent;
+    }
+
     .container.clients-logo ul li img {
+      background-color: transparent;
       filter: grayscale(100%);
       transition: all 0.2s ease-in-out;
     }
@@ -1108,100 +1131,105 @@
     .container.clients-logo ul li img:hover {
       filter: grayscale(0%);
     }
+    
   </style>
+
+
 
   <div class="container clients-logo">
     <h2>Trusted by Employees Working in Top Firms</h2>
-    <ul class="clients-logo-list">
-      <li><img src="./files/sbi-logo.webp" alt="SBI Bank" title="SBI Bank" loading="lazy" width="135" height="25" />
-      </li>
-      <li><img src="./files/icici-logo.webp" alt="ICICI Bank" title="ICICI Bank" loading="lazy" width="135"
-          height="26" /></li>
-      <li><img src="./files/indusind-bank-logo.webp" alt="IndusInd Bank" title="IndusInd Bank" loading="lazy"
-          width="135" height="27" /></li>
-      <li><img src="./files/bajaj-finserv-logo.webp" alt="Bajaj Finserv" title="Bajaj Finserv" loading="lazy"
-          width="115" height="36" /></li>
-      <li><img src="./files/g-pay-logo.webp" alt="Google Pay" title="Google Pay" loading="lazy" width="90"
-          height="40" /></li>
-      <li><img src="./files/cisco-logo.webp" alt="Cisco" title="Cisco" loading="lazy" width="105" height="25" /></li>
-      <li><img src="./files/phone-pay.webp" alt="PhonePe" title="PhonePe" loading="lazy" width="135" height="36" /></li>
-      <li><img src="./files/microsoft-logo.webp" alt="Microsoft" title="Microsoft" loading="lazy" width="135"
-          height="36" /></li>
-      <li><img src="./files/nvidia-logo.webp" alt="Nvidia" title="Nvidia" loading="lazy" width="135" height="36" /></li>
-      <li><img src="./files/amazon-logo.webp" alt="Amazon" title="Amazon" loading="lazy" width="115" height="36" /></li>
-      <li><img src="./files/flipkart-logo.webp" alt="Flipkart" title="Flipkart" loading="lazy" width="135"
-          height="36" /></li>
-      <li><img src="./files/infosys-logo.webp" alt="Infosys" title="Infosys" loading="lazy" width="105" height="36" />
-      </li>
-      <li><img src="./files/tcs-logo.webp" alt="TCS" title="TCS" loading="lazy" width="105" height="36" /></li>
-      <li><img src="./files/wipro-logo.webp" alt="Wipro" title="Wipro" loading="lazy" width="90" height="36" /></li>
-      <li><img src="./files/accenture-logo.webp" alt="Accenture" title="Accenture" loading="lazy" width="135"
-          height="36" /></li>
-      <li><img src="./files/axis-bank-logo.webp" alt="Axis Bank" title="Axis Bank" loading="lazy" width="135"
-          height="36" /></li>
-      <li><img src="./files/hdfc-bank-logo.webp" alt="HDFC Bank" title="HDFC Bank" loading="lazy" width="135"
-          height="36" /></li>
-      <li><img src="./files/cognizant-logo.webp" alt="Cognizant" title="Cognizant" loading="lazy"
-          width="135" height="36" /></li>
-      <li><img src="./files/zerodha-logo.webp" alt="Zerodha" title="Zerodha" loading="lazy" width="135" height="36" />
-      </li>
-      <li><img src="./files/angel-broking-logo.webp" alt="Angel Broking" title="Angel Broking" loading="lazy"
-          width="135" height="36" /></li>
-      <li><img src="./files/et-money-logo.webp" alt="ET Money" title="ET Money" loading="lazy" width="135"
-          height="36" /></li>
-      <li><img src="./files/zoho-logo.webp" alt="Zoho" title="Zoho" loading="lazy" width="135" height="36" /></li>
-      <li><img src="./files/cred-logo.webp" alt="Cred" title="Cred" loading="lazy" width="50" height="36" /></li>
-      <li><img src="./files/ola-logo.webp" alt="Ola" title="Ola" loading="lazy" width="105" height="36" /></li>
-      <li><img src="./files/uber-logo.webp" alt="Uber" title="Uber" loading="lazy" width="90" height="36" /></li>
-      <li><img src="./files/walmart-logo.webp" alt="Walmart" title="Walmart" loading="lazy" width="135" height="36" />
-      </li>
-      <li><img src="./files/myntra-logo.webp" alt="Myntra" title="Myntra" loading="lazy" width="95" height="36" /></li>
-      <li><img src="./files/oracle-logo.webp" alt="Oracle" title="Oracle" loading="lazy" width="135" height="36" /></li>
-      <li><img src="./files/sap-logo.webp" alt="SAP" title="SAP" loading="lazy" width="95" height="36" /></li>
-      <li><img src="./files/visa-logo.webp" alt="Visa" title="Visa" loading="lazy" width="95" height="35" /></li>
-      <li><img src="./files/salesforce-logo.webp" alt="Salesforce" title="Salesforce" loading="lazy" width="95"
-          height="36" /></li>
-      <li><img src="./files/Reliance-logo.webp" alt="Reliance" title="Reliance" loading="lazy" width="70"
-          height="36" /></li>
-      <li><img src="./files/PayPal-logo.webp" alt="PayPal" title="PayPal" loading="lazy" width="70" height="36" /></li>
-      <li><img src="./files/intuit-logo.webp" alt="Intuit" title="Intuit" loading="lazy" width="105" height="36" /></li>
-      <li><img src="./files/AT&T-logo.webp" alt="AT&T" title="AT&T" loading="lazy" width="115" height="36" /></li>
-      <li><img src="./files/Sony-logo.webp" alt="Sony" title="Sony" loading="lazy" width="115" height="36" /></li>
-      <li><img src="./files/purestorage-logo.webp" alt="Pure Storage" title="Pure Storage" loading="lazy" width="135"
-          height="36" /></li>
-      <li><img src="./files/shell-logo.webp" alt="Shell" title="Shell" loading="lazy" width="90" height="36" /></li>
-      <li><img src="./files/Adobe-logo.webp" alt="Adobe" title="Adobe" loading="lazy" width="105" height="36" /></li>
-      <li><img src="./files/Qualcomm-logo.webp" alt="Qualcomm" title="Qualcomm" loading="lazy" width="135"
-          height="36" /></li>
-      <li><img src="./files/IBM-logo.webp" alt="IBM" title="IBM" loading="lazy" width="90" height="36" /></li>
-      <li><img src="./files/Bosch-logo.webp" alt="Bosch" title="Bosch" loading="lazy" width="135" height="36" /></li>
-      <li><img src="./files/Siemens-logo.webp" alt="Siemens" title="Siemens" loading="lazy" width="135" height="36" />
-      </li>
-      <li><img src="./files/AMD-logo.webp" alt="AMD" title="AMD" loading="lazy" width="105" height="36" /></li>
-      <li><img src="./files/ITC-logo.webp" alt="ITC" title="ITC" loading="lazy" width="65" height="36" /></li>
-      <li><img src="./files/Larsen&Toubro-logo.webp" alt="Larsen & Toubro" title="Larsen & Toubro" loading="lazy"
-          width="135" height="36" /></li>
-      <li><img src="./files/hsbc-logo.webp" alt="HSBC" title="HSBC" loading="lazy" width="135" height="36" /></li>
-      <li><img src="./files/yes-bank-logo.webp" alt="Yes Bank" title="Yes Bank" loading="lazy" width="135"
-          height="36" /></li>
-      <li><img src="./files/GE-logo.webp" alt="GE" title="GE" loading="lazy" width="75" height="36" /></li>
-      <li><img src="./files/paytm-logo.webp" alt="Paytm" title="Paytm" loading="lazy" width="105" height="35" /></li>
-      <li><img src="./files/darwinbox-logo.webp" alt="Darwinbox" title="Darwinbox" loading="lazy" width="130"
-          height="33" /></li>
-      <li><img src="./files/benefitHub_logo.webp" alt="BenefitHub" title="BenefitHub" loading="lazy" width="135"
-          height="28" /></li>
-      <li><img src="./files/rivos-logo.webp" alt="Rivos" title="Rivos" loading="lazy" width="95" height="28" /></li>
-      <li><img src="./files/fis-logo.webp" alt="fis" title="fis" loading="lazy" width="95" height="28" /></li>
-      <li><img src="./files/sensy-logo.webp" alt="sensy" title="sensy" loading="lazy" width="85" height="28" /></li>
-      <li><img src="./files/nykaa-logo.webp" alt="nykaa" title="nykaa" loading="lazy" width="95" height="28" /></li>
-      <li><img src="./files/infoblox-logo.webp" alt="infoblox" title="infoblox" loading="lazy" width="105" height="28" /></li>
-      <li><img src="./files/juniper-logo.webp" alt="juniper" title="juniper" loading="lazy" width="105" height="28" /></li>
-      <li><img src="./files/godaddy-logo.webp" alt="godaddy" title="godaddy" loading="lazy" width="125" height="28" /></li>
-      <li><img src="./files/Intel-logo.webp" alt="intel" title="intel" loading="lazy" width="90" height="28" /></li>
-      <li><img src="./files/Alcon-logo.webp" alt="Alcon" title="Alcon" loading="lazy" width="95"
-          height="28" /></li>
-    </ul>
-  </div
+    <div class="logo-scroll-wrapper">
+      <ul class="clients-logo-list">
+        <li><img src="./files/sbi-logo.webp" alt="SBI Bank" title="SBI Bank" loading="lazy" width="135" height="25" />
+        </li>
+        <li><img src="./files/icici-logo.webp" alt="ICICI Bank" title="ICICI Bank" loading="lazy" width="135"
+            height="26" /></li>
+        <li><img src="./files/indusind-bank-logo.webp" alt="IndusInd Bank" title="IndusInd Bank" loading="lazy"
+            width="135" height="27" /></li>
+        <li><img src="./files/bajaj-finserv-logo.webp" alt="Bajaj Finserv" title="Bajaj Finserv" loading="lazy"
+            width="115" height="36" /></li>
+        <li><img src="./files/g-pay-logo.webp" alt="Google Pay" title="Google Pay" loading="lazy" width="90"
+            height="40" /></li>
+        <li><img src="./files/cisco-logo.webp" alt="Cisco" title="Cisco" loading="lazy" width="105" height="25" /></li>
+        <li><img src="./files/phone-pay.webp" alt="PhonePe" title="PhonePe" loading="lazy" width="135" height="36" /></li>
+        <li><img src="./files/microsoft-logo.webp" alt="Microsoft" title="Microsoft" loading="lazy" width="135"
+            height="36" /></li>
+        <li><img src="./files/nvidia-logo.webp" alt="Nvidia" title="Nvidia" loading="lazy" width="135" height="36" /></li>
+        <li><img src="./files/amazon-logo.webp" alt="Amazon" title="Amazon" loading="lazy" width="115" height="36" /></li>
+        <li><img src="./files/flipkart-logo.webp" alt="Flipkart" title="Flipkart" loading="lazy" width="135"
+            height="36" /></li>
+        <li><img src="./files/infosys-logo.webp" alt="Infosys" title="Infosys" loading="lazy" width="105" height="36" />
+        </li>
+        <li><img src="./files/tcs-logo.webp" alt="TCS" title="TCS" loading="lazy" width="105" height="36" /></li>
+        <li><img src="./files/wipro-logo.webp" alt="Wipro" title="Wipro" loading="lazy" width="90" height="36" /></li>
+        <li><img src="./files/accenture-logo.webp" alt="Accenture" title="Accenture" loading="lazy" width="135"
+            height="36" /></li>
+        <li><img src="./files/axis-bank-logo.webp" alt="Axis Bank" title="Axis Bank" loading="lazy" width="135"
+            height="36" /></li>
+        <li><img src="./files/hdfc-bank-logo.webp" alt="HDFC Bank" title="HDFC Bank" loading="lazy" width="135"
+            height="36" /></li>
+        <li><img src="./files/cognizant-logo.webp" alt="Cognizant" title="Cognizant" loading="lazy"
+            width="135" height="36" /></li>
+        <li><img src="./files/zerodha-logo.webp" alt="Zerodha" title="Zerodha" loading="lazy" width="135" height="36" />
+        </li>
+        <li><img src="./files/angel-broking-logo.webp" alt="Angel Broking" title="Angel Broking" loading="lazy"
+            width="135" height="36" /></li>
+        <li><img src="./files/et-money-logo.webp" alt="ET Money" title="ET Money" loading="lazy" width="135"
+            height="36" /></li>
+        <li><img src="./files/zoho-logo.webp" alt="Zoho" title="Zoho" loading="lazy" width="135" height="36" /></li>
+        <li><img src="./files/cred-logo.webp" alt="Cred" title="Cred" loading="lazy" width="50" height="36" /></li>
+        <li><img src="./files/ola-logo.webp" alt="Ola" title="Ola" loading="lazy" width="105" height="36" /></li>
+        <li><img src="./files/uber-logo.webp" alt="Uber" title="Uber" loading="lazy" width="90" height="36" /></li>
+        <li><img src="./files/walmart-logo.webp" alt="Walmart" title="Walmart" loading="lazy" width="135" height="36" />
+        </li>
+        <li><img src="./files/myntra-logo.webp" alt="Myntra" title="Myntra" loading="lazy" width="95" height="36" /></li>
+        <li><img src="./files/oracle-logo.webp" alt="Oracle" title="Oracle" loading="lazy" width="135" height="36" /></li>
+        <li><img src="./files/sap-logo.webp" alt="SAP" title="SAP" loading="lazy" width="95" height="36" /></li>
+        <li><img src="./files/visa-logo.webp" alt="Visa" title="Visa" loading="lazy" width="95" height="35" /></li>
+        <li><img src="./files/salesforce-logo.webp" alt="Salesforce" title="Salesforce" loading="lazy" width="95"
+            height="36" /></li>
+        <li><img src="./files/reliance-logo.webp" alt="Reliance" title="Reliance" loading="lazy" width="70"
+            height="36" /></li>
+        <li><img src="./files/PayPal-logo.webp" alt="PayPal" title="PayPal" loading="lazy" width="70" height="36" /></li>
+        <li><img src="./files/intuit-logo.webp" alt="Intuit" title="Intuit" loading="lazy" width="105" height="36" /></li>
+        <li><img src="./files/AT&T-logo.webp" alt="AT&T" title="AT&T" loading="lazy" width="115" height="36" /></li>
+        <li><img src="./files/Sony-logo.webp" alt="Sony" title="Sony" loading="lazy" width="115" height="36" /></li>
+        <li><img src="./files/purestorage-logo.webp" alt="Pure Storage" title="Pure Storage" loading="lazy" width="135"
+            height="36" /></li>
+        <li><img src="./files/shell-logo.webp" alt="Shell" title="Shell" loading="lazy" width="90" height="36" /></li>
+        <li><img src="./files/Adobe-logo.webp" alt="Adobe" title="Adobe" loading="lazy" width="105" height="36" /></li>
+        <li><img src="./files/Qualcomm-logo.webp" alt="Qualcomm" title="Qualcomm" loading="lazy" width="135"
+            height="36" /></li>
+        <li><img src="./files/IBM-logo.webp" alt="IBM" title="IBM" loading="lazy" width="90" height="36" /></li>
+        <li><img src="./files/Bosch-logo.webp" alt="Bosch" title="Bosch" loading="lazy" width="135" height="36" /></li>
+        <li><img src="./files/Siemens-logo.webp" alt="Siemens" title="Siemens" loading="lazy" width="135" height="36" />
+        </li>
+        <li><img src="./files/AMD-logo.webp" alt="AMD" title="AMD" loading="lazy" width="105" height="36" /></li>
+        <li><img src="./files/ITC-logo.webp" alt="ITC" title="ITC" loading="lazy" width="65" height="36" /></li>
+        <li><img src="./files/Larsen&Toubro-logo.webp" alt="Larsen & Toubro" title="Larsen & Toubro" loading="lazy"
+            width="135" height="36" /></li>
+        <li><img src="./files/hsbc-logo.webp" alt="HSBC" title="HSBC" loading="lazy" width="135" height="36" /></li>
+        <li><img src="./files/yes-bank-logo.webp" alt="Yes Bank" title="Yes Bank" loading="lazy" width="135"
+            height="36" /></li>
+        <li><img src="./files/GE-logo.webp" alt="GE" title="GE" loading="lazy" width="75" height="36" /></li>
+        <li><img src="./files/paytm-logo.webp" alt="Paytm" title="Paytm" loading="lazy" width="105" height="35" /></li>
+        <li><img src="./files/darwinbox-logo.webp" alt="Darwinbox" title="Darwinbox" loading="lazy" width="130"
+            height="33" /></li>
+        <li><img src="./files/benefitHub_logo.webp" alt="BenefitHub" title="BenefitHub" loading="lazy" width="135"
+            height="28" /></li>
+        <li><img src="./files/rivos-logo.webp" alt="Rivos" title="Rivos" loading="lazy" width="95" height="28" /></li>
+        <li><img src="./files/fis-logo.webp" alt="fis" title="fis" loading="lazy" width="95" height="28" /></li>
+        <li><img src="./files/sensy-logo.webp" alt="sensy" title="sensy" loading="lazy" width="85" height="28" /></li>
+        <li><img src="./files/nykaa-logo.webp" alt="nykaa" title="nykaa" loading="lazy" width="95" height="28" /></li>
+        <li><img src="./files/infoblox-logo.webp" alt="infoblox" title="infoblox" loading="lazy" width="105" height="28" /></li>
+        <li><img src="./files/juniper-logo.webp" alt="juniper" title="juniper" loading="lazy" width="105" height="28" /></li>
+        <li><img src="./files/godaddy-logo.webp" alt="godaddy" title="godaddy" loading="lazy" width="125" height="28" /></li>
+        <li><img src="./files/Intel-logo.webp" alt="intel" title="intel" loading="lazy" width="90" height="28" /></li>
+        <li><img src="./files/Alcon-logo.webp" alt="Alcon" title="Alcon" loading="lazy" width="95"
+            height="28" /></li>
+      </ul>
+    </div>
+  </div>
 
 
   <!-- FAQ-Section -->
