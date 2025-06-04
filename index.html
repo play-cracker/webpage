@@ -942,12 +942,14 @@
           Regime in seconds.</span>
       </p>
       <div style="display:flex;align-items:center;justify-content:left;flex-wrap:wrap">
-        <button id="saiprs-popup-trigger"
-          style="background:#007bff;color:#fff;border:none;border-radius:50px;padding:16px 36px;font-size:1.3rem;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,0.10);cursor:pointer;transition:background 0.2s;">
-          Calculate My Tax for FY 2025-26 &nbsp; &#128202;
-        </button>
-        <div style="margin-top:18px;color:#888;font-size:0.98rem;">
-          100% private. No data is saved.
+        <div style="display:block">
+          <button id="saiprs-popup-trigger"
+            style="background:#007bff;color:#fff;border:none;border-radius:50px;padding:16px 36px;font-size:1.3rem;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,0.10);cursor:pointer;transition:background 0.2s;">
+            Calculate My Tax for FY 2025-26 &nbsp; &#128202;
+          </button>
+          <p style="text-align: center ;color:#888;margin-top: 3px; font-size: 12px;">
+            100% private. No data is saved.
+          </p>
         </div>
       </div>
     </div>
@@ -1500,8 +1502,9 @@
           <h2>Benefits of <br>
             Filing Your ITR</h2>
           <p>Effortlessly file your tax returns and enjoy a <br> hassle-free tax season with hireCA</p>
-          <a href="#" class="btn-success" data-ctid="home-start-filing-now-next-30f3f91029"> File Now <img
-              src="./files/w-ghost-arrow.svg" alt="File Now" title="File Now"></a>
+          <a href="#" class="btn-success" data-ctid="home-start-filing-now-next-30f3f91029" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'}); return false;">
+            File Now <img src="./files/w-ghost-arrow.svg" alt="File Now" title="File Now">
+          </a>
         </aside>
         <aside class="right">
 
@@ -1536,9 +1539,10 @@
           <div class="box">
             <figure><img src="./files/icon-easyloan.svg" width="60" height="60" alt="Easy Loan Approval"
                 title="Easy Loan Approval"> </figure>
-                <div>
-            <h3>Easy Loan Approval</h3>
-            <p>The income tax return serves as an important document for loan approval</p></div>
+            <div>
+              <h3>Easy Loan Approval</h3>
+              <p>The income tax return serves as an important document for loan approval</p>
+            </div>
 
           </div>
         </aside>
@@ -1551,17 +1555,17 @@
     document.addEventListener("DOMContentLoaded", function () {
       const boxes = document.querySelectorAll('.itr_benefits .right .box');
       function animateBoxes() {
-      let delay = 0;
-      boxes.forEach((box, i) => {
-        setTimeout(() => {
-        box.classList.add('animated-scale');
-        setTimeout(() => {
-          box.classList.remove('animated-scale');
-        }, 700);
-        }, delay);
-        delay += 700;
-      });
-      setTimeout(animateBoxes, delay + 1000); // repeat after all boxes animated + pause
+        let delay = 0;
+        boxes.forEach((box, i) => {
+          setTimeout(() => {
+            box.classList.add('animated-scale');
+            setTimeout(() => {
+              box.classList.remove('animated-scale');
+            }, 700);
+          }, delay);
+          delay += 700;
+        });
+        setTimeout(animateBoxes, delay + 1000); // repeat after all boxes animated + pause
       }
       animateBoxes();
     });
