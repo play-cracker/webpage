@@ -19,6 +19,14 @@
 
 
   <style type="text/css">
+    .chat_float {
+      display: none !important;
+    }
+
+    #zsiq_float {
+      display: none !important;
+    }
+
     @font-face {
       font-family: Poppins;
       font-style: normal;
@@ -115,7 +123,7 @@
   <script async="" src="./files/i51hs3atje"></script>
   <script src="./files/bat.js" defer=""></script>
   <script type="text/javascript" async="" src="./files/destination"></script>
-  <script defer="" src="./files/gtm.js"></script>
+  <!-- <script defer="" src="./files/gtm.js"></script> -->
   <script src="./files/modernizr-2.8.3-respond-1.4.2.min.js" type="text/javascript"></script>
   <script async="" src="./files/moe_webSdk.min.latest.js"></script>
   <style id="googleidentityservice_button_styles">
@@ -559,7 +567,7 @@
       outline: none
     }
   </style>
-  <link id="zoho_css" rel="stylesheet" type="text/css" href="./files/chatbot_widget_style.css" media="all">
+  <!-- <link id="zoho_css" rel="stylesheet" type="text/css" href="./files/chatbot_widget_style.css" media="all"> -->
   <script src="./files/26015950.js" type="text/javascript" async="" data-ueto="ueto_d8c2b2d4f4"></script>
   <link id="googleidentityservice" type="text/css" media="all" href="./files/style" rel="stylesheet">
   <meta http-equiv="origin-trial"
@@ -776,26 +784,435 @@
 
   <!-- Refund status -->
   <!-- Reasons to File ITR Section -->
-  <section class="home-itr-reasons">
-    <div class="container">
-      <div class="wrapper">
-        <aside class="left">
-          <h2>Why Filing Your Income Tax Return<br> with <span style="color:#0074e4;">HireCA</span> Matters</h2>
-          <p>Filing your ITR isn't just a legal requirement — it's a smart financial move. Here’s why thousands trust
-            hireCA for hassle-free ITR filing.</p>
-          <ul class="reasons-list">
-            <li>✅ Claim tax refunds faster and easier</li>
-            <li>✅ Avoid penalties and stay compliant</li>
-            <li>✅ Required for loan, visa, or credit card applications</li>
-            <li>✅ Carry forward capital losses</li>
-            <li>✅ Establish financial credibility and track income history</li>
-          </ul>
-         
-        </aside>
+  <style>
+    .saiprs-popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: 99999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .saiprs-popup-overlay.active {
+      display: flex;
+    }
+
+    .saiprs-popup-content {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+      max-width: 900px;
+      width: 95vw;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .saiprs-popup-close {
+      position: absolute;
+      top: 10px;
+      right: 18px;
+      font-size: 2rem;
+      color: #888;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .saiprs-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 32px 24px 24px 24px;
+      box-sizing: border-box;
+    }
+
+    .saiprs-form-section,
+    .saiprs-result-section {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      flex: 1 1 400px;
+      min-width: 320px;
+    }
+
+    .saiprs-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .saiprs-container table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .saiprs-containerth,
+    td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+
+    .saiprs-container th {
+      background: #007bff;
+      padding: 8px;
+      color: white;
+      text-align: center;
+    }
+
+    .saiprs-container input,
+    select {
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    .saiprs-container input[disabled] {
+      background: #e9ecef;
+    }
+
+    .saiprs-container button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
       
+    }
+
+    .saiprs-container button:hover {
+      background: #0056b3;
+    }
+
+    .saiprs-results {
+      display: flex;
+      flex-direction: column;
+      /* overflow-y: auto;
+      max-height: 60vh; */
+    }
+
+    .curr-bg-saiprs{
+      background: url("files/image-curr-ind.png") no-repeat center center;
+      border-radius: 15px;
+      margin: 30px;
+      padding-bottom: 30px;
+      
+    }
+  </style>
+
+  <!-- Tax Calculator Section -->
+  <section id="" style="position:relative;z-index:10;padding:80px 0px;background:white;display: flex;">
+    <div class="" style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap; padding-right: 80px;">
+      <!-- Left: Video -->
+      <div style="flex:1;min-width:400px;max-width:580px;display:flex;justify-content:center;align-items:center;margin-right:40px;"></div>
+        <div style="width:100%;max-width:420px;aspect-ratio:4/3;box-shadow:0 2px 16px rgba(0,0,0,0.08);border-radius:12px;overflow:hidden;background:#eaf2fa;">
+          <video src="./calculatemytax.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:flex;border-radius:12px;" ></video>
+        </div>
+      </div>  
+      <!-- Right: Content -->
+      <div style="max-width:600px;">
+        <h2 style="font-size:2.2rem;font-weight:700;color:#19487e;margin-bottom:18px;">Compare Your Tax Instantly</h2>
+        <p style="font-size:1.1rem;color:#333;margin-bottom:28px;">
+          Curious which regime saves you more?
+          <br>
+          <span style="font-size: 15px; color: #697075;">Use our quick calculator to compare your tax under Old vs New
+            Regime in seconds.</span>
+        </p>
+        <div style="display:flex;align-items:center;justify-content:left;flex-wrap:wrap">
+          <button id="saiprs-popup-trigger"
+            style="background:#007bff;color:#fff;border:none;border-radius:50px;padding:16px 36px;font-size:1.3rem;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,0.10);cursor:pointer;transition:background 0.2s;">
+            Calculate My Tax for FY 2025-26 &nbsp; &#128202;
+          </button>
+          <div style="margin-top:18px;color:#888;font-size:0.98rem;">
+            100% private. No data is saved.
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- Popup Overlay -->
+  <div class="saiprs-popup-overlay" id="saiprs-popup-overlay">
+    <div class="saiprs-popup-content">
+      <button class="saiprs-popup-close" id="saiprs-popup-close" aria-label="Close">&times;</button>
+      <div class="saiprs-container">
+        <!-- Input Section -->
+        <div class="saiprs-form-section">
+          <div class="saiprs-title">Income & Deductions</div>
+          <table>
+            <tr>
+              <th>Field</th>
+              <th>Value</th>
+            </tr>
+            <tr>
+              <td>Fixed Salary (Monthly)</td>
+              <td><input type="number" id="saiprs-fixedSalary" placeholder="200000" /></td>
+            </tr>
+            <tr>
+              <td>Basic Salary % of Fixed</td>
+              <td>
+                <select id="saiprs-basicPercent">
+                  <option value="40">40%</option>
+                  <option value="50" selected>50%</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>Meal Card (Monthly)</td>
+              <td><input type="number" id="saiprs-mealCard" placeholder="2200" /></td>
+            </tr>
+            <tr>
+              <td>RSU Vested (Annual)</td>
+              <td><input type="number" id="saiprs-rsu" placeholder="0" /></td>
+            </tr>
+            <tr>
+              <td>ESPP Perk (Annual)</td>
+              <td><input type="number" id="saiprs-espp" placeholder="0" /></td>
+            </tr>
+            <tr>
+              <td>Sales Commission (Annual)</td>
+              <td><input type="number" id="saiprs-salesCommission" placeholder="0" /></td>
+            </tr>
+            <tr>
+              <td>PLI Bonus (Annual)</td>
+              <td><input type="number" id="saiprs-bonus" placeholder="200000" /></td>
+            </tr>
+            <tr>
+              <td>HRA Received (Annual)</td>
+              <td><input type="number" id="saiprs-hraReceived" placeholder="0" /></td>
+            </tr>
+            <tr>
+              <td>Rent Paid (Monthly)</td>
+              <td><input type="number" id="saiprs-rentPaid" placeholder="40000" /></td>
+            </tr>
+            <tr>
+              <td>Do you live in a Metro city?</td>
+              <td>
+                <select id="saiprs-isMetro">
+                  <option value="false">No</option>
+                  <option value="true">Yes</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>Professional Tax (Annual)</td>
+              <td><input type="number" id="saiprs-ptax" placeholder="2400" /></td>
+            </tr>
+            <tr>
+              <td>Interest on Housing Loan</td>
+              <td><input type="number" id="saiprs-housingLoan" placeholder="200000" /></td>
+            </tr>
+            <tr>
+              <td>80C Deductions</td>
+              <td><input type="number" id="saiprs-sec80c" placeholder="150000" /></td>
+            </tr>
+            <tr>
+              <td>80D Deduction</td>
+              <td><input type="number" id="saiprs-sec80d" placeholder="0" /></td>
+            </tr>
+            <tr>
+              <td>Senior Citizen (Age 60+)</td>
+              <td><input type="checkbox" id="saiprs-seniorCitizen" /></td>
+            </tr>
+            <tr>
+              <td>Any Other Deductions</td>
+              <td><input type="number" id="saiprs-other" placeholder="0" /></td>
+            </tr>
+          </table>
+          <button onclick="saiprs_calculateTax()">Calculate Tax</button>
+        </div>
+
+        <!-- Result Section -->
+        <div class="saiprs-result-section">
+          <div class="saiprs-title">Tax Comparison</div>
+          <div class="saiprs-results" id="saiprs-results"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function saiprs_slabTax(income, slabs) {
+      let tax = 0, prev = 0;
+      for (let s of slabs) {
+        if (income > s.limit) {
+          tax += (s.limit - prev) * s.rate;
+          prev = s.limit;
+        } else {
+          tax += (income - prev) * s.rate;
+          break;
+        }
+      }
+      return tax;
+    }
+
+    function saiprs_calculateTax() {
+      const getVal = id => parseFloat(document.getElementById("saiprs-" + id).value) || 0;
+      const isSenior = document.getElementById("saiprs-seniorCitizen").checked;
+      const isMetro = document.getElementById("saiprs-isMetro").value === "true";
+
+      const fixedSalary = getVal("fixedSalary");
+      const basicPercent = parseInt(document.getElementById("saiprs-basicPercent").value);
+      const baseSalary = fixedSalary * basicPercent / 100 * 12;
+
+      const mealCard = getVal("mealCard") * 12;
+      const rsu = getVal("rsu");
+      const espp = getVal("espp");
+      const sales = getVal("salesCommission");
+      const bonus = getVal("bonus");
+      const hraReceived = getVal("hraReceived");
+
+      const rentPaidMonthly = getVal("rentPaid");
+      const rentPaid = rentPaidMonthly * 12;
+
+      let hraExemption = 0;
+      if (rentPaidMonthly > 0) {
+        const hraLimit = (isMetro ? 0.5 : 0.4) * baseSalary;
+        const hraRentLess10 = Math.max(0, rentPaid - (0.1 * baseSalary));
+        hraExemption = Math.min(rentPaid, hraLimit, hraRentLess10);
+      }
+
+      const totalIncome = fixedSalary * 12 + (hraReceived || 0) + mealCard + rsu + espp + sales + bonus;
+
+      const stdDedOld = 50000;
+      const stdDedNew = 75000;
+      const ptax = Math.min(getVal("ptax"), 2400);
+      const housingLoan = Math.min(getVal("housingLoan"), 200000);
+      const sec80c = Math.min(getVal("sec80c"), 150000);
+      const sec80d = Math.min(getVal("sec80d"), isSenior ? 75000 : 50000);
+      const mealExempt = Math.min(mealCard, 26400);
+      const other = Math.max(0, getVal("other"));
+
+      const totalDeductionsOld = stdDedOld + hraExemption + ptax + housingLoan + sec80c + sec80d + mealExempt + other;
+      const totalDeductionsNew = stdDedNew;
+
+      const taxableOld = Math.max(0, totalIncome - totalDeductionsOld);
+      const taxableNew = Math.max(0, totalIncome - totalDeductionsNew);
+
+      const oldSlabs = [
+        { limit: 250000, rate: 0 },
+        { limit: 500000, rate: 0.05 },
+        { limit: 1000000, rate: 0.2 },
+        { limit: Infinity, rate: 0.3 }
+      ];
+      const newSlabs = [
+        { limit: 300000, rate: 0 },
+        { limit: 600000, rate: 0.05 },
+        { limit: 900000, rate: 0.10 },
+        { limit: 1200000, rate: 0.15 },
+        { limit: 1500000, rate: 0.20 },
+        { limit: Infinity, rate: 0.30 }
+      ];
+
+      let taxOld = saiprs_slabTax(taxableOld, oldSlabs);
+      let taxNew = saiprs_slabTax(taxableNew, newSlabs);
+      if (taxableNew <= 1200000) taxNew = 0;
+
+      taxOld += taxOld * 0.04;
+      taxNew += taxNew * 0.04;
+
+      const recommendation =
+        taxOld < taxNew ? "<strong>Old Regime is better for you.</strong>" :
+          taxNew < taxOld ? "<strong>New Regime is better for you.</strong>" :
+            "<strong>Both regimes result in the same tax.</strong>";
+
+      const chartHTML = `
+      <div style="font-weight:bold; margin-bottom:8px; margin-top:18px">Tax Comparison Chart (₹)</div>
+      <div class="curr-bg-saiprs">
+     
+            <div style="margin-top:${Math.max(taxOld / 2000, 5)}px; ">
+        <div style="display:flex; gap:30px; align-items:flex-end; height:100px; max-width:300px; margin: auto;">
+          <div style="flex:1; text-align:center;">
+            <div style="background:#007bff; width:30%; margin: 0 auto; height:${Math.max(taxOld / 2000, 5)}px; border-radius:4px;"></div>
+            <div style="margin-top:5px; font-weight: 700;">Old Regime</div>
+            <div>₹${taxOld.toFixed(2)}</div>
+          </div>
+          <div style="flex:1; text-align:center;">
+            <div style="background:#28a745; width:30%; margin: 0 auto; height:${Math.max(taxNew / 2000, 5)}px; border-radius:4px;"></div>
+            <div style="margin-top:5px; font-weight: 700;">New Regime</div>
+            <div>₹${taxNew.toFixed(2)}</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  `;
+
+      document.getElementById("saiprs-results").innerHTML = `
+    <table style="border: 1px solid #ddd; border-radius: 8px; overflow: hidden; font-size: 14px;">
+      <thead style="background-color: #007bff; color: white;">
+        <tr>
+          <th style="padding: 10px;">Detail</th>
+          <th style="padding: 10px;">Old Regime</th>
+          <th style="padding: 10px;">New Regime</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Gross Income</td><td>₹${totalIncome.toLocaleString()}</td><td>₹${totalIncome.toLocaleString()}</td></tr>
+        <tr><td>Standard Deduction</td><td>₹${stdDedOld.toLocaleString()}</td><td>₹${stdDedNew.toLocaleString()}</td></tr>
+        <tr><td>HRA Exemption</td><td>₹${hraExemption.toLocaleString()}</td><td>₹0</td></tr>
+        <tr><td>Other Deductions</td><td>₹${(totalDeductionsOld - stdDedOld - hraExemption).toLocaleString()}</td><td>₹0</td></tr>
+        <tr style="font-weight: bold;"><td>Total Deductions</td><td>₹${totalDeductionsOld.toLocaleString()}</td><td>₹${totalDeductionsNew.toLocaleString()}</td></tr>
+        <tr><td>Taxable Income</td><td>₹${taxableOld.toLocaleString()}</td><td>₹${taxableNew.toLocaleString()}</td></tr>
+        <tr style="background-color: #f1f1f1; font-weight: bold;"><td>Tax (incl. cess)</td><td>₹${taxOld.toFixed(2)}</td><td>₹${taxNew.toFixed(2)}</td></tr>
+      </tbody>
+    </table>
+    ${chartHTML}
+    <div style="margin-top: 30px; text-align: center; font-size: 18px; padding: 15px; background: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; border-radius: 8px;">
+      ${recommendation}
+    </div>
+  `;
+    }
+
+    // Popup logic
+    (function () {
+      const overlay = document.getElementById('saiprs-popup-overlay');
+      const trigger = document.getElementById('saiprs-popup-trigger');
+      const closeBtn = document.getElementById('saiprs-popup-close');
+
+      trigger.addEventListener('click', function () {
+        overlay.classList.add('active');
+        setTimeout(() => {
+          // Focus first input for accessibility
+          const firstInput = overlay.querySelector('input,select');
+          if (firstInput) firstInput.focus();
+        }, 100);
+      });
+
+      closeBtn.addEventListener('click', function () {
+        overlay.classList.remove('active');
+      });
+
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) overlay.classList.remove('active');
+      });
+
+      // Optional: ESC key closes popup
+      document.addEventListener('keydown', function (e) {
+        if (e.key === "Escape") overlay.classList.remove('active');
+      });
+    })();
+  </script>
+
 
 
   <!-- Best Services -->
@@ -1057,15 +1474,28 @@
   </div>
   </section>
 
+  <style>
+    .itr_benefits .right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
 
+    }
+
+    .itr_benefits .box {
+      display: flex;
+    }
+  </style>
 
   <section class="itr_benefits">
     <div class="container-fluid">
       <div class="wrapper">
         <aside class="left">
           <h2>Benefits of <br>
-            E-Filing Your ITR</h2>
-          <p>Effortlessly file your tax returns and enjoy a hassle-free tax season with e-filing</p>
+            Filing Your ITR</h2>
+          <p>Effortlessly file your tax returns and enjoy a <br> hassle-free tax season with hireCA</p>
           <a href="#" class="btn-success" data-ctid="home-start-filing-now-next-30f3f91029"> File Now <img
               src="./files/w-ghost-arrow.svg" alt="File Now" title="File Now"></a>
         </aside>
@@ -1107,7 +1537,7 @@
   </section>
 
 
-<style>
+  <style>
     body {
       background-color: #ffffff;
       margin: 0;
@@ -1124,23 +1554,24 @@
 
     .container.clients-logo ul li img {
       background-color: transparent;
-      filter: grayscale(100%);
+      filter: grayscale(0%);
       transition: all 0.2s ease-in-out;
     }
 
     .container.clients-logo ul li img:hover {
       filter: grayscale(0%);
     }
-    
   </style>
 
 
 
   <div class="container clients-logo">
-    <h2>Trusted by Employees Working in 500+ Firms</h2>
-    <div class="logo-scroll-wrapper">
-      <ul class="clients-logo-list">
-        <li><img src="./files/sbi-logo.webp" alt="SBI Bank" title="SBI Bank" loading="lazy" width="135" height="25" />
+  <h2>Trusted by Employees Working in 500+ Firms</h2>
+  <div class="logo-scroll-wrapper">
+    <div class="scroll-row" id="scroll-row-1">
+      <ul class="hk-ul">
+        <!-- First row of logos -->
+  <li><img src="./files/sbi-logo.webp" alt="SBI Bank" title="SBI Bank" loading="lazy" width="135" height="25" />
         </li>
         <li><img src="./files/icici-logo.webp" alt="ICICI Bank" title="ICICI Bank" loading="lazy" width="135"
             height="26" /></li>
@@ -1151,11 +1582,14 @@
         <li><img src="./files/g-pay-logo.webp" alt="Google Pay" title="Google Pay" loading="lazy" width="90"
             height="40" /></li>
         <li><img src="./files/cisco-logo.webp" alt="Cisco" title="Cisco" loading="lazy" width="105" height="25" /></li>
-        <li><img src="./files/phone-pay.webp" alt="PhonePe" title="PhonePe" loading="lazy" width="135" height="36" /></li>
+        <li><img src="./files/phone-pay.webp" alt="PhonePe" title="PhonePe" loading="lazy" width="135" height="36" />
+        </li>
         <li><img src="./files/microsoft-logo.webp" alt="Microsoft" title="Microsoft" loading="lazy" width="135"
             height="36" /></li>
-        <li><img src="./files/nvidia-logo.webp" alt="Nvidia" title="Nvidia" loading="lazy" width="135" height="36" /></li>
-        <li><img src="./files/amazon-logo.webp" alt="Amazon" title="Amazon" loading="lazy" width="115" height="36" /></li>
+        <li><img src="./files/nvidia-logo.webp" alt="Nvidia" title="Nvidia" loading="lazy" width="135" height="36" />
+        </li>
+        <li><img src="./files/amazon-logo.webp" alt="Amazon" title="Amazon" loading="lazy" width="115" height="36" />
+        </li>
         <li><img src="./files/flipkart-logo.webp" alt="Flipkart" title="Flipkart" loading="lazy" width="135"
             height="36" /></li>
         <li><img src="./files/infosys-logo.webp" alt="Infosys" title="Infosys" loading="lazy" width="105" height="36" />
@@ -1168,30 +1602,39 @@
             height="36" /></li>
         <li><img src="./files/hdfc-bank-logo.webp" alt="HDFC Bank" title="HDFC Bank" loading="lazy" width="135"
             height="36" /></li>
-        <li><img src="./files/cognizant-logo.webp" alt="Cognizant" title="Cognizant" loading="lazy"
-            width="135" height="36" /></li>
+        <li><img src="./files/cognizant-logo.webp" alt="Cognizant" title="Cognizant" loading="lazy" width="135"
+            height="36" /></li>
         <li><img src="./files/zerodha-logo.webp" alt="Zerodha" title="Zerodha" loading="lazy" width="135" height="36" />
         </li>
         <li><img src="./files/angel-broking-logo.webp" alt="Angel Broking" title="Angel Broking" loading="lazy"
             width="135" height="36" /></li>
         <li><img src="./files/et-money-logo.webp" alt="ET Money" title="ET Money" loading="lazy" width="135"
             height="36" /></li>
+         
+      </ul>
+    </div>
+    <div class="scroll-row reverse" id="scroll-row-2">
+      <ul class="clients-logo-list">
         <li><img src="./files/zoho-logo.webp" alt="Zoho" title="Zoho" loading="lazy" width="135" height="36" /></li>
         <li><img src="./files/cred-logo.webp" alt="Cred" title="Cred" loading="lazy" width="50" height="36" /></li>
         <li><img src="./files/ola-logo.webp" alt="Ola" title="Ola" loading="lazy" width="105" height="36" /></li>
         <li><img src="./files/uber-logo.webp" alt="Uber" title="Uber" loading="lazy" width="90" height="36" /></li>
         <li><img src="./files/walmart-logo.webp" alt="Walmart" title="Walmart" loading="lazy" width="135" height="36" />
         </li>
-        <li><img src="./files/myntra-logo.webp" alt="Myntra" title="Myntra" loading="lazy" width="95" height="36" /></li>
-        <li><img src="./files/oracle-logo.webp" alt="Oracle" title="Oracle" loading="lazy" width="135" height="36" /></li>
+        <li><img src="./files/myntra-logo.webp" alt="Myntra" title="Myntra" loading="lazy" width="95" height="36" />
+        </li>
+        <li><img src="./files/oracle-logo.webp" alt="Oracle" title="Oracle" loading="lazy" width="135" height="36" />
+        </li>
         <li><img src="./files/sap-logo.webp" alt="SAP" title="SAP" loading="lazy" width="95" height="36" /></li>
         <li><img src="./files/visa-logo.webp" alt="Visa" title="Visa" loading="lazy" width="95" height="35" /></li>
         <li><img src="./files/salesforce-logo.webp" alt="Salesforce" title="Salesforce" loading="lazy" width="95"
             height="36" /></li>
         <li><img src="./files/reliance-logo.webp" alt="Reliance" title="Reliance" loading="lazy" width="70"
             height="36" /></li>
-        <li><img src="./files/PayPal-logo.webp" alt="PayPal" title="PayPal" loading="lazy" width="70" height="36" /></li>
-        <li><img src="./files/intuit-logo.webp" alt="Intuit" title="Intuit" loading="lazy" width="105" height="36" /></li>
+        <li><img src="./files/PayPal-logo.webp" alt="PayPal" title="PayPal" loading="lazy" width="70" height="36" />
+        </li>
+        <li><img src="./files/intuit-logo.webp" alt="Intuit" title="Intuit" loading="lazy" width="105" height="36" />
+        </li>
         <li><img src="./files/AT&T-logo.webp" alt="AT&T" title="AT&T" loading="lazy" width="115" height="36" /></li>
         <li><img src="./files/Sony-logo.webp" alt="Sony" title="Sony" loading="lazy" width="115" height="36" /></li>
         <li><img src="./files/purestorage-logo.webp" alt="Pure Storage" title="Pure Storage" loading="lazy" width="135"
@@ -1202,6 +1645,10 @@
             height="36" /></li>
         <li><img src="./files/IBM-logo.webp" alt="IBM" title="IBM" loading="lazy" width="90" height="36" /></li>
         <li><img src="./files/Bosch-logo.webp" alt="Bosch" title="Bosch" loading="lazy" width="135" height="36" /></li>
+      </ul>
+    </div>
+    <div class="scroll-row" id="scroll-row-3">
+      <ul class="clients-logo-list">
         <li><img src="./files/Siemens-logo.webp" alt="Siemens" title="Siemens" loading="lazy" width="135" height="36" />
         </li>
         <li><img src="./files/AMD-logo.webp" alt="AMD" title="AMD" loading="lazy" width="105" height="36" /></li>
@@ -1221,19 +1668,84 @@
         <li><img src="./files/fis-logo.webp" alt="fis" title="fis" loading="lazy" width="95" height="28" /></li>
         <li><img src="./files/sensy-logo.webp" alt="sensy" title="sensy" loading="lazy" width="85" height="28" /></li>
         <li><img src="./files/nykaa-logo.webp" alt="nykaa" title="nykaa" loading="lazy" width="95" height="28" /></li>
-        <li><img src="./files/infoblox-logo.webp" alt="infoblox" title="infoblox" loading="lazy" width="105" height="28" /></li>
-        <li><img src="./files/juniper-logo.webp" alt="juniper" title="juniper" loading="lazy" width="105" height="28" /></li>
-        <li><img src="./files/godaddy-logo.webp" alt="godaddy" title="godaddy" loading="lazy" width="125" height="28" /></li>
+        <li><img src="./files/infoblox-logo.webp" alt="infoblox" title="infoblox" loading="lazy" width="105"
+            height="28" /></li>
+        <li><img src="./files/juniper-logo.webp" alt="juniper" title="juniper" loading="lazy" width="105" height="28" />
+        </li>
+        <li><img src="./files/godaddy-logo.webp" alt="godaddy" title="godaddy" loading="lazy" width="125" height="28" />
+        </li>
         <li><img src="./files/Intel-logo.webp" alt="intel" title="intel" loading="lazy" width="90" height="28" /></li>
         <li><img src="./files/steriscience-logo.webp" alt="steriscience" title="steriscience" loading="lazy" width="150"
             height="35" /></li>
-        <li><img src="./files/Alcon-logo.webp" alt="Alcon" title="Alcon" loading="lazy" width="95"
-            height="28" /></li>
-        <li><img src="./files/500+image.webp" alt="500+" title="500+" loading="lazy" width="95"
-            height="28" /></li>
+        <li><img src="./files/Alcon-logo.webp" alt="Alcon" title="Alcon" loading="lazy" width="95" height="28" /></li>
+        <li><img src="./files/500+image.webp" alt="500+" title="500+" loading="lazy" width="95" height="28" /></li>
+     
       </ul>
     </div>
   </div>
+</div>
+
+<style>
+  .logo-scroll-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .scroll-row {
+    display: flex;
+    animation: scroll-left 40s linear infinite;
+    white-space: nowrap;
+  }
+
+  .scroll-row.reverse {
+    animation: scroll-right 40s linear infinite;
+  }
+
+  .clients-logo-list {
+    display: flex; 
+    gap: 20px;
+  }
+
+  .clients-logo-list li {
+    list-style: none;
+  }
+
+  .clients-logo-list img {
+    filter: grayscale(0%);
+    transition: filter 0.2s ease-in-out;
+  }
+
+  .clients-logo-list img:hover {
+    filter: grayscale(0%);
+  }
+
+  @keyframes scroll-left {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes scroll-right {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+</style>
+
+<script>
+  // Duplicate the content of each row for seamless scrolling
+  document.querySelectorAll('.scroll-row').forEach(row => {
+    const list = row.querySelector('.clients-logo-list');
+    list.innerHTML += list.innerHTML; // Duplicate logos for smooth scrolling
+  });
+</script>
 
 
   <!-- FAQ-Section -->
@@ -1611,30 +2123,12 @@
       </div>
     </div> -->
     <div class="container-fluid">
-      <div class="bottom_panel">
 
-        <!-- <div class="ft-newsletter">
-          <form action="https://hireca.today/user/newsletter-subscription" id="newsletter-subscription" class="d-flex"
-            method="post" accept-charset="utf-8">
-            <input type="hidden" name="token" value="f285a20624f1414f39585588006cb885">
-
-            <input type="hidden" name="full_name" value="Unknown User">
-            <span>Drop your email for more information</span>
-            <div class="outer"><input type="email" name="email" value="" id="login" class="form-control "
-                maxlength="125" placeholder="Enter Your Email Address">
-              <button class="btn btn-success loading_btn onfly-trigger-click" data-reset-text="Subscribe"
-                data-loading-text="Loading..." data-ctid="footer-subscribe-next-3aed37bf95">Subscribe</button>
-            </div>
-            <div class="successfulTxt hidden d-none">Thanks for subscribing</div>
-            <div class="newsletter-subscribed-alert"></div>
-          </form>
-        </div> -->
-
-
-      </div>
       <div class="row">
-        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 copyright">
-          © 2025 <a href="https://hireca.today/" title="File Income Tax Return">hireCA</a>. All Rights Reserved.
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 copyright"
+          style="display: flex; width: 100%; justify-content: center; align-items: center;">
+          © 2025 <a style="margin-left: 6px;" href="https://hireca.today/" title="File Income Tax Return">hireCA</a>.
+          All Rights Reserved.
         </div>
         <!-- <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 policy_links">
           <a href="https://hireca.today/legal/terms-n-conditions">Terms &amp; Conditions</a> | <a
@@ -1853,32 +2347,7 @@
 
   <script type="text/javascript" id=""
     charset="">(function (c, d, f, g, e) { c[e] = c[e] || []; var h = function () { var b = { ti: "26015950" }; b.q = c[e]; c[e] = new UET(b); c[e].push("pageLoad") }; var a = d.createElement(f); a.src = g; a.defer = 1; a.onload = a.onreadystatechange = function () { var b = this.readyState; b && "loaded" !== b && "complete" !== b || (h(), a.onload = a.onreadystatechange = null) }; d = d.getElementsByTagName(f)[0]; d.parentNode.insertBefore(a, d) })(window, document, "script", "//bat.bing.com/bat.js", "uetq");</script>
-  <script type="text/javascript" id=""
-    charset="">if (!(0 < window.navigator.userAgent.search("phonepe-webview") || 0 < window.navigator.userAgent.search("AppContainer") || 0 < window.navigator.userAgent.search("GPay-Microapps"))) {
-        var cssId = "zoho_css"; if (!document.getElementById(cssId)) {
-          if (0 < window.location.href.indexOf("dev2.hireca.today")) { var head = document.getElementsByTagName("head")[0], link = document.createElement("link"); link.id = cssId; link.rel = "stylesheet"; link.type = "text/css"; link.href = "https://emailer.hireca.today/chatbot/dev2_chatbot_widget_style.css?5" } else head =
-            document.getElementsByTagName("head")[0], link = document.createElement("link"), link.id = cssId, link.rel = "stylesheet", link.type = "text/css", link.href = "https://emailer.hireca.today/chatbot/chatbot_widget_style.css?3"; link.media = "all"; head.appendChild(link)
-        } var chatbot_container = document.createElement("div"), chat_floatmain = document.createElement("div"), chat_float = document.createElement("div"), chat_flt_rel = document.createElement("div"), chat_user = document.createElement("em"), chat_flt_rel1 = document.createElement("div"),
-          chat_content = document.createElement("em"); chatbot_container.className = "chatbot-container"; chat_floatmain.id = "chatbotId"; chat_floatmain.className = "chat_floatmain"; chat_floatmain.dataset.id = "zsalesiq"; chat_float.className = "chat_float"; chat_float.style.fontFamily = "inherit"; chat_float.style.display = "inline-block"; chat_flt_rel.id = "dis_icon_msg"; chat_flt_rel.className = "chat_flt_rel"; chat_user.className = "chat_user"; chat_flt_rel1.id = "dis_icon_spin"; chat_flt_rel1.className = "chat_flt_rel"; chat_content.className =
-            "chat_content fa fa-circle-o-notch fa-spin"; chat_flt_rel1.appendChild(chat_content); chat_flt_rel.appendChild(chat_user); chat_float.appendChild(chat_flt_rel); chat_float.appendChild(chat_flt_rel1); chat_floatmain.appendChild(chat_float); chatbot_container.append(chat_floatmain); document.body.appendChild(chatbot_container); document.getElementById("chatbotId").onclick = function () {
-              document.getElementById("chatbotId").style.pointerEvents = "none"; document.getElementById("dis_icon_msg").style.display = "none";
-              document.getElementById("dis_icon_spin").style.visibility = "visible"; globalThis.$zoho = globalThis.$zoho || {}; globalThis.$zoho.salesiq = globalThis.$zoho.salesiq || { widgetcode: "dec99aaf59d027f6d42398f9c6c5b9aab89ad0eabcbb9b28fc6b06a188b23d6b", values: {}, ready: function () { } }; var a = document; s = a.createElement("script"); s.type = "text/javascript"; s.id = "zsiqscript"; s.defer = !0; s.src = "https://salesiq.zoho.in/widget"; b = a.getElementsByTagName("script")[0]; b.parentNode.insertBefore(s, b); var c = 0, b = null; b = setInterval(function () {
-                if (document.getElementById("zsiq_float")) {
-                  document.getElementById("zsiq_float").click();
-                  check_class(); document.getElementById("chatbotId").style.display = "none"; var d = setTimeout(function () { document.getElementById("zsiq_float").style.opacity = "1"; clearTimeout(d) }, 1E3); clearInterval(b)
-                } else 100 <= c ? (document.getElementById("zsiq_float").style.display = "none", clearInterval(b)) : c++
-              }, 50)
-            }
-      }
-      function check_class() { var a = null, c = 0; a = setInterval(function () { document.getElementsByClassName("zsiqfanim").length ? clearInterval(a) : 100 <= c ? (document.getElementById("zsiq_float").style.display = "none", clearInterval(a)) : c++ }, 50) };</script>
-  <div class="chatbot-container">
-    <div id="chatbotId" class="chat_floatmain" data-id="zsalesiq">
-      <div class="chat_float" style="font-family: inherit; display: inline-block;">
-        <div id="dis_icon_msg" class="chat_flt_rel"><em class="chat_user"></em></div>
-        <div id="dis_icon_spin" class="chat_flt_rel"><em class="chat_content fa fa-circle-o-notch fa-spin"></em></div>
-      </div>
-    </div>
-  </div>
+
   <script type="text/javascript" id=""
     charset="">(function (a, e, b, f, g, c, d) { a[b] = a[b] || function () { (a[b].q = a[b].q || []).push(arguments) }; c = e.createElement(f); c.async = 1; c.src = "https://www.clarity.ms/tag/" + g; d = e.getElementsByTagName(f)[0]; d.parentNode.insertBefore(c, d) })(window, document, "clarity", "script", "i51hs3atje");</script>
   <iframe allow="join-ad-interest-group" data-tagging-id="AW-16528698811" data-load-time="1747132713958" height="0"
