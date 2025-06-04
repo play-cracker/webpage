@@ -1647,12 +1647,22 @@ h2 {
     justify-content: space-between
 }
 
+
 .itr_benefits .right .box {
-    width: 48.5%;
-    background: #fff;
+    width: 80%;
+    background: linear-gradient(to right, #fff 60%, #00000000 100%);
     margin: .8rem 0;
     border-radius: 20px;
-    padding: 40px
+    padding: 40px;
+    display: flex;
+    gap: 50px;
+    justify-content: left;
+    align-items: center;
+    transition: all .5s ease-in-out;
+}
+
+.itr_benefits .right .box.animated-scale {
+    scale: 1.1;
 }
 
 .itr_benefits .right .box h3 {
@@ -1662,7 +1672,11 @@ h2 {
 
 .itr_benefits .right .box p {
     margin-bottom: 0;
-    font-size: 17px
+    font-size: 14px
+}
+
+.itr_benefits .right .box > div{
+    width: 60%;
 }
 
 .clients-logo {
@@ -3092,7 +3106,6 @@ h2 {
     }
 
     .itr_benefits .right .box figure {
-        margin-bottom: .5rem
     }
 
     .itr_benefits .right .box img {
