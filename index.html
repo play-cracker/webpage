@@ -1036,6 +1036,14 @@
               <td><input type="number" id="saiprs-sec80d" placeholder="0" /></td>
             </tr>
             <tr>
+              <td>80CCD(1) Self Contribution</td>
+              <td><input type="number" id="saiprs-sec80ccd1" placeholder="50000" /></td>
+            </tr>
+            <tr>
+              <td>80CCD(1B) Employer Contribution</td>
+              <td><input type="number" id="saiprs-sec80ccd1b" placeholder="150000" /></td>
+            </tr>
+            <tr>
               <td>Senior Citizen (Age 60+)</td>
               <td><input type="checkbox" id="saiprs-seniorCitizen" /></td>
             </tr>
@@ -1097,7 +1105,7 @@
         hraExemption = Math.min(rentPaid, hraLimit, hraRentLess10);
       }
 
-      const totalIncome = fixedSalary * 12 + (hraReceived || 0) + mealCard + rsu + espp + sales + bonus;
+      const totalIncome = fixedSalary * 12 + (hraReceived || 0) + rsu + espp + sales + bonus;
 
       const stdDedOld = 50000;
       const stdDedNew = 75000;
@@ -1106,9 +1114,11 @@
       const sec80c = Math.min(getVal("sec80c"), 150000);
       const sec80d = Math.min(getVal("sec80d"), isSenior ? 75000 : 50000);
       const mealExempt = Math.min(mealCard, 26400);
+      const sec80ccd1 = Math.min(getVal("sec80ccd1"), 50000);
+      const sec80ccd1b = Math.min(getVal("sec80ccd1b"), 150000);
       const other = Math.max(0, getVal("other"));
 
-      const totalDeductionsOld = stdDedOld + hraExemption + ptax + housingLoan + sec80c + sec80d + mealExempt + other;
+      const totalDeductionsOld = stdDedOld + hraExemption + ptax + housingLoan + sec80c + sec80d + mealExempt + sec80ccd1 + sec80ccd1b + other;
       const totalDeductionsNew = stdDedNew;
 
       const taxableOld = Math.max(0, totalIncome - totalDeductionsOld);
