@@ -1794,7 +1794,7 @@ h2 {
 }
 
 .faq-se-home .accordion .accordion-button {
-    background: #fff;
+    background: #0000;
     font-family: Poppins, sans-serif;
     padding: 1.8rem 0 .8rem 0;
     box-shadow: none;
@@ -1804,7 +1804,7 @@ h2 {
 }
 
 .faq-se-home .accordion .accordion-button {
-    background: #fff
+    background: #0000;
 }
 
 .faq-se-home .accordion .accordion-button::after {
@@ -1819,6 +1819,8 @@ h2 {
 
 .faq-se-home .accordion .accordion-item {
     border: none;
+        background: #0000;
+
     border-bottom: solid 1px #dde2e8
 }
 
