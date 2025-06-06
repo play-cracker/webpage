@@ -1119,7 +1119,7 @@
       const other = Math.max(0, getVal("other"));
 
       const totalDeductionsOld = stdDedOld + hraExemption + ptax + housingLoan + sec80c + sec80d + mealExempt + sec80ccd1 + sec80ccd1b + other;
-      const totalDeductionsNew = stdDedNew;
+      const totalDeductionsNew = stdDedNew + sec80ccd1 + sec80ccd1b;
 
       const taxableOld = Math.max(0, totalIncome - totalDeductionsOld);
       const taxableNew = Math.max(0, totalIncome - totalDeductionsNew);
@@ -1131,20 +1131,42 @@
         { limit: Infinity, rate: 0.3 }
       ];
       const newSlabs = [
-        { limit: 300000, rate: 0 },
-        { limit: 600000, rate: 0.05 },
-        { limit: 900000, rate: 0.10 },
-        { limit: 1200000, rate: 0.15 },
-        { limit: 1500000, rate: 0.20 },
+        { limit: 400000, rate: 0 },
+        { limit: 800000, rate: 0.05 },
+        { limit: 1200000, rate: 0.10 },
+        { limit: 1600000, rate: 0.15 },
+        { limit: 2000000, rate: 0.20 },
+        { limit: 2400000, rate: 0.25 },
         { limit: Infinity, rate: 0.30 }
       ];
 
-      let taxOld = saiprs_slabTax(taxableOld, oldSlabs);
-      let taxNew = saiprs_slabTax(taxableNew, newSlabs);
-      if (taxableNew <= 1200000) taxNew = 0;
+      let baseTaxOld = saiprs_slabTax(taxableOld, oldSlabs);
+      let baseTaxNew = saiprs_slabTax(taxableNew, newSlabs);
+      if (taxableNew <= 1200000) baseTaxNew = 0;
+      
+      function getSurcharge(taxable, baseTax, isNewRegime = false) {
+      let surchargeRate = 0;
+      if (taxable > 50000000) {
+        surchargeRate = isNewRegime ? 0.25 : 0.37;
+      } else if (taxable > 20000000) {
+        surchargeRate = 0.25;
+      } else if (taxable > 10000000) {
+        surchargeRate = 0.15;
+      } else if (taxable > 5000000) {
+        surchargeRate = 0.10;
+      }
+      return baseTax * surchargeRate;
+      }
 
-      taxOld += taxOld * 0.04;
-      taxNew += taxNew * 0.04;
+    const surchargeOld = getSurcharge(taxableOld, baseTaxOld, false);
+    const surchargeNew = getSurcharge(taxableNew, baseTaxNew, true);
+
+    const cessOld = (baseTaxOld + surchargeOld) * 0.04;
+    const cessNew = (baseTaxNew + surchargeNew) * 0.04;
+
+
+    taxOld = baseTaxOld + surchargeOld + cessOld;
+    taxNew = baseTaxNew + surchargeNew + cessNew;
 
       const recommendation =
         taxOld < taxNew ? "<strong>Old Regime is better for you.</strong>" :
@@ -1189,6 +1211,23 @@
         <tr><td>Other Deductions</td><td>₹${(totalDeductionsOld - stdDedOld - hraExemption).toLocaleString()}</td><td>₹0</td></tr>
         <tr style="font-weight: bold;"><td>Total Deductions</td><td>₹${totalDeductionsOld.toLocaleString()}</td><td>₹${totalDeductionsNew.toLocaleString()}</td></tr>
         <tr><td>Taxable Income</td><td>₹${taxableOld.toLocaleString()}</td><td>₹${taxableNew.toLocaleString()}</td></tr>
+        <tr>
+          <td>Surcharge</td>
+          <td>
+            ₹${surchargeOld.toFixed(2)}
+            <span style="color:#888; font-size:12px;">
+              (${((surchargeOld / (baseTaxOld || 1)) * 100).toFixed(surchargeOld > 0 ? 1 : 0)}%)
+            </span>
+          </td>
+          <td>
+            ₹${surchargeNew.toFixed(2)}
+            <span style="color:#888; font-size:12px;">
+              (${((surchargeNew / (baseTaxNew || 1)) * 100).toFixed(surchargeNew > 0 ? 1 : 0)}%)
+            </span>
+          </td>
+        </tr>
+        <tr><td>Base Tax</td><td>₹${baseTaxOld.toFixed(2)}</td><td>₹${baseTaxNew.toFixed(2)}</td></tr>
+        <tr><td>Cess (4%)</td><td>₹${cessOld.toFixed(2)}</td><td>₹${cessNew.toFixed(2)}</td></tr>
         <tr style="background-color: #f1f1f1; font-weight: bold;"><td>Tax (incl. cess)</td><td>₹${taxOld.toFixed(2)}</td><td>₹${taxNew.toFixed(2)}</td></tr>
       </tbody>
     </table>
@@ -1228,7 +1267,6 @@
       });
     })();
   </script>
-
 
 
   <!-- Best Services -->
