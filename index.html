@@ -1169,31 +1169,37 @@
     taxNew = baseTaxNew + surchargeNew + cessNew;
 
       const recommendation =
-        taxOld < taxNew ? "<strong>Old Regime is better for you.</strong>" :
-          taxNew < taxOld ? "<strong>New Regime is better for you.</strong>" :
-            "<strong>Both regimes result in the same tax.</strong>";
+        taxOld < taxNew
+          ? "<strong style='color:#19487e;'>The Old Regime offers a lower tax liability based on your inputs.</strong>"
+          : taxNew < taxOld
+        ? "<strong style='color:#19487e;'>The New Regime offers a lower tax liability based on your inputs.</strong>"
+        : "<strong style='color:#19487e;'>Both regimes result in the same tax liability for your scenario.</strong>";
+
+      // Bar chart parameters
+      const maxBarHeight = 100;
+      const maxTax = Math.max(taxOld, taxNew, 1);
+      const oldBarHeight = Math.max(8, (taxOld / maxTax) * maxBarHeight);
+      const newBarHeight = Math.max(8, (taxNew / maxTax) * maxBarHeight);
 
       const chartHTML = `
-      <div style="font-weight:bold; margin-bottom:8px; margin-top:18px">Tax Comparison Chart (₹)</div>
-      <div class="curr-bg-saiprs">
-     
-            <div style="margin-top:${Math.max(taxOld / 2000, 5)}px; ">
-        <div style="display:flex; gap:30px; align-items:flex-end; height:100px; max-width:300px; margin: auto;">
-          <div style="flex:1; text-align:center;">
-            <div style="background:#007bff; width:30%; margin: 0 auto; height:${Math.max(taxOld / 2000, 5)}px; border-radius:4px;"></div>
-            <div style="margin-top:5px; font-weight: 700;">Old Regime</div>
-            <div>₹${taxOld.toFixed(2)}</div>
-          </div>
-          <div style="flex:1; text-align:center;">
-            <div style="background:#28a745; width:30%; margin: 0 auto; height:${Math.max(taxNew / 2000, 5)}px; border-radius:4px;"></div>
-            <div style="margin-top:5px; font-weight: 700;">New Regime</div>
-            <div>₹${taxNew.toFixed(2)}</div>
+        <div style="font-weight:600; margin-bottom:12px; margin-top:22px; font-size:16px; color:#19487e;">
+          Tax Comparison Overview (in ₹)
+        </div>
+        <div class="curr-bg-saiprs" style="padding-top: 20px; padding-bottom: 20px;">
+          <div style="display:flex; gap:40px; align-items:flex-end; height:${maxBarHeight + 40}px; max-width:340px; margin: auto;">
+        <div style="flex:1; text-align:center;">
+          <div style="background:#007bff; width:32%; margin: 0 auto; height:${oldBarHeight}px; border-radius:6px; transition:height 0.5s;"></div>
+          <div style="margin-top:8px; font-weight: 600; color:#19487e;">Old Regime</div>
+          <div style="font-size:15px;">₹${taxOld.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}</div>
+        </div>
+        <div style="flex:1; text-align:center;">
+          <div style="background:#28a745; width:32%; margin: 0 auto; height:${newBarHeight}px; border-radius:6px; transition:height 0.5s;"></div>
+          <div style="margin-top:8px; font-weight: 600; color:#19487e;">New Regime</div>
+          <div style="font-size:15px;">₹${taxNew.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}</div>
+        </div>
           </div>
         </div>
-
-      </div>
-    </div>
-  `;
+      `;
 
       document.getElementById("saiprs-results").innerHTML = `
     <table style="border: 1px solid #ddd; border-radius: 8px; overflow: hidden; font-size: 14px;">
