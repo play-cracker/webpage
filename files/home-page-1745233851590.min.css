@@ -3840,7 +3840,7 @@ footer.new_footer .hidden {
 
 @media screen and (max-width:992px) {
     footer.new_footer .top_panel .wrapper {
-        flex-direction: column-reverse
+        flex-direction: column
     }
 
     footer.new_footer .top_panel {
