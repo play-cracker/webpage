@@ -1399,7 +1399,7 @@ h2 {
 
 .section {
     padding: 5rem 0;
-    background: linear-gradient(180deg, #eff7fb 0, #f8fafc 100%)
+    /* background: linear-gradient(180deg, #eff7fb 0, #f8fafc 100%) */
 }
 
 .section .home-services .container {
@@ -2728,7 +2728,7 @@ h2 {
         font-size: 20px !important
     }
 
-    .about_company .left img,
+    
     .easy_steps .wrapper .box::after,
     .easy_steps span.small_txt,
     .main_services .left .usps,
