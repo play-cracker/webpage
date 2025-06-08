@@ -1033,7 +1033,7 @@ h2 {
     width: 33%
 }
 
-.main_services .left span.itrfilinggreen {
+.main_services .itrfilinggreen {
     background: #e7fae4;
     color: var(--green);
     font-weight: 500;
@@ -1308,6 +1308,8 @@ h2 {
     margin-bottom: 2rem
 }
 
+@media screen and (min-width: 768px) {
+
 .about_company .right ul li {
     width: 48%;
     line-height: 28px;
@@ -1325,6 +1327,9 @@ h2 {
 
 .about_company .right ul li img {
     margin-right: 1rem
+}
+
+    
 }
 
 .about_company .right ul li:nth-of-type(1),
@@ -2893,9 +2898,9 @@ h2 {
     }
 
     .about_company .right ul li img {
-        width: 27px;
+        /* width: 27px;
         height: auto;
-        margin-right: .5rem
+        margin-right: .5rem */
     }
 
     .about_company .right .primary-link {
