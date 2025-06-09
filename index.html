@@ -1163,19 +1163,58 @@
     }
   </style>
 
+  <style>
+    @media screen and (max-width: 768px) {
+      #calccont{
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        background-color: #f3f9ff !important;
+        margin-top: -2rem !important;
+      }
+
+      
+
+      .aidjiasjd{
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      .aaindiansasdasd{
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        max-width: 100% !important;
+        padding: 0 30px !important;
+        margin: 50px 0 !important;
+        margin-bottom: 0 !important;
+      }
+
+      .dasdasd{
+        max-width: 80vw !important;
+      }
+
+      #saiprs-popup-trigger{
+        font-size: 14px !important;
+      }
+    }
+  </style>
+
   <!-- Tax Calculator Section -->
-  <!-- <section id="" style="position:relative;z-index:10;padding:80px 0px;background:white;display: flex;">
-    <div class="" style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap; padding-right: 80px;">
+  <section id="calccont" style="position:relative;z-index:10;padding:80px 0px;background:white;display: flex;">
+    <div class="aidjiasjd" style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap; padding-right: 80px;">
       <div
         style="flex:1;min-width:400px;max-width:580px;display:flex;justify-content:center;align-items:center;margin-right:40px;">
       </div>
       <div
+      class="dasdasd"
         style="width:100%;max-width:420px;aspect-ratio:4/3;box-shadow:0 2px 16px rgba(0,0,0,0.08);border-radius:12px;overflow:hidden;background:#eaf2fa;">
         <video src="./calculatemytax.mp4" autoplay muted loop playsinline
           style="width:100%;height:100%;object-fit:cover;display:flex;border-radius:12px;"></video>
       </div>
     </div>
-    <div style="max-width:600px;">
+    <div style="max-width:600px;" class="aaindiansasdasd">
       <h2 style="font-size:2.2rem;font-weight:700;color:#19487e;margin-bottom:18px;">Compare Your Tax Instantly</h2>
       <p style="font-size:1.1rem;color:#333;margin-bottom:28px;">
         Curious which regime saves you more?
@@ -1196,7 +1235,7 @@
       </div>
     </div>
     </div>
-  </section> -->
+  </section>
 
   <!-- Popup Overlay -->
   <div class="saiprs-popup-overlay" id="saiprs-popup-overlay">
