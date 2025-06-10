@@ -1484,12 +1484,12 @@
           <div style="display:flex; gap:40px; align-items:flex-end; height:${maxBarHeight + 40}px; max-width:340px; margin: auto;">
         <div style="flex:1; text-align:center;">
           <div style="background:#007bff; width:32%; margin: 0 auto; height:${oldBarHeight}px; border-radius:6px; transition:height 0.5s;"></div>
-          <div style="margin-top:8px; font-weight: 600; color:#19487e;">Old Regime</div>
+          <div class="gerimesda" style="margin-top:8px; font-weight: 600; color:#19487e;">Old Regime</div>
           <div style="font-size:15px;">₹${taxOld.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
         </div>
         <div style="flex:1; text-align:center;">
           <div style="background:#28a745; width:32%; margin: 0 auto; height:${newBarHeight}px; border-radius:6px; transition:height 0.5s;"></div>
-          <div style="margin-top:8px; font-weight: 600; color:#19487e;">New Regime</div>
+          <div class="gerimesda" style="margin-top:8px; font-weight: 600; color:#19487e;">New Regime</div>
           <div style="font-size:15px;">₹${taxNew.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
         </div>
           </div>
@@ -2135,6 +2135,10 @@
 
       .itr_benefits .right {
         margin-top: 30px;
+      }
+
+      .gerimesda{
+        font-size : 10.5px
       }
     }
   </style>
