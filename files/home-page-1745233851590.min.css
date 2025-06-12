@@ -3151,9 +3151,9 @@ h2 {
         margin-top: 0;
         box-sizing: border-box;
         white-space: nowrap;
-        overflow-x: auto;
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch
+        /* overflow-x: auto; */
+        /* overflow-y: hidden; */
+        /* -webkit-overflow-scrolling: touch */
     }
 
     .clients-logo ul li {
