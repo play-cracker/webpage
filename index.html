@@ -222,8 +222,8 @@
         <span class="ct-badge"><span class="dot"></span> Trusted by 18,000+ taxpayers</span>
         <h1>File ITR in minutes <br>with <span class="hl">100% Accuracy</span></h1>
         <p class="ct-hero__sub">
-          India's modern tax-filing platform for FY 2025-26 (AY 2026-27). Pre-filled data, instant
-          old-vs-new regime comparison and expert help — file with confidence.
+          File your ITR for FY 2025-26 (AY 2026-27) the smart way. Get pre-filled data, an instant
+          old-vs-new regime comparison and on-demand CA support — for accurate returns and maximum refunds.
         </p>
         <div class="ct-hero__cta">
           <a href="#contact" class="ct-btn ct-btn--primary">Start Filing &nbsp;&rarr;</a>
@@ -239,7 +239,7 @@
       </div>
 
       <div class="ct-hero__card">
-        <video src="./tax-time.mp4" autoplay muted loop playsinline></video>
+        <video class="ct-autoplay" src="./tax-time.mp4" autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture></video>
         <div class="ct-hero__pill tl">
           <span class="ic">&#9989;</span>
           <span>100% Accuracy<small>Error-checked returns</small></span>
@@ -537,7 +537,7 @@
         <p style="font-size:.85rem;opacity:.8;margin-top:10px;">100% private. No data is saved.</p>
       </div>
       <div class="ct-calc__media">
-        <video src="./calculator-hand.mp4" autoplay muted loop playsinline></video>
+        <video class="ct-autoplay" src="./calculator-hand.mp4" autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture></video>
       </div>
     </div>
   </section>
@@ -1225,6 +1225,27 @@
       window.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('.ct-reveal').forEach(function (el) { io ? io.observe(el) : el.classList.add('in'); });
       });
+
+      // force-play autoplay videos (mobile browsers block until muted+inline, retry on first interaction)
+      var vids = document.querySelectorAll('video.ct-autoplay');
+      var tryPlay = function () {
+        vids.forEach(function (v) {
+          v.muted = true;
+          v.setAttribute('muted', '');
+          var p = v.play();
+          if (p && p.catch) { p.catch(function () { }); }
+        });
+      };
+      tryPlay();
+      window.addEventListener('DOMContentLoaded', tryPlay);
+      window.addEventListener('load', tryPlay);
+      ['touchstart', 'click', 'scroll'].forEach(function (ev) {
+        window.addEventListener(ev, function handler() {
+          tryPlay();
+          window.removeEventListener(ev, handler);
+        }, { passive: true, once: true });
+      });
+      document.addEventListener('visibilitychange', function () { if (!document.hidden) tryPlay(); });
     })();
   </script>
 
