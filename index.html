@@ -149,6 +149,14 @@
       padding: 22px; position: relative;
     }
     .ct-hero__card video { border-radius: 14px; width: 100%; height: auto; display: block; }
+    .ct-video-wrap { position: relative; line-height: 0; }
+    .ct-video-play {
+      position: absolute; inset: 0; width: 100%; height: 100%; display: none;
+      align-items: center; justify-content: center; padding: 0; border: 0; cursor: pointer;
+      background: rgba(10, 37, 64, .22); border-radius: 14px; -webkit-tap-highlight-color: transparent;
+    }
+    .ct-video-wrap.needs-tap .ct-video-play { display: flex; }
+    .ct-video-play svg { width: 62px; height: 62px; filter: drop-shadow(0 6px 16px rgba(0, 0, 0, .35)); }
     .ct-hero__pill {
       position: absolute; background: #fff; border: 1px solid var(--ct-line); border-radius: 14px;
       box-shadow: var(--ct-shadow-md); padding: 12px 16px; display: flex; align-items: center; gap: 10px; font-weight: 700;
@@ -1226,26 +1234,58 @@
         document.querySelectorAll('.ct-reveal').forEach(function (el) { io ? io.observe(el) : el.classList.add('in'); });
       });
 
-      // force-play autoplay videos (mobile browsers block until muted+inline, retry on first interaction)
-      var vids = document.querySelectorAll('video.ct-autoplay');
-      var tryPlay = function () {
-        vids.forEach(function (v) {
+      // robust autoplay for mobile/iOS: retry on readiness + viewport + first gesture, with tap-to-play fallback (iOS Low Power Mode)
+      (function () {
+        var PLAY_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.92)"/><path d="M9.5 8.2v7.6L16 12z" fill="#0a2540"/></svg>';
+        var videos = [].slice.call(document.querySelectorAll('video.ct-autoplay'));
+        videos.forEach(function (v) {
           v.muted = true;
+          v.defaultMuted = true;
           v.setAttribute('muted', '');
-          var p = v.play();
-          if (p && p.catch) { p.catch(function () { }); }
+          v.playsInline = true;
+
+          var wrap = document.createElement('div');
+          wrap.className = 'ct-video-wrap';
+          v.parentNode.insertBefore(wrap, v);
+          wrap.appendChild(v);
+
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'ct-video-play';
+          btn.setAttribute('aria-label', 'Play video');
+          btn.innerHTML = PLAY_ICON;
+          wrap.appendChild(btn);
+
+          var attempt = function () {
+            v.muted = true;
+            var p = v.play();
+            if (p && p.then) { p.then(function () { wrap.classList.remove('needs-tap'); }).catch(function () { }); }
+          };
+          ['loadedmetadata', 'loadeddata', 'canplay'].forEach(function (ev) { v.addEventListener(ev, attempt); });
+          v.addEventListener('playing', function () { wrap.classList.remove('needs-tap'); });
+          btn.addEventListener('click', attempt);
+          wrap.__attempt = attempt;
+
+          try { v.load(); } catch (e) { }
+          attempt();
+          setTimeout(function () { if (v.paused) wrap.classList.add('needs-tap'); }, 1200);
         });
-      };
-      tryPlay();
-      window.addEventListener('DOMContentLoaded', tryPlay);
-      window.addEventListener('load', tryPlay);
-      ['touchstart', 'click', 'scroll'].forEach(function (ev) {
-        window.addEventListener(ev, function handler() {
-          tryPlay();
-          window.removeEventListener(ev, handler);
-        }, { passive: true, once: true });
-      });
-      document.addEventListener('visibilitychange', function () { if (!document.hidden) tryPlay(); });
+
+        var playAll = function () { videos.forEach(function (v) { v.muted = true; var p = v.play(); if (p && p.catch) p.catch(function () { }); }); };
+
+        if ('IntersectionObserver' in window) {
+          var vio = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) { if (e.isIntersecting) { var w = e.target.parentNode; if (w && w.__attempt) w.__attempt(); } });
+          }, { threshold: .25 });
+          videos.forEach(function (v) { vio.observe(v); });
+        }
+
+        ['touchstart', 'click', 'scroll'].forEach(function (ev) {
+          window.addEventListener(ev, function handler() { playAll(); window.removeEventListener(ev, handler); }, { passive: true, once: true });
+        });
+        window.addEventListener('load', playAll);
+        document.addEventListener('visibilitychange', function () { if (!document.hidden) playAll(); });
+      })();
     })();
   </script>
 
