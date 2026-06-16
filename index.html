@@ -991,7 +991,7 @@
           <a href="#faq">FAQs</a>
         </div>
       </div>
-      <div class="ct-footer__bottom">&copy; 2026 hireCA. All rights reserved. Trusted &amp; Secure.</div>
+      <div class="ct-footer__bottom">&copy; <span id="ctYear">2026</span> hireCA. All rights reserved. Trusted &amp; Secure.</div>
     </div>
   </footer>
 
@@ -1046,6 +1046,10 @@
       document.getElementById('ctPopClose').addEventListener('click', close);
       overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
       function close() { overlay.classList.remove('active'); document.body.style.overflow = ''; }
+
+      // dynamic copyright year
+      var yr = document.getElementById('ctYear');
+      if (yr) yr.textContent = new Date().getFullYear();
 
       // FAQ accordion
       document.querySelectorAll('.ct-faq__q').forEach(function (q) {
